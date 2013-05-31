@@ -39,7 +39,7 @@ public class HongKong {
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[3]/a")).click();
 	    //Hong Kong landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
 	    //buyer select continue button
@@ -139,7 +139,7 @@ public class HongKong {
 		    //global landing page
 		    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[3]/a")).click();
 		    //Hong Kong landing page - Order Now button
-		    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
+		    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 		    //buyer select radio button
 		    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 		    //buyer select continue button
