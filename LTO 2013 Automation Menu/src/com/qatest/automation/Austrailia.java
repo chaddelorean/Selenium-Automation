@@ -36,40 +36,26 @@ public class Austrailia {
   public String[] Myself(boolean place)
   {
 	  try{
-		  driver.get(baseUrl + "/content/lto/2013.html");
+		 driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/ul/li/a")).click();
 	    //Austrailia landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
+		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
 	    //buyer select continue button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
-	    driver.findElement(By.id("distributorID")).clear();
-	    driver.findElement(By.id("distributorID")).sendKeys("US8128558");
-	    driver.findElement(By.id("email")).clear();
-	    driver.findElement(By.id("email")).sendKeys("test@test.com");
-	    
-	    //driver.findElement(By.cssSelector("a.selector")).click();
-        //driver.findElement(By.xpath("//div[@id='mobile_1_rightcol']/div/ul/li[2]")).click();
-        driver.findElement(By.id("mobile_2")).clear();
-        driver.findElement(By.id("mobile_2")).sendKeys("456");
-        driver.findElement(By.id("mobile_3")).clear();
-        driver.findElement(By.id("mobile_3")).sendKeys("456");
-        driver.findElement(By.id("nameOfPerson")).clear();
-        driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
-        driver.findElement(By.id("address_address1")).clear();
-        driver.findElement(By.id("address_address1")).sendKeys("161 Elizabeth Street");
-        //driver.findElement(By.id("address_address2")).clear();
-        //driver.findElement(By.id("address_address2")).sendKeys("Test Address");
-        driver.findElement(By.id("address_postalCode")).clear();
-        driver.findElement(By.id("address_postalCode")).sendKeys("2000");
-        driver.findElement(By.id("address_city")).clear();
-        driver.findElement(By.id("address_city")).sendKeys("Sydney");
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();    
-	    
+	    Buyer myBuyer = new Buyer(driver);
+	    results[0] = myBuyer.buyerPage();
+	    if (results[0] != null)
+	    {
+	    	results[0] = "Austrailia: Failed: Myself\n" + results[0];
+	    	return results;
+	    }
+	    driver.findElement(By.id("choose_btnsubmit")).click();
+	 	    
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
@@ -82,47 +68,16 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    try{
-    		Thread.sleep(100);
-    	}
-    
-    	catch (InterruptedException ex)
-    	{
-    		Thread.currentThread().interrupt();
-    	}
-	    driver.findElement(By.cssSelector("option[value=\"addPaymentType0\"]")).click();
-        driver.findElement(By.id("paymentNumber_id")).clear();
-        driver.findElement(By.id("paymentNumber_id")).sendKeys("4111111111111111");
-        driver.findElement(By.id("paymentName_id")).clear();
-        driver.findElement(By.id("paymentName_id")).sendKeys("bob");
-        driver.findElement(By.id("paymentSecurityNumber")).clear();
-        driver.findElement(By.id("paymentSecurityNumber")).sendKeys("456");
-        driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
-        try{
-    		Thread.sleep(5000);
-    	}
-    
-    	catch (InterruptedException ex)
-    	{
-    		Thread.currentThread().interrupt();
-    	}
-        if (place)
-        {
-        	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-        	if (isElementPresent(By.className("shopError")))
-    	    {
-    	    	results[0] = "Austrailia: Failed: Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-    	    	return results;
-    	    }
-        	
-        	if (!isElementPresent(By.id("productinformation-complete")))
-        	{
-        		results[0] = "Austrailia: Failed: Order was not completed";
-        		return results;
-        	}
-        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-        }
-	    
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
+	    String[] temp = shopapp.ShopApp(place);
+	    results[0] = temp[0];
+	    results[1] = temp[1];
+	    if (results[0] != null)
+	    {
+	    	results[0] = "Austrailia: Failed: Myself\n" + results[0];
+	    	return results;
+	    }
+	   	    
 	    results[0] = "Austrailia: Passed";
 	    return results;
 	  }
@@ -140,41 +95,23 @@ public class Austrailia {
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/ul/li/a")).click();
-	    //Austrailia landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
+	   
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
+		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
-	    driver.findElement(By.id("distributorID")).clear();
-	    driver.findElement(By.id("distributorID")).sendKeys("US8128558");
-	    driver.findElement(By.id("email")).clear();
-	    driver.findElement(By.id("email")).sendKeys("test@test.com");
-	    
-	    //driver.findElement(By.cssSelector("a.selector")).click();
-        //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/form/div/div[2]/div/div[3]/div/div[2]/div/div/div/ul/li[2]")).click();
-        driver.findElement(By.id("user_phone_2")).clear();
-        driver.findElement(By.id("user_phone_2")).sendKeys("456");
-        driver.findElement(By.id("user_phone_3")).clear();
-        driver.findElement(By.id("user_phone_3")).sendKeys("456");
-        driver.findElement(By.id("buyerID")).clear();
-        driver.findElement(By.id("buyerID")).sendKeys("US8128558");
-        driver.findElement(By.id("buyerPhone_2")).clear();
-        driver.findElement(By.id("buyerPhone_2")).sendKeys("456");
-        driver.findElement(By.id("buyerPhone_3")).clear();
-        driver.findElement(By.id("buyerPhone_3")).sendKeys("4565");
-        driver.findElement(By.id("nameOfPerson")).clear();
-        driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
-        driver.findElement(By.id("address_address1")).clear();
-        driver.findElement(By.id("address_address1")).sendKeys("75 West Center Street");
-        driver.findElement(By.id("address_address2")).clear();
-        driver.findElement(By.id("address_address2")).sendKeys("Test Address");
-        driver.findElement(By.id("address_postalCode")).clear();
-        driver.findElement(By.id("address_postalCode")).sendKeys("BM1326");
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();    
-	    
+	    Buyer myBuyer = new Buyer(driver);
+	    results[0] = myBuyer.buyerPage();
+	    if (results[0] != null)
+	    {
+	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
+	    	return results;
+	    }  
+	    driver.findElement(By.id("choose_btnsubmit")).click();
+	  	    
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
@@ -187,48 +124,16 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    try{
-	    	Thread.sleep(100);
-	    }
-	    
-	    catch (InterruptedException ex)
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
+	    String[] temp = shopapp.ShopApp(place);
+	    results[0] = temp[0];
+	    results[1] = temp[1];
+	    if (results[0] != null)
 	    {
-	    	Thread.currentThread().interrupt();
-	    }
-	    
-	    driver.findElement(By.cssSelector("option[value=\"addPaymentType0\"]")).click();
-        driver.findElement(By.id("paymentNumber_id")).clear();
-        driver.findElement(By.id("paymentNumber_id")).sendKeys("4111111111111111");
-        driver.findElement(By.id("paymentName_id")).clear();
-        driver.findElement(By.id("paymentName_id")).sendKeys("bob");
-        driver.findElement(By.id("paymentSecurityNumber")).clear();
-        driver.findElement(By.id("paymentSecurityNumber")).sendKeys("456");
-        driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
-	    try{
-	    	Thread.sleep(5000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    }
-        if (place)
-        {
-        	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-        	if (isElementPresent(By.className("shopError")))
-    	    {
-    	    	results[0] = "Austrailia: Failed: Someone Else After Shop\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-    	    	return results;
-    	    }
-        	
-        	if (!isElementPresent(By.id("productinformation-complete")))
-        	{
-        		results[0] = "Austrailia: Failed: Order was not completed";
-        		return results;
-        	}
-        	results[2] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-        }
-	    
+	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
+	    	return results;
+	    }    
+	   	    
 	    results[0] = "Austrailia: Passed";
 	    return results;
 	  }

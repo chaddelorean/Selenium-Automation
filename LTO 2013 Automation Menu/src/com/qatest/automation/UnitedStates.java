@@ -42,26 +42,14 @@ public class UnitedStates {
 		driver.get(baseUrl + "/content/lto/2013.html");
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
 		//United States landing page - Order Now button
-		driver.findElement(By.id("promoCode")).clear();
-		driver.findElement(By.id("promoCode")).sendKeys("testcode");
-		driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div[2]/div/a")).click();
-		
-	    try{
-	    	Thread.sleep(3000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    } 
-	    driver.findElement(By.id("defaultLogInForm-username")).clear();
-	    driver.findElement(By.id("defaultLogInForm-username")).sendKeys("carda");
-	    driver.findElement(By.id("defaultLogInForm-password")).clear();
-	    driver.findElement(By.id("defaultLogInForm-password")).sendKeys("abc123");
-	    driver.findElement(By.id("signinButton2")).click();
-	    
-	    //if (isElementPresent(By.id("signinButton2")))
-	    	//driver.findElement(By.id("signinButton2")).click();
+		LandingPage land = new LandingPage(driver);
+		results[0] = land.landing();
+		if (results[0] != null)
+		{
+			results[0] = "United States: Failed: Myself\n" + results[0];
+			return results;
+		}
+
 	    //buyer select radio button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
 	    //buyer select continue button
@@ -77,25 +65,15 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
-	    
-	    if (place)
+	    Authshopapp shopapp = new Authshopapp(driver);
+	    String[] temp = shopapp.ShopApp(place);
+	    results[0] = temp[0];
+	    results[1] = temp[1];
+	    if (results[0] != null)
 	    {
-	    	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-	    	if (isElementPresent(By.className("shopError")))
-		    {
-		    	results[0] = "United States: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-		    	return results;
-		    }
-	    	if (!isElementPresent(By.id("productinformation-complete")))
-	    	{
-		    	results[0] = "United States: Failed - Order did not take place";
-		    	return results;
-	    	}
-	    	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-	    }
-	    
+	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	return results;
+	    }	    
 	    
 	    results[0] = "United States: Passed";
 	    return results;
@@ -115,55 +93,28 @@ public class UnitedStates {
 	  	driver.get(baseUrl + "/content/lto/2013.html");
 	  	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
 	  	//United States landing page - Order Now button
-	  	driver.findElement(By.id("promoCode")).clear();
-	  	driver.findElement(By.id("promoCode")).sendKeys("testcode");
-	    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div[2]/div/a")).click();
-	   
-	    
-	    try{
-	    	Thread.sleep(3000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    }
-	    driver.findElement(By.id("defaultLogInForm-username")).clear();
-	    driver.findElement(By.id("defaultLogInForm-username")).sendKeys("HK1111111");
-	    driver.findElement(By.id("defaultLogInForm-password")).clear();
-	    driver.findElement(By.id("defaultLogInForm-password")).sendKeys("abc123");
-	    driver.findElement(By.id("signinButton2")).click();
-	     
-	   // if (isElementPresent(By.id("signinButton2")))
-	    	//driver.findElement(By.id("signinButton2")).click();
+	  	LandingPage land = new LandingPage(driver);
+		results[0] = land.landing();
+		if (results[0] != null)
+		{
+			results[0] = "United States: Failed: Myself\n" + results[0];
+			return results;
+		}
+		
 	    //buyer select radio button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyerOther page
-	    driver.findElement(By.id("mobile_2")).clear();
-	    driver.findElement(By.id("mobile_2")).sendKeys("456");
-	    driver.findElement(By.id("mobile_3")).clear();
-	    driver.findElement(By.id("mobile_3")).sendKeys("4565");
-	    driver.findElement(By.id("buyerID")).clear();
-	    driver.findElement(By.id("buyerID")).sendKeys("US8128558");
-	    driver.findElement(By.id("buyerMobile_2")).clear();
-	    driver.findElement(By.id("buyerMobile_2")).sendKeys("444");
-	    driver.findElement(By.id("mobile_3")).clear();
-	    driver.findElement(By.id("mobile_3")).sendKeys("5555");
-	    driver.findElement(By.id("nameOfPerson")).clear();
-	    driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
-	    driver.findElement(By.id("address_address1")).clear();
-	    driver.findElement(By.id("address_address1")).sendKeys("75 west center street provo");
-	    driver.findElement(By.id("address_address2")).clear();
-	    driver.findElement(By.id("address_address2")).sendKeys("Test Address");
-	    driver.findElement(By.id("address_city")).clear();
-	    driver.findElement(By.id("address_city")).sendKeys("Provo");
-	    driver.findElement(By.id("address_postalCode")).clear();
-	    driver.findElement(By.id("address_postalCode")).sendKeys("84601");
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();
-	    
+	    Buyer myBuyer = new Buyer(driver);
+	    results[0] = myBuyer.buyerPage();
+	    if (results[0] != null)
+	    {
+	    	results[0] = "United States: Failed: Myself\n" + results[0];
+	    	return results;
+	    }   
+	  
 	    //Verification Page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
@@ -177,25 +128,15 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
-	    
-	    if (place)
+	    Authshopapp shopapp = new Authshopapp(driver);
+	    String[] temp = shopapp.ShopApp(place);
+	    results[0] = temp[0];
+	    results[2] = temp[1];
+	    if (results[0] != null)
 	    {
-	    	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-	    	if (isElementPresent(By.className("shopError")))
-		    {
-		    	results[0] = "United States: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-		    	return results;
-		    }
-	    	if (!isElementPresent(By.id("productinformation-complete")))
-	    	{
-		    	results[0] = "United States: Failed: Soneone Else - Order did not take place";
-		    	return results;
-	    	}
-	    	results[2] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-	    }
-	    
+	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	return results;
+	    }    
 	    
 	    results[0] = "United States: Passed";
 	    return results;

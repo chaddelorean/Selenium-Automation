@@ -39,41 +39,33 @@ public class UnitedKingdom {
 		//global landing page
 		driver.get(baseUrl + "/content/lto/2013.html");
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/ul/li[13]/a")).click();
-		//United Kingdom landing page - Order Now button
-		driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
-		
-	    try{
-	    	Thread.sleep(3000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    } 
-	    driver.findElement(By.id("defaultLogInForm-username")).clear();
-	    driver.findElement(By.id("defaultLogInForm-username")).sendKeys("carda");
-	    driver.findElement(By.id("defaultLogInForm-password")).clear();
-	    driver.findElement(By.id("defaultLogInForm-password")).sendKeys("abc123");
-	    driver.findElement(By.id("signinButton2")).click();
-	    
-	    //if (isElementPresent(By.id("signinButton2")))
-	    	//driver.findElement(By.id("signinButton2")).click();
-	    //buyer select radio button
-	   // driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+		//United States landing page - Order Now button
+		LandingPage land = new LandingPage(driver);
+		results[0] = land.landing();
+		if (results[0] != null)
+		{
+			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+			return results;
+		}
 	    
 	    //product page
-	    driver.findElement(By.id("checkout")).click();
-	    if (isElementPresent(By.className("shopError")))
-	    {
-	    	results[0] = "United Kingdom: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-	    	return results;
-	    }
+		DropDownProduct product = new DropDownProduct(driver);
+		results[0] = product.Product();
+		if (results[0] != null)
+		{
+			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+		}
 	    
 	    
 	    //shop app
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
+	    Authshopapp shopapp = new Authshopapp(driver);
+	    results = shopapp.ShopApp(place);
+	    if (results[0] != null)
+	    {
+	    	results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+	    	return results;
+	    }
+	    /*driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
 	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
 	    
 	    if (place)
@@ -90,7 +82,7 @@ public class UnitedKingdom {
 		    	return results;
 	    	}
 	    	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-	    }
+	    }*/
 
 	    results[0] = "United Kingdom: Passed";
 	    return results;
@@ -109,33 +101,23 @@ public class UnitedKingdom {
 		//global landing page
 	  	driver.get(baseUrl + "/content/lto/2013.html");
 	  	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/ul/li[13]/a")).click();
-	  	//United Kingdom landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[3]/div/div[3]/div/div/a")).click();
-	   
-	    
-	    try{
-	    	Thread.sleep(3000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    }
-	    driver.findElement(By.id("defaultLogInForm-username")).clear();
-	    driver.findElement(By.id("defaultLogInForm-username")).sendKeys("HK1111111");
-	    driver.findElement(By.id("defaultLogInForm-password")).clear();
-	    driver.findElement(By.id("defaultLogInForm-password")).sendKeys("abc123");
-	    driver.findElement(By.id("signinButton2")).click();
+	  	//United States landing page - Order Now button
+	  		LandingPage land = new LandingPage(driver);
+	  		results[0] = land.landing();
+	  		if (results[0] != null)
+	  		{
+	  			results[0] = "United States: Failed: Myself\n" + results[0];
+	  			return results;
+	  		}
 	     
-	   // if (isElementPresent(By.id("signinButton2")))
-	    	//driver.findElement(By.id("signinButton2")).click();
 	    //buyer select radio button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyerOther page
-	    driver.findElement(By.id("mobile_2")).clear();
+	    
+	    /*driver.findElement(By.id("mobile_2")).clear();
 	    driver.findElement(By.id("mobile_2")).sendKeys("456");
 	    driver.findElement(By.id("mobile_3")).clear();
 	    driver.findElement(By.id("mobile_3")).sendKeys("4565");
@@ -155,7 +137,7 @@ public class UnitedKingdom {
 	    driver.findElement(By.id("address_city")).sendKeys("Provo");
 	    driver.findElement(By.id("address_postalCode")).clear();
 	    driver.findElement(By.id("address_postalCode")).sendKeys("84601");
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();*/
 	    
 	    //Verification Page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
