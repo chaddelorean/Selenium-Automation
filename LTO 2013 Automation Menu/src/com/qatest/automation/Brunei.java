@@ -25,8 +25,8 @@ public class Brunei {
 
   @Test
   public String[] testBrunei(boolean place) throws Exception {
-	  Myself(place);
-	  if (results[0].equals("Brunei: Passed"))
+	  //Myself(place);
+	  //if (results[0].equals("Brunei: Passed"))
 		  someoneElse(place);
 	  
 	  return results;
@@ -152,9 +152,9 @@ public class Brunei {
 	    //Brunei landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
+	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
 	    driver.findElement(By.id("zip_postalLookup")).clear(); 
