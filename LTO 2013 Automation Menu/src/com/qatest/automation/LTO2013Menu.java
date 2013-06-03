@@ -411,7 +411,7 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Australia: Passed"))
+							if (result[0].equals("Austrailia: Passed"))
 							{
 								australia.setBackground(green);
 							}

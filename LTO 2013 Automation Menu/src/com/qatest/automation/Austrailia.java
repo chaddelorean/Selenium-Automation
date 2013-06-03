@@ -127,7 +127,7 @@ public class Austrailia {
 	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
-	    results[1] = temp[1];
+	    results[2] = temp[1];
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];

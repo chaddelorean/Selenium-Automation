@@ -49,13 +49,13 @@ public class Nonauthshopapp {
 	        	driver.findElement(By.xpath("/html/body/form/div/div[13]/div/button")).click();
 	        	if (isElementPresent(By.className("shopError")))
 	    	    {
-	    	    	results[0] = "Brunei: Failed: Someone Else After Shop\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+	    	    	results[0] = "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
 	    	    	return results;
 	    	    }
 	        	
 	        	if (!isElementPresent(By.id("productinformation-complete")))
 	        	{
-	        		results[0] = "Brunei: Failed: Order was not completed";
+	        		results[0] = "Order was not completed";
 	        		return results;
 	        	}
 	        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
