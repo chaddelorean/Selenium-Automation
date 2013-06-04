@@ -30,6 +30,7 @@ import javax.swing.JMenuBar;
 public class LTO2013Menu extends JFrame {
 
 	private JPanel contentPane;
+	private String fileLocation = "c:\\LTOScreenShot\\";
 
 	/**
 	 * Launch the application.
@@ -71,6 +72,12 @@ public class LTO2013Menu extends JFrame {
 		scrollPane.setViewportView(output);
 		output.setWrapStyleWord(true);
 		
+		final JCheckBox screenshots = new JCheckBox("Take Screenshots", false);
+		screenshots.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		screenshots.setBackground(Color.WHITE);
+		screenshots.setBounds(154, 487, 176, 34);
+		contentPane.add(screenshots);
+		
 		final JButton hkbutton = new JButton("Hong Kong");
 		hkbutton.setBounds(680, 165, 126, 42);
 		hkbutton.setOpaque(true);
@@ -99,7 +106,7 @@ public class LTO2013Menu extends JFrame {
 							{
 								HongKong hongkong = new HongKong();
 								hongkong.setUp();
-								String result[] = hongkong.testHongKong(placeorders.isSelected());
+								String result[] = hongkong.testHongKong(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 								for (int i = 0; i < result.length; i++)
 								{
 									if (result[i] != null)
@@ -146,7 +153,7 @@ public class LTO2013Menu extends JFrame {
 						Brunei brunei = new Brunei();
 						try {
 							brunei.setUp();
-							String[] result = brunei.testBrunei(placeorders.isSelected());
+							String[] result = brunei.testBrunei(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -175,7 +182,7 @@ public class LTO2013Menu extends JFrame {
 				}).start();
 			}
 		});
-
+		
 		bnbutton.setBounds(680, 112, 126, 42);
 		contentPane.add(bnbutton);
 		
@@ -228,7 +235,7 @@ public class LTO2013Menu extends JFrame {
 						UnitedStates united = new UnitedStates();
 						try {
 							united.setUp();
-							String result[] = united.testUnitedStates(placeorders.isSelected());
+							String result[] = united.testUnitedStates(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -308,7 +315,7 @@ public class LTO2013Menu extends JFrame {
 						Germany de = new Germany();
 						try {
 							de.setUp();
-							String result[] = de.testGermany(placeorders.isSelected());
+							String result[] = de.testGermany(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -356,7 +363,7 @@ public class LTO2013Menu extends JFrame {
 						UnitedKingdom uKingdom = new UnitedKingdom();
 						try {
 							uKingdom.setUp();
-							String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected());
+							String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -403,7 +410,7 @@ public class LTO2013Menu extends JFrame {
 						Austrailia au = new Austrailia();
 						try {
 							au.setUp();
-							String result[] = au.testAustrailia(placeorders.isSelected());
+							String result[] = au.testAustrailia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -471,7 +478,7 @@ public class LTO2013Menu extends JFrame {
 						Singapore sg = new Singapore();
 						try {
 							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected());
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -523,6 +530,14 @@ public class LTO2013Menu extends JFrame {
 				output.setText("");
 			}
 		});
+		
+		JMenuItem mntmScreenShotLocation = new JMenuItem("Screen Shot Location");
+		mntmScreenShotLocation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				fileLocation = FileChooserEx.getFileLocation();
+			}
+		});
+		mnFile.add(mntmScreenShotLocation);
 		mnFile.add(mntmClearLog);
 		mnFile.add(mntmExit);
 		

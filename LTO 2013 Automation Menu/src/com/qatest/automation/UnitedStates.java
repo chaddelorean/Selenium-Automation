@@ -17,6 +17,7 @@ public class UnitedStates {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -26,16 +27,17 @@ public class UnitedStates {
   }
 
   @Test
-  public String[] testUnitedStates(boolean place) throws Exception {
-	  Myself(place);
+  public String[] testUnitedStates(boolean place, boolean screenshot, String location) throws Exception {
+	  myScreenShot = new ScreenShot(driver);
+	  Myself(place, screenshot, location);
 	  if (results[0].equals("United States: Passed"))
-		  someoneElse(place);
+		  someoneElse(place, screenshot, location);
 	  
 	  return results;
    
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
 		//global landing page
@@ -47,6 +49,8 @@ public class UnitedStates {
 		if (results[0] != null)
 		{
 			results[0] = "United States: Failed: Myself\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "UnitedStates");
 			return results;
 		}
 
@@ -60,6 +64,8 @@ public class UnitedStates {
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "United States: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+	    	if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
 	    }
 	    
@@ -72,6 +78,8 @@ public class UnitedStates {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
 	    }	    
 	    
@@ -82,11 +90,13 @@ public class UnitedStates {
 	  catch (Exception e)
 	  {
 		  results[0] = "United States: Script Error: Buy for myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 		  return results;
 	  }
   }
   
-  public String[] someoneElse(boolean place)
+  public String[] someoneElse(boolean place, boolean screenshot, String location)
   {
 	  try{
 		//global landing page
@@ -98,6 +108,8 @@ public class UnitedStates {
 		if (results[0] != null)
 		{
 			results[0] = "United States: Failed: Myself\n" + results[0];
+			if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 			return results;
 		}
 		
@@ -112,6 +124,8 @@ public class UnitedStates {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
 	    }   
 	  
@@ -123,6 +137,8 @@ public class UnitedStates {
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "United States: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+	    	if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
 	    }
 	    
@@ -145,6 +161,8 @@ public class UnitedStates {
 	  catch (Exception e)
 	  {
 		  results[0] = "United States: Script Error: Buy for someone else:\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 		  return results;
 	  }
   }

@@ -15,6 +15,7 @@ public class Brunei {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -24,15 +25,16 @@ public class Brunei {
   }
 
   @Test
-  public String[] testBrunei(boolean place) throws Exception {
+  public String[] testBrunei(boolean place, boolean screenshot, String location) throws Exception {
 	  //Myself(place);
 	  //if (results[0].equals("Brunei: Passed"))
-		  someoneElse(place);
+	  myScreenShot = new ScreenShot(driver);
+		  someoneElse(place, screenshot, location);
 	  
 	  return results;
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  
 	  try{
@@ -143,7 +145,7 @@ public class Brunei {
 	  }
   }
   
-  public String[] someoneElse(boolean place)
+  public String[] someoneElse(boolean place, boolean screenshot, String location)
   {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
@@ -158,6 +160,8 @@ public class Brunei {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Brunei");
 	    	return results;
 	    }   
 	    
@@ -169,14 +173,22 @@ public class Brunei {
 		results[0] = product.Product();
 		if (results[0] != null)
 		{
-			results[0] = "Brunei: Failed: Myself\n" + results[0];
+			results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "Brunei");
+			return results;
 		}
 	    
 	    //shop app
 	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
+	    {
+	    	results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Brunei");
 	    	return results;
+	    }
 	    
         results[0] = "Brunei: Passed";
         return results;
@@ -185,6 +197,8 @@ public class Brunei {
 	  catch (Exception e)
 	  {
 		  results[0] = "Brunei: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "Brunei");
 		  return results;
 	  }
   }

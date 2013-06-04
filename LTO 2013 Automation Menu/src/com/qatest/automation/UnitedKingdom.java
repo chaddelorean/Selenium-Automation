@@ -17,6 +17,7 @@ public class UnitedKingdom {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -26,14 +27,15 @@ public class UnitedKingdom {
   }
 
   @Test
-  public String[] testUnitedKingdom(boolean place) throws Exception {
-	  Myself(place);
+  public String[] testUnitedKingdom(boolean place, boolean screenshot, String location) throws Exception {
+	  myScreenShot = new ScreenShot(driver);
+	  Myself(place, screenshot, location);
 	  
 	  return results;
    
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
 		//global landing page
@@ -45,6 +47,8 @@ public class UnitedKingdom {
 		if (results[0] != null)
 		{
 			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "UnitedKingdom");
 			return results;
 		}
 	    
@@ -54,6 +58,8 @@ public class UnitedKingdom {
 		if (results[0] != null)
 		{
 			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "UnitedKingdom");
 		}
 	    
 	    
@@ -65,25 +71,7 @@ public class UnitedKingdom {
 	    	results[0] = "United Kingdom: Failed: Myself\n" + results[0];
 	    	return results;
 	    }
-	    /*driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
-	    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
-	    
-	    if (place)
-	    {
-	    	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-	    	if (isElementPresent(By.className("shopError")))
-		    {
-		    	results[0] = "United Kingdom: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-		    	return results;
-		    }
-	    	if (!isElementPresent(By.id("productinformation-complete")))
-	    	{
-		    	results[0] = "United Kingdom: Failed - Order did not take place";
-		    	return results;
-	    	}
-	    	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-	    }*/
-
+	 
 	    results[0] = "United Kingdom: Passed";
 	    return results;
 	  }
@@ -91,6 +79,8 @@ public class UnitedKingdom {
 	  catch (Exception e)
 	  {
 		  results[0] = "United Kingdom: Script Error: Buy for myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "UnitedKingdom");
 		  return results;
 	  }
   }

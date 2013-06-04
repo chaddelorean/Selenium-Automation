@@ -15,6 +15,7 @@ public class HongKong {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -24,15 +25,16 @@ public class HongKong {
   }
 
   @Test
-  public String[] testHongKong(boolean place) throws Exception {
-	  Myself(place);
+  public String[] testHongKong(boolean place, boolean screenshot, String location) throws Exception {
+	  myScreenShot = new ScreenShot(driver);
+	  Myself(place, screenshot, location);
 	  if (results[0].equals("Hong Kong: Passed"))
-		  someoneElse(place);
+		  someoneElse(place, screenshot, location);
 	  
 	  return results;
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
 	  	driver.get(baseUrl + "/content/lto/2013.html");
@@ -51,6 +53,8 @@ public class HongKong {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Hong Kong: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
 	    }
 	    
@@ -62,7 +66,9 @@ public class HongKong {
 	    driver.findElement(By.id("checkout")).click();
 	    if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")))
 	    {
-	    	results[0] = "Hong Kong: Failed: My Self\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")).getText();
+	    	results[0] = "Hong Kong: Failed: Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")).getText();
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
 	    }
 
@@ -72,7 +78,12 @@ public class HongKong {
 	    results[0] = temp[0];
 	    results[1] = temp[1];
 	    if (results[0] != null)
+	    {
+	    	results[0] = "Hong Kong: Failed: Myself \n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
+	    }
 	   
 	    results[0] = "Hong Kong: Passed";
 	    return results;
@@ -81,11 +92,13 @@ public class HongKong {
 	  catch (Exception e)
 	  {
 		  results[0] = "Hong Kong: Failed: My Self \n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "HongKong");
 		  return results;
 	  }
   }
   
-  public String[] someoneElse(boolean place)
+  public String[] someoneElse(boolean place, boolean screenshot, String location)
   {
 	  try{
 		  	driver.get(baseUrl + "/content/lto/2013.html");
@@ -104,6 +117,8 @@ public class HongKong {
 		    if (results[0] != null)
 		    {
 		    	results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
+		    	if (screenshot)
+					myScreenShot.takeScreenShot(location, "HongKong");
 		    	return results;
 		    }
 		    		    
@@ -116,6 +131,8 @@ public class HongKong {
 		    if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")))
 		    {
 		    	results[0] = "Hong Kong: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")).getText();
+		    	if (screenshot)
+					myScreenShot.takeScreenShot(location, "HongKong");
 		    	return results;
 		    }
 
@@ -125,7 +142,12 @@ public class HongKong {
 		    results[0] = temp[0];
 		    results[2] = temp[1];
 		    if (results[0] != null)
+		    {
+		    	results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
+		    	if (screenshot)
+					myScreenShot.takeScreenShot(location, "HongKong");
 		    	return results;
+		    }
 		    
 		    results[0] = "Hong Kong: Passed";
 		    return results;
@@ -134,6 +156,8 @@ public class HongKong {
 		  catch (Exception e)
 		  {
 			  results[0] = "Hong Kong: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+			  if (screenshot)
+					myScreenShot.takeScreenShot(location, "HongKong");
 			  return results;
 		  }
   }

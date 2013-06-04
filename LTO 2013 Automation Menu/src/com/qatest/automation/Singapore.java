@@ -15,6 +15,7 @@ public class Singapore {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -24,16 +25,17 @@ public class Singapore {
   }
 
   @Test
-  public String[] testSingapore(boolean place) throws Exception {
-	  Myself(place);
+  public String[] testSingapore(boolean place,  boolean screenshot, String location) throws Exception {
+	  myScreenShot = new ScreenShot(driver);
+	  Myself(place, screenshot, location);
 	  if (results[0].equals("Singapore: Passed"))
-		  someoneElse(place);
+		  someoneElse(place, screenshot, location);
 	  
 	  return results;
    
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place,  boolean screenshot, String location)
   {
 	  try{
 		  driver.get(baseUrl + "/content/lto/2013.html");
@@ -52,6 +54,8 @@ public class Singapore {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
 	    }   
 	    
@@ -64,6 +68,9 @@ public class Singapore {
 		if (results[0] != null)
 		{
 			results[0] = "Singapore: Failed: Myself\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
+			return results;
 		}
 
 	    //shop app
@@ -74,6 +81,8 @@ public class Singapore {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
 	    }
 	    
@@ -84,11 +93,13 @@ public class Singapore {
 	  catch (Exception e)
 	  {
 		  results[0] = "Singapore: Buy for Myself \n"+ "URL: " + driver.getCurrentUrl() + "\n" +  "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 		  return results;
 	  }
   }
   
-  public String[] someoneElse(boolean place)
+  public String[] someoneElse(boolean place,  boolean screenshot, String location)
   {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
@@ -107,6 +118,8 @@ public class Singapore {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
 	    }  
 	    
@@ -119,6 +132,9 @@ public class Singapore {
 		if (results[0] != null)
 		{
 			results[0] = "Singapore: Failed: Myself\n" + results[0];
+			if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
+			return results;
 		}
 
 	    //shop app
@@ -129,6 +145,8 @@ public class Singapore {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
 	    }
 	    
@@ -139,6 +157,8 @@ public class Singapore {
 	  catch (Exception e)
 	  {
 		  results[0] =  "Singapore: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "Singapore");
 		  return results;
 	  }
   }

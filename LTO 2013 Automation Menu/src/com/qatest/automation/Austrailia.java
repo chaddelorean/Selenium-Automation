@@ -15,6 +15,7 @@ public class Austrailia {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
+  private ScreenShot myScreenShot;
 
   @Before
   public void setUp() throws Exception {
@@ -24,16 +25,17 @@ public class Austrailia {
   }
 
   @Test
-  public String[] testAustrailia(boolean place) throws Exception {
-	  Myself(place);
+  public String[] testAustrailia(boolean place, boolean screenshot, String location) throws Exception {
+	  myScreenShot = new ScreenShot(driver);
+	  Myself(place, screenshot, location);
 	  if (results[0].equals("Austrailia: Passed"))
-		  someoneElse(place);
+		  someoneElse(place, screenshot, location);
 	  
 	  return results;
    
   }
   
-  public String[] Myself(boolean place)
+  public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
 		 driver.get(baseUrl + "/content/lto/2013.html");
@@ -52,6 +54,8 @@ public class Austrailia {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
 	    driver.findElement(By.id("choose_btnsubmit")).click();
@@ -64,6 +68,8 @@ public class Austrailia {
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "Austrailia: Failed: Myself \n" + "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
 
@@ -85,11 +91,13 @@ public class Austrailia {
 	  catch (Exception e)
 	  {
 		  results[0] = "Austrailia: Buy for Myself \n"+ "URL: " + driver.getCurrentUrl() + "\n" +  "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 		  return results;
 	  }
   }
   
-  public String[] someoneElse(boolean place)
+  public String[] someoneElse(boolean place,boolean screenshot, String location)
   {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
@@ -108,6 +116,8 @@ public class Austrailia {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }  
 	    driver.findElement(By.id("choose_btnsubmit")).click();
@@ -120,6 +130,8 @@ public class Austrailia {
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "Austrailia: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
 
@@ -131,6 +143,8 @@ public class Austrailia {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }    
 	   	    
@@ -141,6 +155,8 @@ public class Austrailia {
 	  catch (Exception e)
 	  {
 		  results[0] = "Austrailia: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  if (screenshot)
+				myScreenShot.takeScreenShot(location, "Austrailia");
 		  return results;
 	  }
   }
