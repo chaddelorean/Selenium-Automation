@@ -68,6 +68,7 @@ public class UnitedKingdom {
 			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
 			if (screenshot)
 				myScreenShot.takeScreenShot(location, "UnitedKingdom");
+			return results;
 		}
 	    
 	    
@@ -77,6 +78,8 @@ public class UnitedKingdom {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United Kingdom: Failed: Myself\n" + results[0];
+	    	if (screenshot)
+				myScreenShot.takeScreenShot(location, "UnitedKingdom");
 	    	return results;
 	    }
 	 

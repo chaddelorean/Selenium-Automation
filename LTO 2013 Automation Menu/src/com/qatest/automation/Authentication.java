@@ -14,6 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Authentication extends JFrame {
 
@@ -43,9 +44,11 @@ public class Authentication extends JFrame {
 	 * Create the frame.
 	 */
 	public Authentication() {
+		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 324, 283);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

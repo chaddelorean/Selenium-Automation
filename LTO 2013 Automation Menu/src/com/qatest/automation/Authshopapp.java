@@ -26,7 +26,7 @@ public class Authshopapp {
 		    	driver.findElement(By.xpath("/html/body/form/div/div[13]/div/button")).click();
 		    	if (isElementPresent(By.className("shopError")))
 			    {
-			    	results[0] = "United Kingdom: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
+			    	results[0] = "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
 			    	return results;
 			    }
 		    	if (!isElementPresent(By.id("productinformation-complete")))
