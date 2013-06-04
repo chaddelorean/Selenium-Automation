@@ -18,7 +18,15 @@ public class UnitedKingdom {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-
+  private String userName;
+  private String password;
+  
+  public UnitedKingdom(String username, String password)
+  {
+	  this.userName = username;
+	  this.password = password;
+  }
+  
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
@@ -43,7 +51,7 @@ public class UnitedKingdom {
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/ul/li[13]/a")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
-		results[0] = land.landing();
+		results[0] = land.landing(userName, password);
 		if (results[0] != null)
 		{
 			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
@@ -93,7 +101,7 @@ public class UnitedKingdom {
 	  	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/ul/li[13]/a")).click();
 	  	//United States landing page - Order Now button
 	  		LandingPage land = new LandingPage(driver);
-	  		results[0] = land.landing();
+	  		results[0] = land.landing(userName, password);
 	  		if (results[0] != null)
 	  		{
 	  			results[0] = "United States: Failed: Myself\n" + results[0];

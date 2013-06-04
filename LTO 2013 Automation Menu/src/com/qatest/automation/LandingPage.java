@@ -15,7 +15,7 @@ public class LandingPage {
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
 	}
 	
-	public String landing()
+	public String landing(String username, String password)
 	{
 		try
 		{
@@ -42,9 +42,9 @@ public class LandingPage {
 		    if (isElementPresent(By.id("defaultLogInForm-username")))
 		    {
 			    driver.findElement(By.id("defaultLogInForm-username")).clear();
-			    driver.findElement(By.id("defaultLogInForm-username")).sendKeys("carda");
+			    driver.findElement(By.id("defaultLogInForm-username")).sendKeys(username);
 			    driver.findElement(By.id("defaultLogInForm-password")).clear();
-			    driver.findElement(By.id("defaultLogInForm-password")).sendKeys("abc123");
+			    driver.findElement(By.id("defaultLogInForm-password")).sendKeys(password);
 			    driver.findElement(By.id("signinButton2")).click();
 		    }
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

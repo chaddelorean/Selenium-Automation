@@ -1,15 +1,10 @@
 package com.qatest.automation;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.internal.seleniumemulation.Click;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Germany {
   private WebDriver driver;
@@ -18,10 +13,19 @@ public class Germany {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-
+  private String userName;
+  private String password;
+  
+  public Germany(String user, String pass)
+  {
+	  this.userName = user;
+	  this.password = pass;
+  }
+  
   @Before
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
+    
+	driver = new FirefoxDriver();
     baseUrl = "http://test.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
@@ -43,7 +47,7 @@ public class Germany {
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/ul/li[4]/a")).click();
 		//Germany landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
-		results[0] = land.landing();
+		results[0] = land.landing(userName, password);
 		if (results[0] != null)
 		{
 			results[0] = "Germany: Failed: Myself\n" + results[0];

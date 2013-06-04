@@ -31,7 +31,10 @@ public class LTO2013Menu extends JFrame {
 
 	private JPanel contentPane;
 	private String fileLocation = "c:\\LTOScreenShot\\";
-
+	private static String username = "HK1111111";
+	private static String password = "abc123";
+	private static LTO2013Menu frame;
+	private static JTextArea output;
 	/**
 	 * Launch the application.
 	 */
@@ -39,7 +42,7 @@ public class LTO2013Menu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LTO2013Menu frame = new LTO2013Menu();
+					frame = new LTO2013Menu();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -68,7 +71,7 @@ public class LTO2013Menu extends JFrame {
 		scrollPane.setBounds(26, 569, 821, 174);
 		contentPane.add(scrollPane);
 		
-		final JTextArea output = new JTextArea();
+		output = new JTextArea();
 		scrollPane.setViewportView(output);
 		output.setWrapStyleWord(true);
 		
@@ -232,7 +235,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						UnitedStates united = new UnitedStates();
+						UnitedStates united = new UnitedStates(username, password);
 						try {
 							united.setUp();
 							String result[] = united.testUnitedStates(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -312,7 +315,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Germany de = new Germany();
+						Germany de = new Germany(username, password);
 						try {
 							de.setUp();
 							String result[] = de.testGermany(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -360,7 +363,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						UnitedKingdom uKingdom = new UnitedKingdom();
+						UnitedKingdom uKingdom = new UnitedKingdom(username, password);
 						try {
 							uKingdom.setUp();
 							String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -538,6 +541,15 @@ public class LTO2013Menu extends JFrame {
 			}
 		});
 		mnFile.add(mntmScreenShotLocation);
+		
+		JMenuItem mntmAuthenication = new JMenuItem("Authenication ");
+		mntmAuthenication.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Authentication auth = new Authentication();
+				auth.main();
+			}
+		});
+		mnFile.add(mntmAuthenication);
 		mnFile.add(mntmClearLog);
 		mnFile.add(mntmExit);
 		
@@ -611,4 +623,30 @@ public class LTO2013Menu extends JFrame {
 			}
 		});
 	}
+	
+	public static void setUser(String user)
+	{
+		username = user;
+	}
+	
+	public static String getUser()
+	{
+		return username;
+	}
+	
+	public static void setPassword(String pass)
+	{
+		password = pass;
+	}
+	
+	public static String getPassword()
+	{
+		return password;
+	}
+	
+	public static void setOutput(String out)
+	{
+		output.append(out);
+	}
+	
 }

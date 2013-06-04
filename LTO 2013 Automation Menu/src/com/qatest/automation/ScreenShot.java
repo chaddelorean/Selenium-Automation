@@ -23,7 +23,6 @@ public class ScreenShot {
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
 			
-			System.out.println(stringDate);
 			FileUtils.copyFile(srcFile,  new File(location + "\\" + market + stringDate + ".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
