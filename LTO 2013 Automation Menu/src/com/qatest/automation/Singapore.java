@@ -16,6 +16,23 @@ public class Singapore {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
+  private String userName;
+  private String password;
+  
+  public Singapore(String username, String password)
+  {
+	  if (username.equals("") || password.equals(""))
+	  {
+		  this.userName = "HK1111111";
+		  this.password = "abc123";
+	  }
+	  
+	  else
+	  {
+		  this.userName = username;
+		  this.password = password;
+	  }
+  }
 
   @Before
   public void setUp() throws Exception {
@@ -40,7 +57,7 @@ public class Singapore {
 	  try{
 		  driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[10]/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[9]/a")).click();
 	    //Singapore landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
@@ -50,7 +67,7 @@ public class Singapore {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage();
+	    results[0] = myBuyer.buyerPage(userName, "SG3110554");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Myself\n" + results[0];
@@ -104,7 +121,7 @@ public class Singapore {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[10]/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[9]/a")).click();
 	    //Singapore landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
@@ -114,7 +131,7 @@ public class Singapore {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage();
+	    results[0] = myBuyer.buyerPage(userName, "SG3110554");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Someone Else\n" + results[0];

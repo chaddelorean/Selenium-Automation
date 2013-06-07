@@ -23,8 +23,17 @@ public class UnitedKingdom {
   
   public UnitedKingdom(String username, String password)
   {
-	  this.userName = username;
-	  this.password = password;
+	  if(username.equals("") || password.equals(""))
+	  {
+		  this.userName = "carda";
+		  this.password = "abc123";
+	  }  
+	
+	  else
+	  {
+		  this.userName = username;
+		  this.password = password;
+	  }
   }
   
   @Before

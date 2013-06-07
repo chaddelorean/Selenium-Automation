@@ -16,6 +16,22 @@ public class Brunei {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
+  private String userName;
+  private String password;
+  
+  public Brunei(String username, String password)
+  {
+	  if (username.equals("") || password.equals(""))
+	  {
+		  this.userName = "HK1111111";
+		  this.password = "abc123";
+	  }
+	  else
+	  {
+		  this.userName = username;
+		  this.password = password;
+	  }
+  }
 
   @Before
   public void setUp() throws Exception {
@@ -156,7 +172,7 @@ public class Brunei {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage();
+	    results[0] = myBuyer.buyerPage(userName, "US8128558");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Brunei: Failed: Someone Else\n" + results[0];

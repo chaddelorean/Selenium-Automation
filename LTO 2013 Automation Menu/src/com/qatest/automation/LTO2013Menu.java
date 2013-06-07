@@ -31,8 +31,8 @@ public class LTO2013Menu extends JFrame {
 
 	private JPanel contentPane;
 	private String fileLocation = "c:\\LTOScreenShot\\";
-	private static String username = "HK1111111";
-	private static String password = "abc123";
+	private static String username = "";
+	private static String password = "";
 	private static LTO2013Menu frame;
 	private static JTextArea output;
 	/**
@@ -107,7 +107,7 @@ public class LTO2013Menu extends JFrame {
 								
 							try 
 							{
-								HongKong hongkong = new HongKong();
+								HongKong hongkong = new HongKong(username, password);
 								hongkong.setUp();
 								String result[] = hongkong.testHongKong(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 								for (int i = 0; i < result.length; i++)
@@ -153,7 +153,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Brunei brunei = new Brunei();
+						Brunei brunei = new Brunei(username, password);
 						try {
 							brunei.setUp();
 							String[] result = brunei.testBrunei(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -410,7 +410,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Austrailia au = new Austrailia();
+						Austrailia au = new Austrailia(username, password);
 						try {
 							au.setUp();
 							String result[] = au.testAustrailia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -478,7 +478,7 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore();
+						Singapore sg = new Singapore(username, password);
 						try {
 							sg.setUp();
 							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);

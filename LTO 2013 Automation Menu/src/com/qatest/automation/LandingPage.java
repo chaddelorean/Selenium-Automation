@@ -39,7 +39,7 @@ public class LandingPage {
 		    {
 		    	Thread.currentThread().interrupt();
 		    }
-		    if (isElementPresent(By.id("defaultLogInForm-username")))
+		    if (isElementPresent(By.id("defaultLogInForm-username")) && isElementPresent(By.id("defaultLogInForm-password")))
 		    {
 			    driver.findElement(By.id("defaultLogInForm-username")).clear();
 			    driver.findElement(By.id("defaultLogInForm-username")).sendKeys(username);

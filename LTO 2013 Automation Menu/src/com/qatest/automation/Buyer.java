@@ -15,10 +15,16 @@ public class Buyer {
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
 	}
 	
-	public String buyerPage()
+	public String buyerPage(String qualify, String buyer)
 	{
 		try
 		{
+			if (isElementPresent(By.id("zip_postalLookup")))
+			{
+				 driver.findElement(By.id("zip_postalLookup")).clear(); 
+				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
+			}
+			
 			if (isElementPresent(By.id("user_phone_2")))
 			{
 				driver.findElement(By.id("user_phone_2")).clear();
@@ -34,7 +40,7 @@ public class Buyer {
 			if (isElementPresent(By.id("buyerID")))
 			{
 		        driver.findElement(By.id("buyerID")).clear();
-		        driver.findElement(By.id("buyerID")).sendKeys("US8128558");
+		        driver.findElement(By.id("buyerID")).sendKeys(buyer);
 			}
 			
 			if (isElementPresent(By.id("buyerPhone_2")))
@@ -73,16 +79,10 @@ public class Buyer {
 			    driver.findElement(By.id("address_city")).sendKeys("Provo");
 			}
 			
-			if (isElementPresent(By.id("zip_postalLookup")))
-			{
-				 driver.findElement(By.id("zip_postalLookup")).clear(); 
-				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
-			}
-			
 			if (isElementPresent(By.id("distributorID")))
 			{
 			    driver.findElement(By.id("distributorID")).clear();
-			    driver.findElement(By.id("distributorID")).sendKeys("US8128558");
+			    driver.findElement(By.id("distributorID")).sendKeys(qualify);
 			}
 			
 			if (isElementPresent(By.id("email")))

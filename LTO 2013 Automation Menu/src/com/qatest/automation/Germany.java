@@ -16,10 +16,18 @@ public class Germany {
   private String userName;
   private String password;
   
-  public Germany(String user, String pass)
+  public Germany(String username, String password)
   {
-	  this.userName = user;
-	  this.password = pass;
+	  if (username.equals("") || password.equals(""))
+	  {
+		  this.userName = "carda";
+		  this.password = "abc123";
+	  }
+	  else
+	  {
+		  this.userName = username;
+		  this.password = password;
+	  }
   }
   
   @Before

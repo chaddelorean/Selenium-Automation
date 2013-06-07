@@ -16,6 +16,23 @@ public class HongKong {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
+  private String userName;
+  private String password;
+  
+  public HongKong(String username, String password)
+  {
+	  if (username.equals("") || password.equals(""))
+	  {
+		  this.userName = "HK1111111";
+		  this.password = "abc123";
+	  }
+	  
+	  else
+	  {
+		  this.userName = username;
+		  this.password = password;
+	  }
+  }
 
   @Before
   public void setUp() throws Exception {
@@ -49,7 +66,7 @@ public class HongKong {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage();
+	    results[0] = myBuyer.buyerPage(userName, "HK0010165");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Hong Kong: Failed: Myself\n" + results[0];
@@ -113,7 +130,7 @@ public class HongKong {
 		    
 		    //buyer page info
 		    Buyer myBuyer = new Buyer(driver);
-		    results[0] = myBuyer.buyerPage();
+		    results[0] = myBuyer.buyerPage(userName, "HK0010165");
 		    if (results[0] != null)
 		    {
 		    	results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];

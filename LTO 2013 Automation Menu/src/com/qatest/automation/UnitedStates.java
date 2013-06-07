@@ -23,8 +23,18 @@ public class UnitedStates {
   
   public UnitedStates(String username, String password)
   {
-	  this.userName = username;
-	  this.password = password;
+	  if (username.equals("") || password.equals(""))
+	  {
+		  this.userName = "carda";
+		  this.password = "abc123";
+		  
+	  }
+	  
+	  else{
+		  this.userName = username;
+		  this.password = password;
+	  }
+	  
   }
 
   @Before
@@ -128,7 +138,7 @@ public class UnitedStates {
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage();
+	    results[0] = myBuyer.buyerPage(userName, "US1111111");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Myself\n" + results[0];
