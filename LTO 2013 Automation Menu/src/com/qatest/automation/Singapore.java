@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import java.lang.Throwable;
 
 public class Singapore {
   private WebDriver driver;

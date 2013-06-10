@@ -196,7 +196,7 @@ public class LTO2013Menu extends JFrame {
 		
 		JLabel lblLtoSelenium = new JLabel("LTO 2013 Selenium Automation Menu");
 		lblLtoSelenium.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblLtoSelenium.setBounds(409, 11, 465, 56);
+		lblLtoSelenium.setBounds(409, 11, 595, 56);
 		contentPane.add(lblLtoSelenium);
 		
 		JButton cancel = new JButton("Quit");
@@ -215,7 +215,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Click on a market to run its automation script. You may run multiple markets concurrently.");
-		lblNewLabel_2.setBounds(26, 59, 605, 22);
+		lblNewLabel_2.setBounds(26, 59, 780, 22);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton clearlog = new JButton("Clear Log");
@@ -224,10 +224,11 @@ public class LTO2013Menu extends JFrame {
 				output.setText("");
 			}
 		});
-		clearlog.setBounds(857, 720, 89, 23);
+		clearlog.setBounds(857, 720, 111, 23);
 		contentPane.add(clearlog);
 		
 		final JButton us = new JButton("United States");
+		us.setFont(new Font("Dialog", Font.BOLD, 11));
 		us.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				output.append("Executing: United States\n\n");
@@ -272,7 +273,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(us);
 		
 		JLabel lblNewLabel_3 = new JLabel("North America");
-		lblNewLabel_3.setBounds(26, 92, 89, 14);
+		lblNewLabel_3.setBounds(26, 92, 129, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton canada = new JButton("Canada");
@@ -280,7 +281,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(canada);
 		
 		JLabel lblNewLabel_4 = new JLabel("Latin America");
-		lblNewLabel_4.setBounds(26, 221, 89, 14);
+		lblNewLabel_4.setBounds(26, 221, 129, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JButton colombia = new JButton("Colombia");
@@ -300,7 +301,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(southafrica);
 		
 		JLabel lblNewLabel_6 = new JLabel("Europe");
-		lblNewLabel_6.setBounds(201, 92, 46, 14);
+		lblNewLabel_6.setBounds(201, 92, 129, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		JButton belgium = new JButton("Belgium");
@@ -356,6 +357,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(netherlands);
 		
 		final JButton uk = new JButton("United Kingdom");
+		uk.setFont(new Font("Dialog", Font.BOLD, 10));
 		uk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				output.append("Executing: United Kingdom\n\n");
@@ -399,7 +401,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(uk);
 		
 		JLabel lblNewLabel_7 = new JLabel("South Pacific");
-		lblNewLabel_7.setBounds(505, 92, 78, 14);
+		lblNewLabel_7.setBounds(505, 92, 126, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		final JButton australia = new JButton("Australia");
@@ -446,6 +448,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(australia);
 		
 		JButton newzealand = new JButton("New Zealand");
+		newzealand.setFont(new Font("Dialog", Font.BOLD, 11));
 		newzealand.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -463,7 +466,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Middle East");
-		lblNewLabel_9.setBounds(842, 92, 78, 14);
+		lblNewLabel_9.setBounds(842, 92, 126, 14);
 		contentPane.add(lblNewLabel_9);
 		
 		JButton israel = new JButton("Israel");
