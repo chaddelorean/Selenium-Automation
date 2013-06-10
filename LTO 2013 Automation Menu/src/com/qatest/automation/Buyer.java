@@ -42,7 +42,12 @@ public class Buyer {
 		        driver.findElement(By.id("buyerID")).clear();
 		        driver.findElement(By.id("buyerID")).sendKeys(buyer);
 			}
-			
+
+            if (isElementPresent(By.id("address_id")))
+            {
+                driver.findElement(By.id("address_id")).clear();
+                driver.findElement(By.id("address_id")).sendKeys(buyer);
+            }
 			if (isElementPresent(By.id("buyerPhone_2")))
 			{
 		        driver.findElement(By.id("buyerPhone_2")).clear();
