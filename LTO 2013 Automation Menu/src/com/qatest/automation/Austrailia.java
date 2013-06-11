@@ -75,7 +75,7 @@ public class Austrailia {
 	    	return results;
 	    }
 	    driver.findElement(By.id("choose_btnsubmit")).click();
-	 	    
+	 	
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
