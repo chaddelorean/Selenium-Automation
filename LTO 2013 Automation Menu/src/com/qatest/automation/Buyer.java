@@ -1,7 +1,6 @@
 package com.qatest.automation;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.*;
 
 public class Buyer {

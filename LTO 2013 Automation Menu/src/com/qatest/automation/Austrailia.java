@@ -74,6 +74,9 @@ public class Austrailia {
 				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
+
+        Thread.sleep(5000);
+
 	    driver.findElement(By.id("choose_btnsubmit")).click();
 	 	
 	    //Buyer validation page
@@ -135,7 +138,9 @@ public class Austrailia {
 	    	if (screenshot)
 				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
-	    }  
+	    }
+
+        Thread.sleep(5000);
 	    driver.findElement(By.id("choose_btnsubmit")).click();
 	  	    
 	    //Buyer validation page
