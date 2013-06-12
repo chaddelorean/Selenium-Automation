@@ -45,8 +45,8 @@ public class Singapore {
   @Test
   public String[] testSingapore(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-	  Myself(place, screenshot, location);
-	  if (results[0].equals("Singapore: Passed"))
+	  //Myself(place, screenshot, location);
+	  //if (results[0].equals("Singapore: Passed"))
 		  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -126,9 +126,9 @@ public class Singapore {
 	    //Singapore landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
+	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
