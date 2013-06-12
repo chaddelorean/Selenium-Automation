@@ -559,6 +559,223 @@ public class LTO2013Menu extends JFrame {
 		JMenu mnAction = new JMenu("Action");
 		menuBar.add(mnAction);
 		
+		
+		
+		final JButton TH = new JButton("Thailand");
+		TH.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				output.append("Executing: Singapore\n\n");
+				new Thread(new Runnable()
+				{
+					public void run()
+					{
+						Singapore sg = new Singapore(username, password);
+						try {
+							sg.setUp();
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							for (int i = 0; i < result.length; i++)
+							{
+								if (result[i] != null)
+									output.append(result[i] + "\n");
+							}
+							output.append("\n");
+							output.setCaretPosition(output.getDocument().getLength());
+							if (result[0].equals("Singapore: Passed"))
+							{
+								btnSingapore.setBackground(green);
+							}
+							
+							else
+							{
+								btnSingapore.setBackground(red);
+							}
+							if (placeorders.isSelected())
+								sg.tearDown();	
+						} 
+						
+						catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}).start();
+			}
+		});
+		TH.setBounds(680, 271, 126, 42);
+		contentPane.add(TH);
+		
+		final JButton ID = new JButton("Indonesia");
+		ID.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				output.append("Executing: Singapore\n\n");
+				new Thread(new Runnable()
+				{
+					public void run()
+					{
+						Singapore sg = new Singapore(username, password);
+						try {
+							sg.setUp();
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							for (int i = 0; i < result.length; i++)
+							{
+								if (result[i] != null)
+									output.append(result[i] + "\n");
+							}
+							output.append("\n");
+							output.setCaretPosition(output.getDocument().getLength());
+							if (result[0].equals("Singapore: Passed"))
+							{
+								btnSingapore.setBackground(green);
+							}
+							
+							else
+							{
+								btnSingapore.setBackground(red);
+							}
+							if (placeorders.isSelected())
+								sg.tearDown();	
+						} 
+						
+						catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}).start();
+			}
+		});
+		ID.setBounds(680, 324, 126, 42);
+		contentPane.add(ID);
+		
+		final JButton VN = new JButton("Vietnam");
+		VN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				output.append("Executing: Singapore\n\n");
+				new Thread(new Runnable()
+				{
+					public void run()
+					{
+						Singapore sg = new Singapore(username, password);
+						try {
+							sg.setUp();
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							for (int i = 0; i < result.length; i++)
+							{
+								if (result[i] != null)
+									output.append(result[i] + "\n");
+							}
+							output.append("\n");
+							output.setCaretPosition(output.getDocument().getLength());
+							if (result[0].equals("Singapore: Passed"))
+							{
+								btnSingapore.setBackground(green);
+							}
+							
+							else
+							{
+								btnSingapore.setBackground(red);
+							}
+							if (placeorders.isSelected())
+								sg.tearDown();	
+						} 
+						
+						catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}).start();
+			}
+		});
+		VN.setBounds(680, 379, 126, 42);
+		contentPane.add(VN);
+		
+		final JButton MY = new JButton("Malaysia");
+		MY.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				output.append("Executing: Singapore\n\n");
+				new Thread(new Runnable()
+				{
+					public void run()
+					{
+						Singapore sg = new Singapore(username, password);
+						try {
+							sg.setUp();
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							for (int i = 0; i < result.length; i++)
+							{
+								if (result[i] != null)
+									output.append(result[i] + "\n");
+							}
+							output.append("\n");
+							output.setCaretPosition(output.getDocument().getLength());
+							if (result[0].equals("Singapore: Passed"))
+							{
+								btnSingapore.setBackground(green);
+							}
+							
+							else
+							{
+								btnSingapore.setBackground(red);
+							}
+							if (placeorders.isSelected())
+								sg.tearDown();	
+						} 
+						
+						catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}).start();
+			}
+		});
+		MY.setBounds(680, 432, 126, 42);
+		contentPane.add(MY);
+		
+		final JButton PH = new JButton("Philippines");
+		PH.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				output.append("Executing: Singapore\n\n");
+				new Thread(new Runnable()
+				{
+					public void run()
+					{
+						Singapore sg = new Singapore(username, password);
+						try {
+							sg.setUp();
+							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							for (int i = 0; i < result.length; i++)
+							{
+								if (result[i] != null)
+									output.append(result[i] + "\n");
+							}
+							output.append("\n");
+							output.setCaretPosition(output.getDocument().getLength());
+							if (result[0].equals("Singapore: Passed"))
+							{
+								btnSingapore.setBackground(green);
+							}
+							
+							else
+							{
+								btnSingapore.setBackground(red);
+							}
+							if (placeorders.isSelected())
+								sg.tearDown();	
+						} 
+						
+						catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}).start();
+			}
+		});
+		PH.setBounds(680, 485, 126, 42);
+		contentPane.add(PH);
+		
 		JMenuItem menuItem = new JMenuItem("Run All");
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -569,6 +786,11 @@ public class LTO2013Menu extends JFrame {
 				bnbutton.doClick();
 				hkbutton.doClick();
 				btnSingapore.doClick();
+				TH.doClick();
+				ID.doClick();
+				VN.doClick();
+				MY.doClick();
+				PH.doClick();
 			}
 		});
 		mnAction.add(menuItem);
@@ -604,6 +826,11 @@ public class LTO2013Menu extends JFrame {
 				bnbutton.doClick();
 				hkbutton.doClick();
 				btnSingapore.doClick();
+				TH.doClick();
+				ID.doClick();
+				VN.doClick();
+				MY.doClick();
+				PH.doClick();
 			}
 		});
 		mnAction.add(mntmRunAsia);
@@ -651,5 +878,4 @@ public class LTO2013Menu extends JFrame {
 	{
 		output.append(out);
 	}
-	
 }
