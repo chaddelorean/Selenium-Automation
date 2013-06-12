@@ -564,15 +564,15 @@ public class LTO2013Menu extends JFrame {
 		final JButton TH = new JButton("Thailand");
 		TH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				output.append("Executing: Singapore\n\n");
+				output.append("Executing: Thailand\n\n");
 				new Thread(new Runnable()
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore(username, password);
+						Thailand th = new Thailand(username, password);
 						try {
-							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							th.setUp();
+							String result[] = th.testThailand(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -580,17 +580,17 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Singapore: Passed"))
+							if (result[0].equals("Thailand: Passed"))
 							{
-								btnSingapore.setBackground(green);
+								TH.setBackground(green);
 							}
 							
 							else
 							{
-								btnSingapore.setBackground(red);
+								TH.setBackground(red);
 							}
 							if (placeorders.isSelected())
-								sg.tearDown();	
+								th.tearDown();
 						} 
 						
 						catch (Exception e1) {
@@ -607,15 +607,15 @@ public class LTO2013Menu extends JFrame {
 		final JButton ID = new JButton("Indonesia");
 		ID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				output.append("Executing: Singapore\n\n");
+				output.append("Executing: Indonesia\n\n");
 				new Thread(new Runnable()
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore(username, password);
+						Indonesia indo = new Indonesia(username, password);
 						try {
-							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							indo.setUp();
+							String result[] = indo.testIndonesia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -623,17 +623,17 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Singapore: Passed"))
+							if (result[0].equals("Indonesia: Passed"))
 							{
-								btnSingapore.setBackground(green);
+								ID.setBackground(green);
 							}
 							
 							else
 							{
-								btnSingapore.setBackground(red);
+								ID.setBackground(red);
 							}
 							if (placeorders.isSelected())
-								sg.tearDown();	
+								indo.tearDown();
 						} 
 						
 						catch (Exception e1) {
@@ -650,15 +650,15 @@ public class LTO2013Menu extends JFrame {
 		final JButton VN = new JButton("Vietnam");
 		VN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				output.append("Executing: Singapore\n\n");
+				output.append("Executing: Vietnam\n\n");
 				new Thread(new Runnable()
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore(username, password);
+						Vietnam vn = new Vietnam(username, password);
 						try {
-							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							vn.setUp();
+							String result[] = vn.testVietnam(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -666,17 +666,17 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Singapore: Passed"))
+							if (result[0].equals("Vietnam: Passed"))
 							{
-								btnSingapore.setBackground(green);
+								VN.setBackground(green);
 							}
 							
 							else
 							{
-								btnSingapore.setBackground(red);
+							    VN.setBackground(red);
 							}
 							if (placeorders.isSelected())
-								sg.tearDown();	
+								vn.tearDown();
 						} 
 						
 						catch (Exception e1) {
@@ -693,15 +693,15 @@ public class LTO2013Menu extends JFrame {
 		final JButton MY = new JButton("Malaysia");
 		MY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				output.append("Executing: Singapore\n\n");
+				output.append("Executing: Malaysia\n\n");
 				new Thread(new Runnable()
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore(username, password);
+						Malaysia my = new Malaysia(username, password);
 						try {
-							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							my.setUp();
+							String result[] = my.testMalaysia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -709,17 +709,17 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Singapore: Passed"))
+							if (result[0].equals("Malaysia: Passed"))
 							{
-								btnSingapore.setBackground(green);
+								MY.setBackground(green);
 							}
 							
 							else
 							{
-								btnSingapore.setBackground(red);
+								MY.setBackground(red);
 							}
 							if (placeorders.isSelected())
-								sg.tearDown();	
+								my.tearDown();
 						} 
 						
 						catch (Exception e1) {
@@ -736,15 +736,15 @@ public class LTO2013Menu extends JFrame {
 		final JButton PH = new JButton("Philippines");
 		PH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				output.append("Executing: Singapore\n\n");
+				output.append("Executing: Philippines\n\n");
 				new Thread(new Runnable()
 				{
 					public void run()
 					{
-						Singapore sg = new Singapore(username, password);
+						Philippines ph = new Philippines(username, password);
 						try {
-							sg.setUp();
-							String result[] = sg.testSingapore(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							ph.setUp();
+							String result[] = ph.testPhilippines(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -752,17 +752,17 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Singapore: Passed"))
+							if (result[0].equals("Philippines: Passed"))
 							{
-								btnSingapore.setBackground(green);
+								PH.setBackground(green);
 							}
 							
 							else
 							{
-								btnSingapore.setBackground(red);
+								PH.setBackground(red);
 							}
 							if (placeorders.isSelected())
-								sg.tearDown();	
+								ph.tearDown();
 						} 
 						
 						catch (Exception e1) {
