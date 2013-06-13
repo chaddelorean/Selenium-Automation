@@ -49,8 +49,8 @@ public class Singapore {
   @Test
   public String[] testSingapore(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO-SEA");
-      plquantity.Reset(buyer, "LTO-SEA");
+      plquantity.Reset(userName, "LTO_SEA");
+      plquantity.Reset(buyer, "LTO_SEA");
 	  //Myself(place, screenshot, location);
 	  //if (results[0].equals("Singapore: Passed"))
 		  someoneElse(place, screenshot, location);

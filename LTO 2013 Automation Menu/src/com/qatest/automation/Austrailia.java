@@ -25,7 +25,7 @@ public class Austrailia {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "US1111111";
 		  this.password = "abc123";
 	  }
 	  else
@@ -48,8 +48,8 @@ public class Austrailia {
   @Test
   public String[] testAustrailia(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO-PAC");
-      plquantity.Reset(buyer, "LTO-PAC");
+      plquantity.Reset(userName, "LTO_Pacifics");
+      plquantity.Reset(buyer, "LTO_Pacifics");
 	  Myself(place, screenshot, location);
 	  if (results[0].equals("Austrailia: Passed"))
 		  someoneElse(place, screenshot, location);

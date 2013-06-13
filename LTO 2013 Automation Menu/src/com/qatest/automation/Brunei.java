@@ -50,8 +50,8 @@ public class Brunei {
 	  //Myself(place);
 	  //if (results[0].equals("Brunei: Passed"))
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO-SEA");
-      plquantity.Reset(buyer, "LTO-SEA");
+      plquantity.Reset(userName, "LTO_SEA");
+      plquantity.Reset(buyer, "LTO_SEA");
 		  someoneElse(place, screenshot, location);
 	  
 	  return results;

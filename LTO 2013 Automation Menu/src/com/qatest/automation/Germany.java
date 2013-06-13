@@ -44,7 +44,7 @@ public class Germany {
   @Test
   public String[] testGermany(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO-EMEA");
+      plquantity.Reset(userName, "LTO_EMEA");
 	  Myself(place, screenshot, location);
 	  
 	  return results;
