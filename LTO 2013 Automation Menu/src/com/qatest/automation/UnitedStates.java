@@ -87,7 +87,7 @@ public class UnitedStates {
           results[0] = product.Product();
           if (results[0] != null)
           {
-              results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+              results[0] = "United States: Failed: Someone Else\n" + results[0];
               if (screenshot)
                   myScreenShot.takeScreenShot(location, "Brunei");
               return results;
@@ -170,7 +170,7 @@ public class UnitedStates {
           results[0] = product.Product();
           if (results[0] != null)
           {
-              results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+              results[0] = "United States: Failed: Someone Else\n" + results[0];
               if (screenshot)
                   myScreenShot.takeScreenShot(location, "Brunei");
               return results;

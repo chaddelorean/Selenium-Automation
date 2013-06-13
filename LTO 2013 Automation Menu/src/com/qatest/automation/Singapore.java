@@ -24,7 +24,7 @@ public class Singapore {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "SG1111111";
 		  this.password = "abc123";
 	  }
 	  
@@ -132,7 +132,7 @@ public class Singapore {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, "SG3110554");
+	    results[0] = myBuyer.buyerPage(userName, "US8128558");
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Someone Else\n" + results[0];
