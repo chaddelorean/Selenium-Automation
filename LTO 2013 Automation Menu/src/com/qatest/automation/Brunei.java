@@ -186,14 +186,14 @@ public class Brunei {
 	    
 	    //product page
 	    DropDownProduct product = new DropDownProduct(driver);
-		results[0] = product.Product();
-		if (results[0] != null)
-		{
-			results[0] = "Brunei: Failed: Someone Else\n" + results[0];
-			if (screenshot)
-				myScreenShot.takeScreenShot(location, "Brunei");
-			return results;
-		}
+          results[0] = product.Product();
+          if (results[0] != null)
+          {
+              results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "Brunei");
+              return results;
+          }
 	    
 	    //shop app
 	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);

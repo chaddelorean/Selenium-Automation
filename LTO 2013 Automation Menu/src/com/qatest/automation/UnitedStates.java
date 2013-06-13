@@ -1,15 +1,11 @@
 package com.qatest.automation;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.internal.seleniumemulation.Click;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class UnitedStates {
   private WebDriver driver;
@@ -78,14 +74,24 @@ public class UnitedStates {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //product page
-	    driver.findElement(By.id("checkout")).click();
+	    /*driver.findElement(By.id("checkout")).click();
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "United States: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
-	    }
+	    }*/
+
+          DropDownProduct product = new DropDownProduct(driver);
+          results[0] = product.Product();
+          if (results[0] != null)
+          {
+              results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "Brunei");
+              return results;
+          }
 	    
 	    
 	    //shop app
@@ -151,14 +157,24 @@ public class UnitedStates {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
 	    //product page
-	    driver.findElement(By.id("checkout")).click();
+	    /*driver.findElement(By.id("checkout")).click();
 	    if (isElementPresent(By.className("shopError")))
 	    {
 	    	results[0] = "United States: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
-	    }
+	    }     */
+
+          DropDownProduct product = new DropDownProduct(driver);
+          results[0] = product.Product();
+          if (results[0] != null)
+          {
+              results[0] = "Brunei: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "Brunei");
+              return results;
+          }
 	    
 	    
 	    //shop app
