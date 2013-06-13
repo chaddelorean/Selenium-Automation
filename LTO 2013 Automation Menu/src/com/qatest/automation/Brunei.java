@@ -18,6 +18,8 @@ public class Brunei {
   private ScreenShot myScreenShot;
   private String userName;
   private String password;
+  private ResetPLQuantity plquantity;
+  private String buyer;
   
   public Brunei(String username, String password)
   {
@@ -31,6 +33,8 @@ public class Brunei {
 		  this.userName = username;
 		  this.password = password;
 	  }
+
+      buyer = "US8128558";
   }
 
   @Before
@@ -38,6 +42,7 @@ public class Brunei {
     driver = new FirefoxDriver();
     baseUrl = "http://test.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    plquantity = new ResetPLQuantity(driver);
   }
 
   @Test
@@ -45,6 +50,8 @@ public class Brunei {
 	  //Myself(place);
 	  //if (results[0].equals("Brunei: Passed"))
 	  myScreenShot = new ScreenShot(driver);
+      plquantity.Reset(userName, "LTO-SEA");
+      plquantity.Reset(buyer, "LTO-SEA");
 		  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -172,7 +179,7 @@ public class Brunei {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, "US8128558");
+	    results[0] = myBuyer.buyerPage(userName, buyer);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Brunei: Failed: Someone Else\n" + results[0];

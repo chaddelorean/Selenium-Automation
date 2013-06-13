@@ -20,12 +20,13 @@ public class UnitedKingdom {
   private ScreenShot myScreenShot;
   private String userName;
   private String password;
-  
+  private ResetPLQuantity plquantity;
+
   public UnitedKingdom(String username, String password)
   {
 	  if(username.equals("") || password.equals(""))
 	  {
-		  this.userName = "carda";
+		  this.userName = "US1111111";
 		  this.password = "abc123";
 	  }  
 	
@@ -41,11 +42,13 @@ public class UnitedKingdom {
     driver = new FirefoxDriver();
     baseUrl = "http://test.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    plquantity = new ResetPLQuantity(driver);
   }
 
   @Test
   public String[] testUnitedKingdom(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
+      plquantity.Reset(userName, "LTO-EMEA");
 	  Myself(place, screenshot, location);
 	  
 	  return results;

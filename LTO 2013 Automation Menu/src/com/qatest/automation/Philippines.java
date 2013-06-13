@@ -22,6 +22,8 @@ public class Philippines {
   private ScreenShot myScreenShot;
   private String userName;
   private String password;
+  private ResetPLQuantity plquantity;
+  private String buyer;
 
   public Philippines(String username, String password)
   {
@@ -36,6 +38,8 @@ public class Philippines {
 		  this.userName = username;
 		  this.password = password;
 	  }
+      buyer = "US8128558";
+
   }
 
   @Before
@@ -43,11 +47,14 @@ public class Philippines {
     driver = new FirefoxDriver();
     baseUrl = "http://test.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    plquantity = new ResetPLQuantity(driver);
   }
 
   @Test
   public String[] testPhilippines(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
+      plquantity.Reset(userName, "LTO-SEA");
+      plquantity.Reset(buyer, "LTO-SEA");
 	  //Myself(place, screenshot, location);
 	  //if (results[0].equals("Philippines: Passed"))
 		  someoneElse(place, screenshot, location);
@@ -71,7 +78,7 @@ public class Philippines {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, "SG3110554");
+	    results[0] = myBuyer.buyerPage(userName, buyer);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Philippines: Failed: Myself\n" + results[0];
@@ -135,7 +142,7 @@ public class Philippines {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, "SG3110554");
+	    results[0] = myBuyer.buyerPage(userName, buyer);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Philippines: Failed: Someone Else\n" + results[0];

@@ -16,6 +16,8 @@ public class UnitedStates {
   private ScreenShot myScreenShot;
   private String userName;
   private String password;
+  private ResetPLQuantity plquantity;
+  private String buyer;
   
   public UnitedStates(String username, String password)
   {
@@ -30,7 +32,7 @@ public class UnitedStates {
 		  this.userName = username;
 		  this.password = password;
 	  }
-	  
+	  buyer = "US1111111";
   }
 
   @Before
@@ -38,6 +40,7 @@ public class UnitedStates {
     driver = new FirefoxDriver();
     baseUrl = "http://test.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    plquantity = new ResetPLQuantity(driver);
   }
 
   @Test
@@ -144,7 +147,7 @@ public class UnitedStates {
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, "US1111111");
+	    results[0] = myBuyer.buyerPage(userName, buyer);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Myself\n" + results[0];
