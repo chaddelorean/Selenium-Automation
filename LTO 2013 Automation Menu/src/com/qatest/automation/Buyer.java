@@ -47,6 +47,19 @@ public class Buyer {
                 driver.findElement(By.id("address_id")).clear();
                 driver.findElement(By.id("address_id")).sendKeys(buyer);
             }
+
+            if (isElementPresent(By.id("address_mobile")))
+            {
+                driver.findElement(By.id("address_mobile")).clear();
+                driver.findElement(By.id("address_mobile")).sendKeys("801-444-5555");
+            }
+
+            if (isElementPresent(By.id("mobilePhone")))
+            {
+                driver.findElement(By.id("mobilePhone")).clear();
+                driver.findElement(By.id("mobilePhone")).sendKeys("801-444-5555");
+            }
+
 			if (isElementPresent(By.id("buyerPhone_2")))
 			{
 		        driver.findElement(By.id("buyerPhone_2")).clear();
