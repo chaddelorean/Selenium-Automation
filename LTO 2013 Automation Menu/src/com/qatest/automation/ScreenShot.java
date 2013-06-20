@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import java.util.Map;
 
 public class ScreenShot {
 	private WebDriver driver;
@@ -22,8 +23,14 @@ public class ScreenShot {
 		stringDate = trimSpace(stringDate);
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-			
-			FileUtils.copyFile(srcFile,  new File(location + "\\" + market + stringDate + ".png"));
+            String slashwack = "/";
+
+            if (System.getProperty("os.name").equals("Windows"))
+            {
+                slashwack = "\\";
+            }
+
+			FileUtils.copyFile(srcFile,  new File(location + slashwack + market + stringDate + ".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

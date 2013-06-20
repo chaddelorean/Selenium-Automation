@@ -36,7 +36,7 @@ public class LTO2013Menu extends JFrame {
 	private static String password = "";
 	private static LTO2013Menu frame;
 	private static JTextArea output;
-	/**
+	/**                                                                               l
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
