@@ -18,8 +18,9 @@ public class Buyer {
 	{
 		try
 		{
+
 			if (isElementPresent(By.id("zip_postalLookup")))
-			{
+            {
 				 driver.findElement(By.id("zip_postalLookup")).clear(); 
 				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
 			}
