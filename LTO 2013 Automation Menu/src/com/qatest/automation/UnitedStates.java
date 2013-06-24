@@ -77,16 +77,6 @@ public class UnitedStates {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
 	    //buyer select continue button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
-	    
-	    //product page
-	    /*driver.findElement(By.id("checkout")).click();
-	    if (isElementPresent(By.className("shopError")))
-	    {
-	    	results[0] = "United States: Failed Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-	    	if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
-	    	return results;
-	    }*/
 
           DropDownProduct product = new DropDownProduct(driver);
           results[0] = product.Product();
@@ -100,7 +90,7 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver);
+	    Authshopapp shopapp = new Authshopapp(driver, userName, password);
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -162,15 +152,6 @@ public class UnitedStates {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    
 	    //product page
-	    /*driver.findElement(By.id("checkout")).click();
-	    if (isElementPresent(By.className("shopError")))
-	    {
-	    	results[0] = "United States: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-	    	if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
-	    	return results;
-	    }     */
-
           DropDownProduct product = new DropDownProduct(driver);
           results[0] = product.Product();
           if (results[0] != null)
@@ -183,7 +164,7 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver);
+	    Authshopapp shopapp = new Authshopapp(driver, userName, password);
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[2] = temp[1];

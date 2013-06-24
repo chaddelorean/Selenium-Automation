@@ -6,11 +6,15 @@ public class Nonauthshopapp {
 	
 	private String[] results;
 	private WebDriver driver;
+    private String username;
+    private String password;
 	
-	public Nonauthshopapp(WebDriver driver)
+	public Nonauthshopapp(WebDriver driver, String user, String pass)
 	{
 		this.driver = driver;
 		results = new String[2];
+        this.username = user;
+        this.password = pass;
 	}
 	
 	public String[] ShopApp(boolean place)
@@ -59,6 +63,20 @@ public class Nonauthshopapp {
 	        		return results;
 	        	}
 	        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
+                driver.findElement(By.xpath("/html/body/form/div/div[7]/div[2]/button")).click();
+                driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div/div[2]/ul/li/div/div/a")).click();
+                Thread.sleep(3000);
+                driver.findElement(By.id("defaultLogInForm-username")).clear();
+                driver.findElement(By.id("defaultLogInForm-username")).sendKeys(username);
+                driver.findElement(By.id("defaultLogInForm-password")).clear();
+                driver.findElement(By.id("defaultLogInForm-password")).sendKeys(password);
+                driver.findElement(By.id("signinButton2")).click();
+                Thread.sleep(5000);
+                String[] ordernum = results[1].split(" ");
+                if (!driver.getPageSource().contains(ordernum[2]))
+                {
+                     results[0] = results[1] + " was not found on order status page.";
+                }
 	        	
 	        }
 	        return results;

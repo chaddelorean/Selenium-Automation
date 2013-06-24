@@ -81,7 +81,7 @@ public class Germany {
 		}
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver);
+	    Authshopapp shopapp = new Authshopapp(driver, userName, password);
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {

@@ -26,8 +26,8 @@ public class UnitedKingdom {
   {
 	  if(username.equals("") || password.equals(""))
 	  {
-		  this.userName = "US1111111";
-		  this.password = "abc123";
+		  this.userName = "gaaker";
+		  this.password = "test123";
 	  }  
 	
 	  else
@@ -85,7 +85,7 @@ public class UnitedKingdom {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver);
+	    Authshopapp shopapp = new Authshopapp(driver, userName, password);
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {

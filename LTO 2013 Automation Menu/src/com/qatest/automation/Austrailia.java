@@ -100,7 +100,7 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -164,7 +164,7 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[2] = temp[1];

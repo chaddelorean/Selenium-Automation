@@ -203,7 +203,7 @@ public class Brunei {
           }
 	    
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
