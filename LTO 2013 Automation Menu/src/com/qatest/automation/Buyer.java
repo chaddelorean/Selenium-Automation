@@ -55,7 +55,7 @@ public class Buyer {
                 driver.findElement(By.id("address_mobile")).sendKeys("801-444-5555");
             }
 
-            if (isElementPresent(By.id("mobile")))
+            if (isElementPresent(By.id("mobile")) && !driver.findElement(By.id("mobile")).getAttribute("type").equals("hidden"))
             {
                 driver.findElement(By.id("mobile")).clear();
                 driver.findElement(By.id("mobile")).sendKeys("801-444-5555");
@@ -168,5 +168,10 @@ public class Buyer {
 	    } catch (NoSuchElementException e) {
 	      return false;
 	    }
+
+        catch (ElementNotVisibleException e)
+        {
+            return false;
+        }
 	  }
 }
