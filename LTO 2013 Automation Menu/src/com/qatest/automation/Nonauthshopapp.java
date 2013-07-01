@@ -64,7 +64,7 @@ public class Nonauthshopapp {
 	        	}
 	        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
                 driver.findElement(By.xpath("/html/body/form/div/div[7]/div[2]/button")).click();
-                driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div/div[2]/ul/li/div/div/a")).click();
+                driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div[2]/ul/li/div/div/a")).click();
                 Thread.sleep(3000);
                 driver.findElement(By.id("defaultLogInForm-username")).clear();
                 driver.findElement(By.id("defaultLogInForm-username")).sendKeys(username);

@@ -97,7 +97,7 @@ public class Buyer {
 		        driver.findElement(By.id("address_address2")).sendKeys("Test Address");
 			}
 			
-			if (isElementPresent(By.id("address_city")))
+			if (isElementPresent(By.id("address_city")) && driver.findElement(By.id("address_city")).isDisplayed())
 			{
 				driver.findElement(By.id("address_city")).clear();
 			    driver.findElement(By.id("address_city")).sendKeys("Provo");

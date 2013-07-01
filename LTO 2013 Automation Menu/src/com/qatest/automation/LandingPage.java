@@ -30,6 +30,9 @@ public class LandingPage {
 			
 			if (isElementPresent(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")))
 				driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
+
+            if (isElementPresent(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")))
+                driver.findElement((By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a"))).click();
 			
 		    try{
 		    	Thread.sleep(3000);

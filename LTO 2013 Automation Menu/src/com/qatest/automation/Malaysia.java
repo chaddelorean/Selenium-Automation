@@ -55,76 +55,10 @@ public class Malaysia {
 	  myScreenShot = new ScreenShot(driver);
       plquantity.Reset(userName, "LTO_SEA");
       plquantity.Reset(buyer, "LTO_SEA");
-	  //Myself(place, screenshot, location);
-	  //if (results[0].equals("Malaysia: Passed"))
-		  someoneElse(place, screenshot, location);
+	  someoneElse(place, screenshot, location);
 	  
 	  return results;
    
-  }
-  
-  public String[] Myself(boolean place,  boolean screenshot, String location)
-  {
-	  try{
-		  driver.get(baseUrl + "/content/lto/2013.html");
-	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[9]/a")).click();
-	    //Malaysia landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
-	    
-	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
-	    if (results[0] != null)
-	    {
-	    	results[0] = "Malaysia: Failed: Myself\n" + results[0];
-	    	if (screenshot)
-				myScreenShot.takeScreenShot(location, "Malaysia");
-	    	return results;
-	    }   
-	    
-	    //Buyer validation page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-	    
-	    //product page
-	    DropDownProduct product = new DropDownProduct(driver);
-		results[0] = product.Product();
-		if (results[0] != null)
-		{
-			results[0] = "Malaysia: Failed: Myself\n" + results[0];
-			if (screenshot)
-				myScreenShot.takeScreenShot(location, "Malaysia");
-			return results;
-		}
-
-	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
-	    String[] temp = shopapp.ShopApp(place);
-	    results[0] = temp[0];
-	    results[1] = temp[1];
-	    if (results[0] != null)
-	    {
-	    	results[0] = "Malaysia: Failed: Myself\n" + results[0];
-	    	if (screenshot)
-				myScreenShot.takeScreenShot(location, "Malaysia");
-	    	return results;
-	    }
-	    
-	    results[0] = "Malaysia: Passed";
-	    return results;
-	  }
-	  
-	  catch (Exception e)
-	  {
-		  results[0] = "Malaysia: Buy for Myself \n"+ "URL: " + driver.getCurrentUrl() + "\n" +  "Script Error: " + e;
-		  if (screenshot)
-				myScreenShot.takeScreenShot(location, "Malaysia");
-		  return results;
-	  }
   }
   
   public String[] someoneElse(boolean place,  boolean screenshot, String location)
@@ -134,7 +68,7 @@ public class Malaysia {
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[7]/a")).click();
 	    //Malaysia landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    //buyer select radio button
 	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button

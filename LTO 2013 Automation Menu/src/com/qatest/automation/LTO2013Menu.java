@@ -518,7 +518,7 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(btnSingapore);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 1392, 21);
+		menuBar.setBounds(0, 0, 1500, 21);
 		contentPane.add(menuBar);
 		
 		JMenu mnFile = new JMenu("File");

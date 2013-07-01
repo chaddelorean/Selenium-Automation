@@ -25,7 +25,7 @@ public class Brunei {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "SG1111111";
 		  this.password = "abc123";
 	  }
 	  else
@@ -34,7 +34,7 @@ public class Brunei {
 		  this.password = password;
 	  }
 
-      buyer = "US8128558";
+      buyer = "SG2067156";
   }
 
   @Before
@@ -52,121 +52,11 @@ public class Brunei {
 	  myScreenShot = new ScreenShot(driver);
       plquantity.Reset(userName, "LTO_SEA");
       plquantity.Reset(buyer, "LTO_SEA");
-		  someoneElse(place, screenshot, location);
+	  someoneElse(place, screenshot, location);
 	  
 	  return results;
   }
-  
-  public String[] Myself(boolean place, boolean screenshot, String location)
-  {
-	  
-	  try{
-		  driver.get(baseUrl + "/content/lto/2013.html");
-	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li/a")).click();
-	    //Brunei landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
-	    
-	    //buyer page info
-	    driver.findElement(By.id("zip_postalLookup")).clear();
-	    driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
-	    driver.findElement(By.id("distributorID")).clear();
-	    driver.findElement(By.id("distributorID")).sendKeys("US8128558");
-	    driver.findElement(By.id("email")).clear();
-	    driver.findElement(By.id("email")).sendKeys("test@test.com");
-	    
-	    //driver.findElement(By.cssSelector("a.selector")).click();
-        //driver.findElement(By.xpath("//div[@id='mobile_1_rightcol']/div/ul/li[2]")).click();
-        driver.findElement(By.id("mobile_2")).clear();
-        driver.findElement(By.id("mobile_2")).sendKeys("456");
-        driver.findElement(By.id("mobile_3")).clear();
-        driver.findElement(By.id("mobile_3")).sendKeys("456");
-        driver.findElement(By.id("nameOfPerson")).clear();
-        driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
-        driver.findElement(By.id("address_address1")).clear();
-        driver.findElement(By.id("address_address1")).sendKeys("75 West Center Street");
-        driver.findElement(By.id("address_address2")).clear();
-        driver.findElement(By.id("address_address2")).sendKeys("Test Address");
-        try{
-	    	Thread.sleep(1000);
-	    }
-	    
-	    catch (InterruptedException ex)
-	    {
-	    	Thread.currentThread().interrupt();
-	    }
-        /*if (!driver.findElement(By.id("address_city")).getAttribute("value").equalsIgnoreCase("MUARA"))
-        	return "Brunei: Failed: Myself \n" + "URL: " + driver.getCurrentUrl() + "\n" + "Error: Zipcode service call failure\n\n";
-        if (!driver.findElement(By.id("address_region")).getAttribute("value").equalsIgnoreCase("BM"))
-        	return "Brunei: Failed: Myself \n" + "URL: " + driver.getCurrentUrl() + "\n" + "Error: Zipcode service call failure\n\n";*/
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();    
-	    	
-	    //Buyer validation page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-	    
-	    //product page
-	    driver.findElement(By.id("checkout")).click();
-	    if (isElementPresent(By.className("shopError")))
-	    {
-	    	results[0] = "Brunei: Failed: Myself \n" + "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-	    	return results;
-	    }
 
-	    //shop app
-	    try{
-    		Thread.sleep(100);
-    	}
-    
-    	catch (InterruptedException ex)
-    	{
-    		Thread.currentThread().interrupt();
-    	}
-	    driver.findElement(By.cssSelector("option[value=\"addPaymentType0\"]")).click();
-        driver.findElement(By.id("paymentNumber_id")).clear();
-        driver.findElement(By.id("paymentNumber_id")).sendKeys("4111111111111111");
-        driver.findElement(By.id("paymentName_id")).clear();
-        driver.findElement(By.id("paymentName_id")).sendKeys("bob");
-        driver.findElement(By.id("paymentSecurityNumber")).clear();
-        driver.findElement(By.id("paymentSecurityNumber")).sendKeys("456");
-        driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
-        try{
-    		Thread.sleep(5000);
-    	}
-    
-    	catch (InterruptedException ex)
-    	{
-    		Thread.currentThread().interrupt();
-    	}
-        if (place)
-        {
-        	driver.findElement(By.xpath("/html/body/form/div/div[12]/div/button")).click();
-        	if (isElementPresent(By.className("shopError")))
-    	    {
-    	    	results[0] = "Brunei: Failed: Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-    	    	return results;
-    	    }
-        	
-        	if (!isElementPresent(By.id("productinformation-complete")))
-        	{
-        		results[0] = "Brunei: Failed: Order was not completed";
-        	}
-        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-        }
-	    
-        results[0] = "Brunei: Passed";
-        return results;
-	  }
-	  
-	  catch (Exception e)
-	  {
-		  results[0] = "Brunei: Buy for Myself \n"+ "URL: " + driver.getCurrentUrl() + "\n" +  "Script Error: " + e;
-		  return results;
-	  }
-  }
   
   public String[] someoneElse(boolean place, boolean screenshot, String location)
   {
@@ -175,7 +65,7 @@ public class Brunei {
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li/a")).click();
 	    //Brunei landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
