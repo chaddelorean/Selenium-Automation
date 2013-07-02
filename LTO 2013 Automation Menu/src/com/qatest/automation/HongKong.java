@@ -78,8 +78,8 @@ public class HongKong {
 				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
 	    }
-	    //Omniturevalidation omni = new Omniturevalidation(driver);
-        //omni.getOmnitureDebuggerPage();
+	    Omniturevalidation omni = new Omniturevalidation(driver);
+        omni.getOmnitureDebuggerPage();
 
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
