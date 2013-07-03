@@ -69,9 +69,7 @@ public class Singapore {
 	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
 	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
-          Omniturevalidation omni = new Omniturevalidation(driver);
-          omni.getOmnitureDebuggerPage();
-          omni.compareOmniVariables();
+
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
 	    results[0] = myBuyer.buyerPage(userName, buyer);

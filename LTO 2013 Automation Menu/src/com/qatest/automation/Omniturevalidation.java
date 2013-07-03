@@ -9,22 +9,27 @@ package com.qatest.automation;
  */
 import org.openqa.selenium.*;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.security.Timestamp;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.io.PrintWriter;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import javax.swing.*;
+import java.io.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Omniturevalidation {
     private WebDriver driver;
     private TreeMap<String, String> omnivariables;
+    private TreeMap<String, String> checkvariables;
     private String baseWindow;
 
     public Omniturevalidation(WebDriver d)
     {
         this.driver = d;
         omnivariables = new TreeMap<String, String>();
+        checkvariables = new TreeMap<String, String>();
         driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
     }
 
@@ -39,8 +44,8 @@ public class Omniturevalidation {
             baseWindow = iter.next().toString();
             String OmnitureWindow = iter.next().toString();
             driver.switchTo().window(OmnitureWindow);
-            String source = driver.getPageSource();
 
+            String source = driver.getPageSource();
             Date date = new Date();
             String curdate = trimSpace(String.valueOf(date.getTime()));
             PrintWriter omniSource = new PrintWriter(curdate + "omniSource.html", "UTF-8");
@@ -59,7 +64,6 @@ public class Omniturevalidation {
             {
                 if (element.getAttribute("align").equals("right"))
                 {
-                    //System.out.println(element.getText() + " Before");
                     String xpath;
                     if (i == 1)
                         xpath = "//table/tbody/tr[2]/td/table/tbody/tr/td[2]";
@@ -74,6 +78,14 @@ public class Omniturevalidation {
             omnidriver.close();
             driver.switchTo().window(baseWindow);
             driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+            for (Map.Entry<String, String> item : omnivariables.entrySet())
+            {
+                if (item.getValue().contains(",") || item.getValue().contains(";"))
+                {
+                    item.setValue(item.getValue().replace(",", ""));
+                    item.setValue(item.getValue().replace(";", ""));
+                }
+            }
         }
 
         catch (Exception e)
@@ -101,21 +113,106 @@ public class Omniturevalidation {
 
     public boolean compareOmniVariables()
     {
-        for (Map.Entry<String, String> text: omnivariables.entrySet())
+        for (Map.Entry<String, String> text: checkvariables.entrySet())
         {
-            System.out.println(text.getKey() + ": " +text.getValue());
+            if (text.getValue().equals(""))
+            {
+                if (omnivariables.get(text.getKey()).equals(null))
+                {
+                    return false;
+                }
+            }
+            else if (!text.getValue().equalsIgnoreCase(omnivariables.get(text.getKey())))
+            {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
-    public void initializeCheckVariables(String path)
+    public boolean initializeCheckVariables()
     {
+        try
+        {
+            final JFileChooser fc = new JFileChooser();
+            String fileLocation;
+            fc.setDialogTitle("Open Omniture .CSV File");
+            fc.setMultiSelectionEnabled(false);
+            fc.setAcceptAllFileFilterUsed(false);
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Comma Separated Values (CSV)", "csv");
+            fc.setFileFilter(filter);
+            int option = fc.showOpenDialog(null);
+            BufferedReader br;
+            if (option == JFileChooser.APPROVE_OPTION)
+            {
+                fileLocation = fc.getSelectedFile().getAbsolutePath();
+                br = new BufferedReader(new FileReader(fileLocation));
+                String line;
 
+                while ((line = br.readLine()) != null)
+                {
+                    String[] parse = line.split(",");
+                    if (parse[0].equalsIgnoreCase("Variables"))
+                        continue;
+                    if (parse.length == 2)
+                        checkvariables.put(parse[0], parse[1]);
+                    else if (parse.length == 1)
+                        checkvariables.put(parse[0], "");
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"CSV File is Corrupt. Please remake CSV file.","CSV File Corrupt", JOptionPane.PLAIN_MESSAGE);
+                        return false;
+                    }
+                }
 
+                br.close();
+            }
+        }
+
+        catch (Exception e)
+        {
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
 
     public void createOmniCSV()
     {
+        try
+        {
+            final JFileChooser fc = new JFileChooser();
+            String fileLocation;
+            fc.setDialogTitle("Save Omniture .CSV File");
+            fc.setMultiSelectionEnabled(false);
+            fc.setAcceptAllFileFilterUsed(false);
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Comma Separated Values (CSV)", "csv");
+            fc.setFileFilter(filter);
+            int option = fc.showSaveDialog(null);
+            if (option == JFileChooser.APPROVE_OPTION)
+            {
+                fileLocation = fc.getSelectedFile().getAbsolutePath();
+                getOmnitureDebuggerPage();
+
+                if (!fileLocation.contains(".csv"))
+                {
+                    fileLocation += ".csv";
+                }
+                System.out.println(fileLocation);
+                PrintWriter omniCSV = new PrintWriter(fileLocation, "UTF-8");
+                omniCSV.append("Variables,Values\n");
+                for (Map.Entry<String, String> item : omnivariables.entrySet())
+                {
+                    omniCSV.append(item.getKey() + "," + item.getValue() + "\n");
+                }
+                omniCSV.close();
+            }
+        }
+
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
 
 
     }
