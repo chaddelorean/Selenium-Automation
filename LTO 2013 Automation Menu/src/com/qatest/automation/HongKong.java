@@ -35,6 +35,8 @@ public class HongKong {
 	  }
 
       buyer = "HK0010165";
+      omniCreate = "";
+      omniLoad = "";
   }
 
   @Before

@@ -38,6 +38,8 @@ public class Singapore {
 		  this.password = password;
 	  }
       buyer = "US8128558";
+      omniCreate = "";
+      omniLoad = "";
   }
 
   @Before
