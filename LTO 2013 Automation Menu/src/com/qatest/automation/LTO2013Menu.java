@@ -787,6 +787,15 @@ public class LTO2013Menu extends JFrame {
 		});
 		mnOmniture.add(mntmLoadCsvFile);
 		
+		JMenuItem mntmResetOmnitureVariables = new JMenuItem("Reset Omniture CSV");
+		mntmResetOmnitureVariables.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				omniLocation = "";
+				omniLoadLocation = "";
+			}
+		});
+		mnOmniture.add(mntmResetOmnitureVariables);
+		
 		
 			
 	}
