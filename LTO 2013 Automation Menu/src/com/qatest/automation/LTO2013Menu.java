@@ -93,6 +93,12 @@ public class LTO2013Menu extends JFrame {
 		placeorders.setBackground(Color.WHITE);
 		placeorders.setBounds(26, 487, 126, 34);
 		contentPane.add(placeorders);
+		
+		JCheckBox chckbxCheckOmniture = new JCheckBox("Check Omniture", false);
+		chckbxCheckOmniture.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		chckbxCheckOmniture.setBackground(Color.WHITE);
+		chckbxCheckOmniture.setBounds(154, 524, 176, 34);
+		contentPane.add(chckbxCheckOmniture);
 				
 		hkbutton.addActionListener(new ActionListener() 
 		{
@@ -853,6 +859,8 @@ public class LTO2013Menu extends JFrame {
 			}
 		});
 		mnOmniture.add(mntmLoadCsvFile);
+		
+		
 			
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
