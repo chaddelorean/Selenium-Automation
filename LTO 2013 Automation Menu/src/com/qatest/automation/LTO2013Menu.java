@@ -834,6 +834,25 @@ public class LTO2013Menu extends JFrame {
 			}
 		});
 		mnAction.add(mntmRunAsia);
+		
+		JMenu mnOmniture = new JMenu("Omniture");
+		menuBar.add(mnOmniture);
+		
+		JMenuItem mntmCreateCsvFile = new JMenuItem("Create CSV File");
+		mntmCreateCsvFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		mnOmniture.add(mntmCreateCsvFile);
+		
+		JMenuItem mntmLoadCsvFile = new JMenuItem("Load CSV File");
+		mntmLoadCsvFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		mnOmniture.add(mntmLoadCsvFile);
 			
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
