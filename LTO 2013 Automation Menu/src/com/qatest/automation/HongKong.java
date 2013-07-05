@@ -17,6 +17,8 @@ public class HongKong {
   private String password;
   private ResetPLQuantity plquantity;
   private String buyer;
+  private String omniCreate;
+  private String omniLoad;
   
   public HongKong(String username, String password)
   {
@@ -54,7 +56,13 @@ public class HongKong {
 	  
 	  return results;
   }
-  
+
+  public void setupOmniture(String create, String load)
+  {
+      omniCreate = create;
+      omniLoad = load;
+  }
+
   public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
@@ -83,7 +91,24 @@ public class HongKong {
 
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-	    
+
+        //omniture check
+        Omniturevalidation omni = new Omniturevalidation(driver);
+        if (!omniCreate.equals(""))
+        {
+            omni.createOmniCSV(omniCreate);
+        }
+
+        if (!omniLoad.equals(""))
+        {
+            omni.initializeCheckVariables(omniLoad);
+            omni.getOmnitureDebuggerPage();
+            if (!omni.compareOmniVariables())
+            {
+                results[0] = "Hong Kong: Failed: Myself\nError: Omniture variables did not match.";
+                return results;
+            }
+        }
 	    //product page
 	    //new Select(driver.findElement(By.name("qty"))).selectByVisibleText("3");
 	    driver.findElement(By.id("checkout")).click();
@@ -147,8 +172,8 @@ public class HongKong {
 		    		    
 		    //Buyer validation page
 		    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-		    
-		    //product page
+
+            //product page
 		    //new Select(driver.findElement(By.name("qty"))).selectByVisibleText("3");
 		    driver.findElement(By.id("checkout")).click();
 		    if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")))

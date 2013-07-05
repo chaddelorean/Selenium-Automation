@@ -21,6 +21,8 @@ public class Singapore {
   private String password;
   private ResetPLQuantity plquantity;
   private String buyer;
+  private String omniCreate;
+  private String omniLoad;
   
   public Singapore(String username, String password)
   {
@@ -57,6 +59,12 @@ public class Singapore {
    
   }
 
+  public void setupOmniture(String create, String load)
+  {
+      omniCreate = create;
+      omniLoad = load;
+  }
+
   public String[] someoneElse(boolean place,  boolean screenshot, String location)
   {
 	  try{
@@ -83,13 +91,31 @@ public class Singapore {
 	    
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-	    
+
+        //omniture check
+        Omniturevalidation omni = new Omniturevalidation(driver);
+        if (!omniCreate.equals(""))
+        {
+            omni.createOmniCSV(omniCreate);
+        }
+
+        if (!omniLoad.equals(""))
+        {
+            omni.initializeCheckVariables(omniLoad);
+            omni.getOmnitureDebuggerPage();
+            if (!omni.compareOmniVariables())
+            {
+                results[0] = "Singapore: Failed: Someone Else\nError: Omniture variables did not match.";
+                return results;
+            }
+        }
+
 	    //product page
 	    DropDownProduct product = new DropDownProduct(driver);
 		results[0] = product.Product();
 		if (results[0] != null)
 		{
-			results[0] = "Singapore: Failed: Myself\n" + results[0];
+			results[0] = "Singapore: Failed: Someone Else\n" + results[0];
 			if (screenshot)
 				myScreenShot.takeScreenShot(location, "Singapore");
 			return results;
