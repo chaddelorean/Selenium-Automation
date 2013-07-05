@@ -116,7 +116,7 @@ public class Omniturevalidation {
     {
         for (Map.Entry<String, String> text: checkvariables.entrySet())
         {
-            System.out.println("Check: " + text.getValue() + " Omni: " + omnivariables.get(text.getKey()));
+            //System.out.println("Check: " + text.getValue() + " Omni: " + omnivariables.get(text.getKey()));
             if (text.getValue().equals(""))
             {
                 if (omnivariables.get(text.getKey()).equals(null))

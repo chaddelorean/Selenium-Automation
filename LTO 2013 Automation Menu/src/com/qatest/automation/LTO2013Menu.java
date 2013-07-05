@@ -108,7 +108,9 @@ public class LTO2013Menu extends JFrame {
 							{
 								HongKong hongkong = new HongKong(username, password);
                                 if (chckbxCheckOmniture.isSelected())
+                                {
                                     hongkong.setupOmniture(omniLocation, omniLoadLocation);
+                                }
 								hongkong.setUp();
 								String result[] = hongkong.testHongKong(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 								for (int i = 0; i < result.length; i++)
