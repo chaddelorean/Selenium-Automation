@@ -149,6 +149,11 @@ public class Buyer {
 			{
 				driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();
 			}
+
+            if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")))
+            {
+                driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")).click();
+            }
 	        
 	        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	        return results;
