@@ -114,22 +114,30 @@ public class Omniturevalidation {
 
     public boolean compareOmniVariables()
     {
-        for (Map.Entry<String, String> text: checkvariables.entrySet())
+        try
         {
-            //System.out.println("Check: " + text.getValue() + " Omni: " + omnivariables.get(text.getKey()));
-            if (text.getValue().equals(""))
+            for (Map.Entry<String, String> text: checkvariables.entrySet())
             {
-                if (omnivariables.get(text.getKey()).equals(null))
+                //System.out.println("Check: " + text.getValue() + " Omni: " + omnivariables.get(text.getKey()));
+                if (text.getValue().equals(""))
+                {
+                    if (omnivariables.get(text.getKey()).equals(null))
+                    {
+                        return false;
+                    }
+                }
+                else if (!text.getValue().equalsIgnoreCase(omnivariables.get(text.getKey())))
                 {
                     return false;
                 }
             }
-            else if (!text.getValue().equalsIgnoreCase(omnivariables.get(text.getKey())))
-            {
-                return false;
-            }
+            return true;
         }
-        return true;
+        catch(Exception e)
+        {
+            System.out.println(e);
+            return false;
+        }
     }
 
     public boolean initializeCheckVariables(String fileLocation)

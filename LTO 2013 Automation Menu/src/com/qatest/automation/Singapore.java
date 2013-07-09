@@ -72,13 +72,31 @@ public class Singapore {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[9]/a")).click();
+	    driver.findElement(By.linkText("Singapore")).click();
 	    //Singapore landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
+        driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    //buyer select radio button
 	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
 	    //buyer select continue button
 	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+
+          //omniture check
+          Omniturevalidation omni = new Omniturevalidation(driver);
+          if (!omniCreate.equals(""))
+          {
+              omni.createOmniCSV(omniCreate);
+          }
+
+          if (!omniLoad.equals(""))
+          {
+              omni.initializeCheckVariables(omniLoad);
+              omni.getOmnitureDebuggerPage();
+              if (!omni.compareOmniVariables())
+              {
+                  results[0] = "Singapore: Failed: Someone Else\nError: Omniture variables did not match.";
+                  return results;
+              }
+          }
 
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
@@ -93,24 +111,6 @@ public class Singapore {
 	    
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-
-        //omniture check
-        Omniturevalidation omni = new Omniturevalidation(driver);
-        if (!omniCreate.equals(""))
-        {
-            omni.createOmniCSV(omniCreate);
-        }
-
-        if (!omniLoad.equals(""))
-        {
-            omni.initializeCheckVariables(omniLoad);
-            omni.getOmnitureDebuggerPage();
-            if (!omni.compareOmniVariables())
-            {
-                results[0] = "Singapore: Failed: Someone Else\nError: Omniture variables did not match.";
-                return results;
-            }
-        }
 
 	    //product page
 	    DropDownProduct product = new DropDownProduct(driver);
