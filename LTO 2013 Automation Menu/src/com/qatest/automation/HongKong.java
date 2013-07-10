@@ -70,7 +70,7 @@ public class HongKong {
 	  try{
 	  	driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[3]/a")).click();
+	    driver.findElement(By.linkText("香港 (Hong Kong)")).click();
 	    //Hong Kong landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    //buyer select radio button

@@ -29,7 +29,7 @@ public class Thailand {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "SG1111111";
 		  this.password = "abc123";
 	  }
 	  

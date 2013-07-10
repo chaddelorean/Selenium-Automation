@@ -19,12 +19,18 @@ public class Buyer {
 		try
 		{
 
-			if (isElementPresent(By.id("zip_postalLookup")))
+            if (isElementPresent(By.id("zip_postalLookup")) && driver.findElement(By.id("zip_postalLookup")).getAttribute("placeholder").equals("79000"))
+            {
+                driver.findElement(By.id("zip_postalLookup")).clear();
+                driver.findElement(By.id("zip_postalLookup")).sendKeys("79000");
+            }
+
+            else if (isElementPresent(By.id("zip_postalLookup")))
             {
 				 driver.findElement(By.id("zip_postalLookup")).clear(); 
 				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
 			}
-			
+
 			if (isElementPresent(By.id("user_phone_2")))
 			{
 				driver.findElement(By.id("user_phone_2")).clear();
