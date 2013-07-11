@@ -37,7 +37,7 @@ public class Singapore {
 		  this.userName = username;
 		  this.password = password;
 	  }
-      buyer = "US8128558";
+      buyer = "SG3110784";
       omniCreate = "";
       omniLoad = "";
   }

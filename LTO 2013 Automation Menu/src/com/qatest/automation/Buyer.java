@@ -19,7 +19,7 @@ public class Buyer {
 		try
 		{
 
-            if (isElementPresent(By.id("zip_postalLookup")) && driver.findElement(By.id("zip_postalLookup")).getAttribute("placeholder").equals("79000"))
+            if (isElementPresent(By.id("zip_postalLookup")) && driver.getCurrentUrl().equals("http://test.nuskin.com/content/lto/2013/sea/en_MY/buyerOther.html"))
             {
                 driver.findElement(By.id("zip_postalLookup")).clear();
                 driver.findElement(By.id("zip_postalLookup")).sendKeys("79000");
