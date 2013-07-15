@@ -34,9 +34,8 @@ public class Wireshopapp {
 		    	Thread.currentThread().interrupt();
 		    }
 
-            new Select(driver.findElement(By.id("paymentSelection_order_1"))).selectByVisibleText("Add a WIRE");
-            driver.findElement(By.cssSelector("option[value=\"addPaymentType8\"]")).click();
-            driver.findElement(By.cssSelector("button.mainbutton")).click();
+            new Select(driver.findElement(By.id("paymentSelection_order_1"))).selectByVisibleText("Add a Company Credit");
+            //driver.findElement(By.cssSelector("option[value=\"addPaymentType8\"]")).click();
 	        driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
 		    try{
 		    	Thread.sleep(5000);

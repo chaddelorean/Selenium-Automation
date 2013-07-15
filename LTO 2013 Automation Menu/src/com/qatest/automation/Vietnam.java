@@ -29,7 +29,7 @@ public class Vietnam {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "TH1111111";
 		  this.password = "abc123";
 	  }
 	  
@@ -38,7 +38,7 @@ public class Vietnam {
 		  this.userName = username;
 		  this.password = password;
 	  }
-      buyer = "US8128558";
+      buyer = "VN0002952";
   }
 
   @Before
@@ -65,7 +65,8 @@ public class Vietnam {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[12]/a")).click();
+	    driver.findElement(By.linkText("Việt Nam (Vietnam)")).click();
+        driver.get("http://test.nuskin.com/content/lto/2013/sea/en_VN/landing.html");
 	    //Vietnam landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    

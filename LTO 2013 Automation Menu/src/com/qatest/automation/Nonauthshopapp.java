@@ -2,6 +2,8 @@ package com.qatest.automation;
 
 import org.openqa.selenium.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class Nonauthshopapp {
 	
 	private String[] results;
@@ -56,14 +58,28 @@ public class Nonauthshopapp {
 	    	    	results[0] = "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
 	    	    	return results;
 	    	    }
-	        	
+                /*if (isElementPresent(By.tagName("input")))
+                {
+                    driver.findElement(By.tagName("input")).click();
+                }  */
+
 	        	if (!isElementPresent(By.id("productinformation-complete")))
 	        	{
 	        		results[0] = "Order was not completed";
 	        		return results;
 	        	}
 	        	results[1] = driver.findElement(By.xpath("/html/body/form/div/div[2]/h2")).getText();
-                driver.findElement(By.xpath("/html/body/form/div/div[7]/div[2]/button")).click();
+                driver.manage().timeouts().implicitlyWait(500, TimeUnit.MICROSECONDS);
+                if (isElementPresent(By.name("_eventId_complete")))
+                {
+                    driver.findElement((By.name("_eventId_complete"))).click();
+                }
+
+                if (isElementPresent(By.xpath("/html/body/form/div/div[7]/div[2]/button")))
+                {
+                    driver.findElement(By.xpath("/html/body/form/div/div[7]/div[2]/button")).click();
+                }
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                 driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div[2]/ul/li/div/div/a")).click();
                 Thread.sleep(3000);
                 driver.findElement(By.id("defaultLogInForm-username")).clear();

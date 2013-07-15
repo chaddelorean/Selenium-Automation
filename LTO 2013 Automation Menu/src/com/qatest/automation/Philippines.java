@@ -29,7 +29,7 @@ public class Philippines {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "PH1111111";
 		  this.password = "abc123";
 	  }
 	  
@@ -38,7 +38,7 @@ public class Philippines {
 		  this.userName = username;
 		  this.password = password;
 	  }
-      buyer = "US8128558";
+      buyer = "PH0006297";
 
   }
 
@@ -66,13 +66,9 @@ public class Philippines {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[8]/a")).click();
+	    driver.findElement(By.linkText("Philippines")).click();
 	    //Philippines landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-	    //buyer select radio button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-	    //buyer select continue button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);

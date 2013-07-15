@@ -29,7 +29,7 @@ public class Malaysia {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "HK1111111";
+		  this.userName = "MY1111111";
 		  this.password = "abc123";
 	  }
 	  
@@ -39,7 +39,7 @@ public class Malaysia {
 		  this.password = password;
 	  }
 
-      buyer = "US8128558";
+      buyer = "MY4118279";
   }
 
   @Before
@@ -66,13 +66,9 @@ public class Malaysia {
 	  try{
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[7]/a")).click();
+	    driver.findElement(By.linkText("Malaysia")).click();
 	    //Malaysia landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-	    //buyer select radio button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-	    //buyer select continue button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);

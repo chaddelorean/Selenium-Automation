@@ -31,6 +31,12 @@ public class Buyer {
 				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
 			}
 
+            if (isElementPresent(By.id("distributorID")))
+            {
+                driver.findElement(By.id("distributorID")).clear();
+                driver.findElement(By.id("distributorID")).sendKeys(qualify);
+            }
+
 			if (isElementPresent(By.id("user_phone_2")))
 			{
 				driver.findElement(By.id("user_phone_2")).clear();
@@ -108,13 +114,7 @@ public class Buyer {
 				driver.findElement(By.id("address_city")).clear();
 			    driver.findElement(By.id("address_city")).sendKeys("Provo");
 			}
-			
-			if (isElementPresent(By.id("distributorID")))
-			{
-			    driver.findElement(By.id("distributorID")).clear();
-			    driver.findElement(By.id("distributorID")).sendKeys(qualify);
-			}
-			
+
 			if (isElementPresent(By.id("email")))
 			{
 			    driver.findElement(By.id("email")).clear();

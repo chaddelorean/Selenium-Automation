@@ -29,7 +29,7 @@ public class Thailand {
   {
 	  if (username.equals("") || password.equals(""))
 	  {
-		  this.userName = "SG1111111";
+		  this.userName = "TH1111111";
 		  this.password = "abc123";
 	  }
 	  
@@ -38,7 +38,7 @@ public class Thailand {
 		  this.userName = username;
 		  this.password = password;
 	  }
-      buyer = "US8128558";
+      buyer = "TH3103256";
   }
 
   @Before
@@ -66,6 +66,7 @@ public class Thailand {
 		driver.get(baseUrl + "/content/lto/2013.html");
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[11]/a")).click();
+        driver.get("http://test.nuskin.com/content/lto/2013/sea/en_TH/landing.html");
 	    //Thailand landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    
