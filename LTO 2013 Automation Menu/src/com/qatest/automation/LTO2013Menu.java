@@ -84,7 +84,7 @@ public class LTO2013Menu extends JFrame {
 		final JCheckBox placeorders = new JCheckBox("Place Orders", true);
 		placeorders.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		placeorders.setBackground(Color.WHITE);
-		placeorders.setBounds(26, 487, 126, 34);
+		placeorders.setBounds(26, 487, 130, 34);
 		contentPane.add(placeorders);
 		
 		final JCheckBox chckbxCheckOmniture = new JCheckBox("Check Omniture", false);
@@ -228,7 +228,7 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: United States\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedStates united = new UnitedStates(username, password);
+                        UnitedStates united = new UnitedStates();
                         try {
                             united.setUp();
                             String result[] = united.testUnitedStates(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -339,7 +339,7 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: United Kingdom\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom = new UnitedKingdom(username, password);
+                        UnitedKingdom uKingdom = new UnitedKingdom();
                         try {
                             uKingdom.setUp();
                             String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);

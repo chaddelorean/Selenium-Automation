@@ -19,22 +19,21 @@ public class UnitedKingdom {
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
   private String userName;
+  private String distID;
   private String password;
   private ResetPLQuantity plquantity;
 
-  public UnitedKingdom(String username, String password)
+  public UnitedKingdom()
   {
-	  if(username.equals("") || password.equals(""))
-	  {
-		  this.userName = "gaaker";
-		  this.password = "test123";
-	  }  
-	
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
+      this.userName = "gaaker";
+      this.password = "test123";
+      this.distID = "US8128558";
+  }
+  public UnitedKingdom(String username, String password, String dist)
+  {
+	  this.userName = username;
+	  this.password = password;
+      this.distID = dist;
   }
   
   @Before
@@ -48,7 +47,7 @@ public class UnitedKingdom {
   @Test
   public String[] testUnitedKingdom(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_EMEA");
+      plquantity.Reset(distID, "LTO_EMEA");
 	  Myself(place, screenshot, location);
 	  
 	  return results;
@@ -60,7 +59,7 @@ public class UnitedKingdom {
 	  try{
 		//global landing page
 		driver.get(baseUrl + "/content/lto/2013.html");
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/ul/li[13]/a")).click();
+		driver.findElement(By.linkText("United Kingdom")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(userName, password);
@@ -85,7 +84,7 @@ public class UnitedKingdom {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, userName, password);
+	    Authshopapp shopapp = new Authshopapp(driver, distID, password);
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {

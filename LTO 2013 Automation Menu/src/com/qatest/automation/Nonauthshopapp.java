@@ -80,15 +80,16 @@ public class Nonauthshopapp {
                     driver.findElement(By.xpath("/html/body/form/div/div[7]/div[2]/button")).click();
                 }
                 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div[2]/ul/li/div/div/a")).click();
-                Thread.sleep(3000);
-                driver.findElement(By.id("defaultLogInForm-username")).clear();
-                driver.findElement(By.id("defaultLogInForm-username")).sendKeys(username);
-                driver.findElement(By.id("defaultLogInForm-password")).clear();
-                driver.findElement(By.id("defaultLogInForm-password")).sendKeys(password);
-                driver.findElement(By.id("signinButton2")).click();
-                Thread.sleep(5000);
                 String[] ordernum = results[1].split(" ");
+                driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div[2]/ul/li[3]/div/div/a")).click();
+                Thread.sleep(3000);
+                driver.findElement(By.cssSelector("input.orderNumberVal")).clear();
+                driver.findElement(By.cssSelector("input.orderNumberVal")).sendKeys(ordernum[2]);
+                driver.findElement(By.cssSelector("input.distributorIdVal")).clear();
+                driver.findElement(By.cssSelector("input.distributorIdVal")).sendKeys(username);
+                driver.findElement(By.linkText("SUBMIT")).click();
+                Thread.sleep(5000);
+
                 if (!driver.getPageSource().contains(ordernum[2]))
                 {
                      results[0] = results[1] + " was not found on order status page.";
