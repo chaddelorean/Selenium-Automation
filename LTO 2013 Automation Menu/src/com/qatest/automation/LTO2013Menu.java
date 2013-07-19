@@ -505,7 +505,7 @@ public class LTO2013Menu extends JFrame {
         });
 		mnFile.add(mntmScreenShotLocation);
 		
-		JMenuItem mntmAuthenication = new JMenuItem("Authenication ");
+		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 Authentication auth = new Authentication();
