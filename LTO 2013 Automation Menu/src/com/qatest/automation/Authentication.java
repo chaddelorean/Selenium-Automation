@@ -22,17 +22,25 @@ public class Authentication extends JFrame {
 	private JPanel contentPane;
 	private JTextField username;
 	private JTextField password;
-	private String user;
-	private String pass;
+    private String login = "";
+    private String pass = "";
+    private String buyer = "";
+    private String distID = "";
+    private String email = "";
+    private String phone = "";
+    private String address = "";
+    private String city = "";
+    private String state = "";
+    private String postalcode = "";
 	private static Authentication frame;
 	private JTextField txExecID;
 	private JTextField txBuyerID;
-	private JTextField textField;
+	private JTextField txEmail;
 	private JTextField txPhone;
-	private JTextField textField_1;
+	private JTextField txAddress;
 	private JTextField txCity;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txState;
+	private JTextField txPostal;
 	/**
 	 * Launch the application.
 	 */
@@ -71,8 +79,8 @@ public class Authentication extends JFrame {
 		username.setBounds(37, 57, 260, 20);
 		contentPane.add(username);
 		username.setColumns(10);
-		if (LTO2013Menu.getUser() != null)
-			username.setText(LTO2013Menu.getUser());
+		if (LTO2013Menu.getlogin() != "")
+			username.setText(LTO2013Menu.getData().getLogin());
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(37, 88, 97, 14);
@@ -82,22 +90,9 @@ public class Authentication extends JFrame {
 		password.setColumns(10);
 		password.setBounds(37, 102, 260, 20);
 		contentPane.add(password);
-		if (LTO2013Menu.getPassword() != null)
-			password.setText(LTO2013Menu.getPassword());
-		
-		JButton btnNewButton = new JButton("Set Form Data");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (username.getText() != null)
-					LTO2013Menu.setUser(username.getText());
-				if (password.getText() != null)
-					LTO2013Menu.setPassword(password.getText());
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton.setBounds(37, 509, 170, 23);
-		contentPane.add(btnNewButton);
-		
+        if (LTO2013Menu.getPassword() != "")
+            password.setText(LTO2013Menu.getData().getPassword());
+
 		JLabel lblDistributorId = new JLabel("Executive ID");
 		lblDistributorId.setBounds(37, 133, 97, 14);
 		contentPane.add(lblDistributorId);
@@ -106,6 +101,8 @@ public class Authentication extends JFrame {
 		txExecID.setColumns(10);
 		txExecID.setBounds(37, 146, 260, 20);
 		contentPane.add(txExecID);
+        if (LTO2013Menu.getDistID() != "")
+            txExecID.setText(LTO2013Menu.getData().getDistID());
 		
 		JLabel lblBuyerId = new JLabel("Buyer ID");
 		lblBuyerId.setBounds(37, 177, 97, 14);
@@ -115,15 +112,19 @@ public class Authentication extends JFrame {
 		txBuyerID.setColumns(10);
 		txBuyerID.setBounds(37, 192, 260, 20);
 		contentPane.add(txBuyerID);
+        if (LTO2013Menu.getBuyer() != "")
+            txBuyerID.setText(LTO2013Menu.getData().getBuyerID());
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setBounds(37, 223, 97, 14);
 		contentPane.add(lblEmail);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(37, 237, 260, 20);
-		contentPane.add(textField);
+		txEmail = new JTextField();
+		txEmail.setColumns(10);
+		txEmail.setBounds(37, 237, 260, 20);
+		contentPane.add(txEmail);
+        if (LTO2013Menu.getEmail() != "")
+            txEmail.setText(LTO2013Menu.getData().getEmail());
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Authentication.class.getResource("/Image/nu-skin_f.png")));
@@ -138,15 +139,20 @@ public class Authentication extends JFrame {
 		txPhone.setColumns(10);
 		txPhone.setBounds(37, 282, 260, 20);
 		contentPane.add(txPhone);
+        if (LTO2013Menu.getPhone() != "")
+            txPhone.setText(LTO2013Menu.getData().getPhone());
 		
 		JLabel lblAddress = new JLabel("Address");
 		lblAddress.setBounds(37, 313, 97, 14);
 		contentPane.add(lblAddress);
+
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(37, 328, 260, 20);
-		contentPane.add(textField_1);
+		txAddress = new JTextField();
+		txAddress.setColumns(10);
+		txAddress.setBounds(37, 328, 260, 20);
+		contentPane.add(txAddress);
+        if (LTO2013Menu.getAddress() != "")
+            txAddress.setText(LTO2013Menu.getData().getAddress());
 		
 		JLabel lblCity = new JLabel("City");
 		lblCity.setBounds(37, 356, 97, 14);
@@ -156,29 +162,65 @@ public class Authentication extends JFrame {
 		txCity.setColumns(10);
 		txCity.setBounds(37, 372, 260, 20);
 		contentPane.add(txCity);
+        if (LTO2013Menu.getCity() != "")
+            txCity.setText(LTO2013Menu.getData().getCity());
 		
 		JLabel lblState = new JLabel("State");
 		lblState.setBounds(37, 403, 97, 14);
 		contentPane.add(lblState);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(37, 417, 260, 20);
-		contentPane.add(textField_2);
+		txState = new JTextField();
+		txState.setColumns(10);
+		txState.setBounds(37, 417, 260, 20);
+		contentPane.add(txState);
+        if (LTO2013Menu.getstate() != "")
+            txState.setText(LTO2013Menu.getData().getState());
 		
 		JLabel lblPostalCode = new JLabel("Postal Code");
 		lblPostalCode.setBounds(37, 448, 97, 14);
 		contentPane.add(lblPostalCode);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(37, 467, 260, 20);
-		contentPane.add(textField_3);
+		txPostal = new JTextField();
+		txPostal.setColumns(10);
+		txPostal.setBounds(37, 467, 260, 20);
+		contentPane.add(txPostal);
+        if (LTO2013Menu.getPostalcode() != "")
+            txPostal.setText(LTO2013Menu.getData().getPostalcode());
+
+        JButton btnNewButton = new JButton("Set Form Data");
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                if (username.getText() != null)
+                    LTO2013Menu.setLogin(username.getText());
+                if (password.getText() != null)
+                    LTO2013Menu.setPassword(password.getText());
+                if (txExecID.getText() != null)
+                    LTO2013Menu.setDistID(txExecID.getText());
+                if (txBuyerID.getText() != null)
+                    LTO2013Menu.setBuyer(txBuyerID.getText());
+                if (txCity.getText() != null)
+                    LTO2013Menu.setCity(txCity.getText());
+                if (txPhone.getText() != null)
+                    LTO2013Menu.setPhone(txPhone.getText());
+                if (txEmail.getText() != null)
+                    LTO2013Menu.setEmail((txEmail.getText()));
+                if (txAddress.getText() != null)
+                    LTO2013Menu.setAddress(txAddress.getText());
+                if (txState.getText() != null)
+                    LTO2013Menu.setState(txState.getText());
+                if (txPostal.getText() != null)
+                    LTO2013Menu.setPostalcode(txPostal.getText());
+                LTO2013Menu.setBuyerDataForm();
+                frame.setVisible(false);
+            }
+        });
+        btnNewButton.setBounds(37, 509, 170, 23);
+        contentPane.add(btnNewButton);
 	}
 	
 	public String getUserName()
 	{
-		return user;
+		return login;
 	}
 	
 	public String getPassword()

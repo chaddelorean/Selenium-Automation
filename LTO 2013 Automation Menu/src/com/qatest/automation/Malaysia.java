@@ -20,26 +20,20 @@ public class Malaysia {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
 
-  public Malaysia(String username, String password)
+  public Malaysia()
   {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "MY1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
-
-      buyer = "MY4118279";
+      data = new BuyerDataForm();
+      data.setLogin("MY1111111");
+      data.setDistID("MY1111111");
+      data.setPassword("abc123");
+      data.setBuyerID("MY4118279");
+  }
+  public Malaysia(BuyerDataForm d)
+  {
+      data = d;
   }
 
   @Before
@@ -53,8 +47,8 @@ public class Malaysia {
   @Test
   public String[] testMalaysia(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_SEA");
-      plquantity.Reset(buyer, "LTO_SEA");
+      plquantity.Reset(data.getDistID(), "LTO_SEA");
+      plquantity.Reset(data.getBuyerID(), "LTO_SEA");
 	  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -72,7 +66,7 @@ public class Malaysia {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Malaysia: Failed: Someone Else\n" + results[0];
@@ -96,7 +90,7 @@ public class Malaysia {
 		}
 
 	    //shop app
-		Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+		Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

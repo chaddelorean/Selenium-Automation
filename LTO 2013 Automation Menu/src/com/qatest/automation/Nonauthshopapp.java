@@ -9,14 +9,12 @@ public class Nonauthshopapp {
 	private String[] results;
 	private WebDriver driver;
     private String username;
-    private String password;
 	
-	public Nonauthshopapp(WebDriver driver, String user, String pass)
+	public Nonauthshopapp(WebDriver driver, String user)
 	{
 		this.driver = driver;
 		results = new String[2];
         this.username = user;
-        this.password = pass;
 	}
 	
 	public String[] ShopApp(boolean place)

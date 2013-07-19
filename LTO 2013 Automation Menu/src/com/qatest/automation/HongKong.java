@@ -13,28 +13,23 @@ public class HongKong {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
+  private BuyerDataForm data;
   private ResetPLQuantity plquantity;
-  private String buyer;
   private String omniCreate;
   private String omniLoad;
-  
-  public HongKong(String username, String password)
-  {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "HK1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
 
-      buyer = "HK0010165";
+  public HongKong()
+  {
+      data = new BuyerDataForm();
+      data.setLogin("HK1111111");
+      data.setPassword("abc123");
+      data.setBuyerID("HK0010165");
+      omniCreate = "";
+      omniLoad = "";
+  }
+  public HongKong(BuyerDataForm d)
+  {
+      data = d;
       omniCreate = "";
       omniLoad = "";
   }
@@ -50,8 +45,8 @@ public class HongKong {
   @Test
   public String[] testHongKong(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_HK");
-      plquantity.Reset(buyer, "LTO_HK");
+      plquantity.Reset(data.getDistID(), "LTO_HK");
+      plquantity.Reset(data.getBuyerID(), "LTO_HK");
 	  Myself(place, screenshot, location);
 	  if (results[0].equals("Hong Kong: Passed"))
 		  someoneElse(place, screenshot, location);
@@ -80,7 +75,7 @@ public class HongKong {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Hong Kong: Failed: Myself\n" + results[0];
@@ -88,8 +83,6 @@ public class HongKong {
 				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
 	    }
-	    //Omniturevalidation omni = new Omniturevalidation(driver);
-        //omni.getOmnitureDebuggerPage();
 
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
@@ -123,7 +116,7 @@ public class HongKong {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -163,7 +156,7 @@ public class HongKong {
 		    
 		    //buyer page info
 		    Buyer myBuyer = new Buyer(driver);
-		    results[0] = myBuyer.buyerPage(userName, buyer);
+		    results[0] = myBuyer.buyerPage(data);
 		    if (results[0] != null)
 		    {
 		    	results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
@@ -187,7 +180,7 @@ public class HongKong {
 		    }
 
 		    //shop app
-		    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+		    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 		    String[] temp = shopapp.ShopApp(place);
 		    results[0] = temp[0];
 		    results[2] = temp[1];

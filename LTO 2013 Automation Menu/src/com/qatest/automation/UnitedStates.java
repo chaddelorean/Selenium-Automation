@@ -14,25 +14,20 @@ public class UnitedStates {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
-  private String distID;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
 
   public UnitedStates()
   {
-      this.userName = "gaaker";
-      this.password = "krist90";
-      this.distID = "US8128558";
-      this.buyer = "US1111111";
+      data = new BuyerDataForm();
+      data.setLogin("gaaker");
+      data.setPassword("krist90");
+      data.setDistID("US8128558");
+      data.setBuyerID("US1111111");
   }
-  public UnitedStates(String username, String password, String dist, String buyerid)
+  public UnitedStates(BuyerDataForm d)
   {
-	  this.userName = username;
-      this.password = password;
-      this.distID = dist;
-	  this.buyer = buyerid;
+	  data = d;
   }
 
   @Before
@@ -46,8 +41,8 @@ public class UnitedStates {
   @Test
   public String[] testUnitedStates(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(distID, "LTO_Americas");
-      plquantity.Reset(buyer, "LTO_Americas");
+      plquantity.Reset(data.getDistID(), "LTO_Americas");
+      plquantity.Reset(data.getBuyerID(), "LTO_Americas");
 	  Myself(place, screenshot, location);
 	  if (results[0].equals("United States: Passed"))
 		  someoneElse(place, screenshot, location);
@@ -64,7 +59,7 @@ public class UnitedStates {
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
-		results[0] = land.landing(userName, password);
+		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
 			results[0] = "United States: Failed: Myself\n" + results[0];
@@ -90,7 +85,7 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, distID, password);
+	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -123,7 +118,7 @@ public class UnitedStates {
 	  	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
 	  	//United States landing page - Order Now button
 	  	LandingPage land = new LandingPage(driver);
-		results[0] = land.landing(userName, password);
+		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
 			results[0] = "United States: Failed: Myself\n" + results[0];
@@ -139,7 +134,7 @@ public class UnitedStates {
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(distID, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Myself\n" + results[0];
@@ -164,7 +159,7 @@ public class UnitedStates {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, distID, password);
+	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[2] = temp[1];

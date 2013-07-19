@@ -8,9 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.fail;
 
 public class Thailand {
@@ -20,25 +18,20 @@ public class Thailand {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
 
-  public Thailand(String username, String password)
+  public Thailand()
   {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "TH1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
-      buyer = "TH3103256";
+      data = new BuyerDataForm();
+      data.setLogin("TH1111111");
+      data.setPassword("abc123");
+      data.setDistID("TH1111111");
+      data.setBuyerID("TH3103256");
+  }
+  public Thailand(BuyerDataForm d)
+  {
+      data = d;
   }
 
   @Before
@@ -52,8 +45,8 @@ public class Thailand {
   @Test
   public String[] testThailand(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_SEA");
-      plquantity.Reset(buyer, "LTO_SEA");
+      plquantity.Reset(data.getDistID(), "LTO_SEA");
+      plquantity.Reset(data.getBuyerID(), "LTO_SEA");
 	  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -72,7 +65,7 @@ public class Thailand {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Thailand: Failed: Someone Else\n" + results[0];
@@ -96,7 +89,7 @@ public class Thailand {
 		}
 
 	    //shop app
-		Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+		Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

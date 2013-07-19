@@ -20,25 +20,20 @@ public class Vietnam {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
 
-  public Vietnam(String username, String password)
+  public Vietnam()
   {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "TH1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
-      buyer = "VN0002952";
+      data = new BuyerDataForm();
+      data.setLogin("TH1111111");
+      data.setPassword("abc123");
+      data.setDistID("TH1111111");
+      data.setBuyerID("VN0002952");
+  }
+  public Vietnam(BuyerDataForm d)
+  {
+      data = d;
   }
 
   @Before
@@ -52,8 +47,8 @@ public class Vietnam {
   @Test
   public String[] testVietnam(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_SEA");
-      plquantity.Reset(buyer, "LTO_SEA");
+      plquantity.Reset(data.getDistID(), "LTO_SEA");
+      plquantity.Reset(data.getBuyerID(), "LTO_SEA");
 	  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -72,7 +67,7 @@ public class Vietnam {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Vietnam: Failed: Someone Else\n" + results[0];
@@ -96,7 +91,7 @@ public class Vietnam {
 		}
 
 	    //shop app
-		Wireshopapp shopapp = new Wireshopapp(driver, userName, password);
+		Wireshopapp shopapp = new Wireshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

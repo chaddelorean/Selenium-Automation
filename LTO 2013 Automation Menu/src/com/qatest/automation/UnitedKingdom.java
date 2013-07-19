@@ -18,22 +18,19 @@ public class UnitedKingdom {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String distID;
-  private String password;
   private ResetPLQuantity plquantity;
+  private BuyerDataForm data;
 
   public UnitedKingdom()
   {
-      this.userName = "gaaker";
-      this.password = "test123";
-      this.distID = "US8128558";
+      data = new BuyerDataForm();
+      data.setLogin("gaaker");
+      data.setPassword("krist90");
+      data.setDistID("US8128558");
   }
-  public UnitedKingdom(String username, String password, String dist)
+  public UnitedKingdom(BuyerDataForm d)
   {
-	  this.userName = username;
-	  this.password = password;
-      this.distID = dist;
+      data = d;
   }
   
   @Before
@@ -47,7 +44,7 @@ public class UnitedKingdom {
   @Test
   public String[] testUnitedKingdom(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(distID, "LTO_EMEA");
+      plquantity.Reset(data.getDistID(), "LTO_EMEA");
 	  Myself(place, screenshot, location);
 	  
 	  return results;
@@ -62,7 +59,7 @@ public class UnitedKingdom {
 		driver.findElement(By.linkText("United Kingdom")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
-		results[0] = land.landing(userName, password);
+		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
 			results[0] = "United Kingdom: Failed: Myself\n" + results[0];
@@ -84,7 +81,7 @@ public class UnitedKingdom {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, distID, password);
+	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {

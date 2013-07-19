@@ -20,26 +20,20 @@ public class Philippines {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
 
-  public Philippines(String username, String password)
+  public Philippines()
   {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "PH1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
-      buyer = "PH0006297";
-
+      data = new BuyerDataForm();
+      data.setLogin("PH1111111");
+      data.setPassword("abc123");
+      data.setDistID("PH1111111");
+      data.setBuyerID("PH0006297");
+  }
+  public Philippines(BuyerDataForm d)
+  {
+      data = d;
   }
 
   @Before
@@ -53,8 +47,8 @@ public class Philippines {
   @Test
   public String[] testPhilippines(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_SEA");
-      plquantity.Reset(buyer, "LTO_SEA");
+      plquantity.Reset(data.getDistID(), "LTO_SEA");
+      plquantity.Reset(data.getBuyerID(), "LTO_SEA");
 	  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -72,7 +66,7 @@ public class Philippines {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Philippines: Failed: Someone Else\n" + results[0];
@@ -96,7 +90,7 @@ public class Philippines {
 		}
 
 	    //shop app
-		Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+		Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

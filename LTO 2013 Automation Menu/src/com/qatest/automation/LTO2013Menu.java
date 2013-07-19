@@ -22,12 +22,21 @@ public class LTO2013Menu extends JFrame {
 
 	private JPanel contentPane;
 	private String fileLocation = "c:\\LTOScreenShot\\";
-	private static String username = "";
+	private static String login = "";
 	private static String password = "";
+    private static String buyer = "";
+    private static String distID = "";
+    private static String email = "";
+    private static String phone = "";
+    private static String address = "";
+    private static String city = "";
+    private static String state = "";
+    private static String postalcode = "";
 	private static LTO2013Menu frame;
 	private static JTextArea output;
     private String omniLocation = "";
     private String omniLoadLocation = "";
+    private static BuyerDataForm data;
 	/**                                                                               l
 	 * Launch the application.
 	 */
@@ -106,7 +115,16 @@ public class LTO2013Menu extends JFrame {
 								
 							try 
 							{
-								HongKong hongkong = new HongKong(username, password);
+                                HongKong hongkong;
+								if (data != null)
+                                {
+                                    hongkong = new HongKong(data);
+                                }
+                                else
+                                {
+                                    hongkong = new HongKong();
+                                }
+
                                 if (chckbxCheckOmniture.isSelected())
                                 {
                                     hongkong.setupOmniture(omniLocation, omniLoadLocation);
@@ -152,7 +170,7 @@ public class LTO2013Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Brunei\n\n");
 
-                new Thread(new Runnable() {
+                /*(new Thread(new Runnable() {
                     public void run() {
                         Brunei brunei = new Brunei(username, password);
                         try {
@@ -176,7 +194,7 @@ public class LTO2013Menu extends JFrame {
                             e1.printStackTrace();
                         }
                     }
-                }).start();
+                }).start();  */
             }
         });
 		
@@ -228,7 +246,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: United States\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedStates united = new UnitedStates();
+                        UnitedStates united;
+                        if (buyer != null)
+                        {
+                            united = new UnitedStates(data);
+                        }
+                        else
+                        {
+                            united = new UnitedStates();
+                        }
                         try {
                             united.setUp();
                             String result[] = united.testUnitedStates(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -299,7 +325,16 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Germany\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Germany de = new Germany(username, password);
+                        Germany de;
+                        if (data != null)
+                        {
+                            de = new Germany(data);
+                        }
+                        else
+                        {
+                            de = new Germany();
+                        }
+
                         try {
                             de.setUp();
                             String result[] = de.testGermany(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -339,7 +374,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: United Kingdom\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom = new UnitedKingdom();
+                        UnitedKingdom uKingdom;
+                        if (data != null)
+                        {
+                           uKingdom = new UnitedKingdom(data);
+                        }
+                        else
+                        {
+                            uKingdom = new UnitedKingdom();
+                        }
                         try {
                             uKingdom.setUp();
                             String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -379,7 +422,15 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Austrailia au = new Austrailia(username, password);
+						Austrailia au;
+                        if (data != null)
+                        {
+                            au = new Austrailia(data);
+                        }
+                        else
+                        {
+                            au = new Austrailia();
+                        }
 						try {
 							au.setUp();
 							String result[] = au.testAustrailia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -446,7 +497,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Singapore\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Singapore sg = new Singapore(username, password);
+                        Singapore sg;
+                        if (data != null)
+                        {
+                            sg = new Singapore(data);
+                        }
+                        else
+                        {
+                            sg = new Singapore();
+                        }
                         try {
                             sg.setUp();
                             if (chckbxCheckOmniture.isSelected())
@@ -508,8 +567,8 @@ public class LTO2013Menu extends JFrame {
 		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Authentication auth = new Authentication();
-                auth.main();
+                        Authentication auth = new Authentication();
+                        auth.main();
             }
         });
 		mnFile.add(mntmAuthenication);
@@ -527,7 +586,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Thailand\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Thailand th = new Thailand(username, password);
+                        Thailand th;
+                        if (data != null)
+                        {
+                            th = new Thailand(data);
+                        }
+                        else
+                        {
+                            th = new Thailand();
+                        }
                         try {
                             th.setUp();
                             String result[] = th.testThailand(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -561,7 +628,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Indonesia\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Indonesia indo = new Indonesia(username, password);
+                        Indonesia indo;
+                        if (data != null)
+                        {
+                            indo = new Indonesia(data);
+                        }
+                        else
+                        {
+                            indo = new Indonesia();
+                        }
                         try {
                             indo.setUp();
                             String result[] = indo.testIndonesia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -595,7 +670,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Vietnam\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Vietnam vn = new Vietnam(username, password);
+                        Vietnam vn;
+                        if (data != null)
+                        {
+                            vn = new Vietnam(data);
+                        }
+                        else
+                        {
+                            vn = new Vietnam();
+                        }
                         try {
                             vn.setUp();
                             String result[] = vn.testVietnam(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -629,7 +712,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Malaysia\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Malaysia my = new Malaysia(username, password);
+                        Malaysia my;
+                        if (data != null)
+                        {
+                            my = new Malaysia(data);
+                        }
+                        else
+                        {
+                            my = new Malaysia();
+                        }
                         try {
                             my.setUp();
                             String result[] = my.testMalaysia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -663,7 +754,15 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Philippines\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        Philippines ph = new Philippines(username, password);
+                        Philippines ph;
+                        if (data != null)
+                        {
+                            ph = new Philippines(data);
+                        }
+                        else
+                        {
+                            ph = new Philippines();
+                        }
                         try {
                             ph.setUp();
                             String result[] = ph.testPhilippines(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
@@ -819,14 +918,14 @@ public class LTO2013Menu extends JFrame {
 		});
 	}
 	
-	public static void setUser(String user)
+	public static void setLogin(String user)
 	{
-		username = user;
+		login = user;
 	}
 	
-	public static String getUser()
+	public static String getlogin()
 	{
-		return username;
+		return login;
 	}
 	
 	public static void setPassword(String pass)
@@ -843,4 +942,78 @@ public class LTO2013Menu extends JFrame {
 	{
 		output.append(out);
 	}
+
+    public static String getBuyer() {
+        return buyer;
+    }
+
+    public static void setBuyer(String buyer) {
+        LTO2013Menu.buyer = buyer;
+    }
+
+    public static String getDistID() {
+        return distID;
+    }
+
+    public static void setDistID(String distID) {
+        LTO2013Menu.distID = distID;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        LTO2013Menu.email = email;
+    }
+
+    public static String getPhone() {
+        return phone;
+    }
+
+    public static void setPhone(String phone) {
+        LTO2013Menu.phone = phone;
+    }
+
+    public static String getAddress() {
+        return address;
+    }
+
+    public static void setAddress(String address) {
+        LTO2013Menu.address = address;
+    }
+
+    public static String getCity() {
+        return city;
+    }
+
+    public static void setCity(String city) {
+        LTO2013Menu.city = city;
+    }
+
+    public static String getstate() {
+        return state;
+    }
+
+    public static void setState(String state) {
+        LTO2013Menu.state = state;
+    }
+
+    public static String getPostalcode() {
+        return postalcode;
+    }
+
+    public static void setPostalcode(String postalcode) {
+        LTO2013Menu.postalcode = postalcode;
+    }
+
+    public static void setBuyerDataForm()
+    {
+        data = new BuyerDataForm(login, password, distID, buyer, email, phone, address, city, state, postalcode);
+    }
+
+    public static BuyerDataForm getData()
+    {
+        return data;
+    }
 }

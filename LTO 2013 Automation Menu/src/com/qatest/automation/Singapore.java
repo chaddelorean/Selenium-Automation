@@ -17,27 +17,24 @@ public class Singapore {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
   private ResetPLQuantity plquantity;
-  private String buyer;
+  private BuyerDataForm data;
   private String omniCreate;
   private String omniLoad;
-  
-  public Singapore(String username, String password)
+
+  public Singapore()
   {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "SG1111111";
-		  this.password = "abc123";
-	  }
-	  
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
-      buyer = "SG3110784";
+      data = new BuyerDataForm();
+      data.setLogin("SG1111111");
+      data.setDistID("SG1111111");
+      data.setPassword("abc123");
+      data.setBuyerID("SG3110784");
+      omniCreate = "";
+      omniLoad = "";
+  }
+  public Singapore(BuyerDataForm d)
+  {
+      data = d;
       omniCreate = "";
       omniLoad = "";
   }
@@ -53,8 +50,8 @@ public class Singapore {
   @Test
   public String[] testSingapore(boolean place,  boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_SEA");
-      plquantity.Reset(buyer, "LTO_SEA");
+      plquantity.Reset(data.getDistID(), "LTO_SEA");
+      plquantity.Reset(data.getBuyerID(), "LTO_SEA");
 	  someoneElse(place, screenshot, location);
 	  
 	  return results;
@@ -75,10 +72,6 @@ public class Singapore {
 	    driver.findElement(By.linkText("Singapore")).click();
 	    //Singapore landing page - Order Now button
         driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-	    //buyer select radio button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-	    //buyer select continue button
-	    //driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 
           //omniture check
           Omniturevalidation omni = new Omniturevalidation(driver);
@@ -100,7 +93,7 @@ public class Singapore {
 
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Singapore: Failed: Someone Else\n" + results[0];
@@ -124,7 +117,7 @@ public class Singapore {
 		}
 
 	    //shop app
-		Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+		Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

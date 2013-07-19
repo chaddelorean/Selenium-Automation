@@ -7,14 +7,12 @@ public class Authshopapp {
 	private String[] results;
 	private WebDriver driver;
     private String username;
-    private String password;
 	
-	public Authshopapp(WebDriver driver, String user, String pass)
+	public Authshopapp(WebDriver driver, String user)
 	{
 		this.driver = driver;
 		results = new String[2];
         this.username = user;
-        this.password = pass;
 	}
 	
 	public String[] ShopApp(boolean place)

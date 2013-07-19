@@ -16,25 +16,21 @@ public class Austrailia {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[3];
   private ScreenShot myScreenShot;
-  private String userName;
-  private String password;
-  private ResetPLQuantity plquantity;
-  private String buyer;
-  
-  public Austrailia(String username, String password)
-  {
-	  if (username.equals("") || password.equals(""))
-	  {
-		  this.userName = "US1111111";
-		  this.password = "abc123";
-	  }
-	  else
-	  {
-		  this.userName = username;
-		  this.password = password;
-	  }
 
-      buyer = "US8128558";
+  private ResetPLQuantity plquantity;
+  private BuyerDataForm data;
+  
+  public Austrailia()
+  {
+      data = new BuyerDataForm();
+      data.setLogin("gaaker");
+      data.setPassword("krist90");
+      data.setDistID("US8128558");
+      data.setBuyerID("US1111111");
+  }
+  public Austrailia(BuyerDataForm d)
+  {
+	 data = d;
   }
 
   @Before
@@ -48,8 +44,8 @@ public class Austrailia {
   @Test
   public String[] testAustrailia(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
-      plquantity.Reset(userName, "LTO_Pacifics");
-      plquantity.Reset(buyer, "LTO_Pacifics");
+      plquantity.Reset(data.getDistID(), "LTO_Pacifics");
+      plquantity.Reset(data.getBuyerID(), "LTO_Pacifics");
 	  Myself(place, screenshot, location);
 	  if (results[0].equals("Austrailia: Passed"))
 		  someoneElse(place, screenshot, location);
@@ -73,7 +69,7 @@ public class Austrailia {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Myself\n" + results[0];
@@ -100,7 +96,7 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -138,7 +134,7 @@ public class Austrailia {
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver);
-	    results[0] = myBuyer.buyerPage(userName, buyer);
+	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
@@ -164,7 +160,7 @@ public class Austrailia {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, userName, password);
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[2] = temp[1];

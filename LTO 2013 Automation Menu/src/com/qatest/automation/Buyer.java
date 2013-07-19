@@ -14,7 +14,7 @@ public class Buyer {
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
 	}
 	
-	public String buyerPage(String qualify, String buyer)
+	public String buyerPage(BuyerDataForm data)
 	{
 		try
 		{
@@ -34,7 +34,7 @@ public class Buyer {
             if (isElementPresent(By.id("distributorID")))
             {
                 driver.findElement(By.id("distributorID")).clear();
-                driver.findElement(By.id("distributorID")).sendKeys(qualify);
+                driver.findElement(By.id("distributorID")).sendKeys(data.getDistID());
             }
 
 			if (isElementPresent(By.id("user_phone_2")))
@@ -52,31 +52,31 @@ public class Buyer {
 			if (isElementPresent(By.id("buyerID")))
 			{
 		        driver.findElement(By.id("buyerID")).clear();
-		        driver.findElement(By.id("buyerID")).sendKeys(buyer);
+		        driver.findElement(By.id("buyerID")).sendKeys(data.getBuyerID());
 			}
 
             if (isElementPresent(By.id("address_id")))
             {
                 driver.findElement(By.id("address_id")).clear();
-                driver.findElement(By.id("address_id")).sendKeys(buyer);
+                driver.findElement(By.id("address_id")).sendKeys(data.getBuyerID());
             }
 
             if (isElementPresent(By.id("address_mobile")))
             {
                 driver.findElement(By.id("address_mobile")).clear();
-                driver.findElement(By.id("address_mobile")).sendKeys("801-444-5555");
+                driver.findElement(By.id("address_mobile")).sendKeys(data.getPhone());
             }
 
             if (isElementPresent(By.id("mobile")) && !driver.findElement(By.id("mobile")).getAttribute("type").equals("hidden"))
             {
                 driver.findElement(By.id("mobile")).clear();
-                driver.findElement(By.id("mobile")).sendKeys("801-444-5555");
+                driver.findElement(By.id("mobile")).sendKeys(data.getPhone());
             }
 
             if (isElementPresent(By.id("mobilePhone")))
             {
                 driver.findElement(By.id("mobilePhone")).clear();
-                driver.findElement(By.id("mobilePhone")).sendKeys("801-444-5555");
+                driver.findElement(By.id("mobilePhone")).sendKeys(data.getPhone());
             }
 
 			if (isElementPresent(By.id("buyerPhone_2")))
@@ -100,25 +100,25 @@ public class Buyer {
 			if (isElementPresent(By.id("address_address1")))
 			{
 		        driver.findElement(By.id("address_address1")).clear();
-		        driver.findElement(By.id("address_address1")).sendKeys("75 West Center Street");
+		        driver.findElement(By.id("address_address1")).sendKeys(data.getAddress());
 			}
 			
 			if (isElementPresent(By.id("address_address2")))
 			{
 		        driver.findElement(By.id("address_address2")).clear();
-		        driver.findElement(By.id("address_address2")).sendKeys("Test Address");
+		        driver.findElement(By.id("address_address2")).sendKeys("Test Address Line 2");
 			}
 			
 			if (isElementPresent(By.id("address_city")) && driver.findElement(By.id("address_city")).isDisplayed())
 			{
 				driver.findElement(By.id("address_city")).clear();
-			    driver.findElement(By.id("address_city")).sendKeys("Provo");
+			    driver.findElement(By.id("address_city")).sendKeys(data.getAddress());
 			}
 
 			if (isElementPresent(By.id("email")))
 			{
 			    driver.findElement(By.id("email")).clear();
-			    driver.findElement(By.id("email")).sendKeys("test@test.com");
+			    driver.findElement(By.id("email")).sendKeys(data.getEmail());
 			}
 		
 			if (isElementPresent(By.id("mobile_2")))
@@ -136,7 +136,7 @@ public class Buyer {
 			if (isElementPresent(By.id("address_postalCode")))
 			{
 				driver.findElement(By.id("address_postalCode")).clear();
-		        driver.findElement(By.id("address_postalCode")).sendKeys("8460");
+		        driver.findElement(By.id("address_postalCode")).sendKeys(data.getPostalcode());
 			}
 	        
 			if (isElementPresent(By.id("buyerMobile_2")))
