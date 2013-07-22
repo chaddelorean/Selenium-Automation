@@ -63,7 +63,7 @@ public class Authentication extends JFrame {
 	public Authentication() {
 		setTitle("Buyer Form Data");
 		setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 854, 577);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);

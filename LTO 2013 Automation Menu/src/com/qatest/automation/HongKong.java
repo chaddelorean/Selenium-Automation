@@ -24,6 +24,7 @@ public class HongKong {
       data.setLogin("HK1111111");
       data.setPassword("abc123");
       data.setBuyerID("HK0010165");
+      data.setDistID("HK1111111");
       omniCreate = "";
       omniLoad = "";
   }
@@ -116,7 +117,7 @@ public class HongKong {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getBuyerID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];

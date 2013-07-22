@@ -247,7 +247,7 @@ public class LTO2013Menu extends JFrame {
                 new Thread(new Runnable() {
                     public void run() {
                         UnitedStates united;
-                        if (buyer != null)
+                        if (data != null)
                         {
                             united = new UnitedStates(data);
                         }
@@ -567,8 +567,14 @@ public class LTO2013Menu extends JFrame {
 		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                        Authentication auth = new Authentication();
-                        auth.main();
+                        Thread dataform = new Thread(new Runnable(){
+                            public void run()
+                            {
+                                Authentication auth = new Authentication();
+                                auth.main();
+                            }
+                        });
+                        dataform.start();
             }
         });
 		mnFile.add(mntmAuthenication);
