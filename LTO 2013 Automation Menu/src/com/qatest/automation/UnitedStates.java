@@ -133,7 +133,7 @@ public class UnitedStates {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyerOther page
-	    Buyer myBuyer = new Buyer(driver);
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -141,8 +141,11 @@ public class UnitedStates {
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
-	    }   
-	  
+	    }
+
+        if (LTO2013Menu.stopBuyer())
+            return results;
+
 	    //Verification Page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    

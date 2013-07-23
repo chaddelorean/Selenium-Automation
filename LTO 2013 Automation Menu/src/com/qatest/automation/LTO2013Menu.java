@@ -38,6 +38,7 @@ public class LTO2013Menu extends JFrame {
     private String omniLoadLocation = "";
     private static BuyerDataForm data;
     private Authentication auth = new Authentication();
+    private static JCheckBox stopOnBuyer;
 	/**                                                                               l
 	 * Launch the application.
 	 */
@@ -81,7 +82,7 @@ public class LTO2013Menu extends JFrame {
 		final JCheckBox screenshots = new JCheckBox("Take Screenshots", false);
 		screenshots.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		screenshots.setBackground(Color.WHITE);
-		screenshots.setBounds(154, 487, 176, 34);
+		screenshots.setBounds(154, 460, 176, 34);
 		contentPane.add(screenshots);
 		
 		final JButton hkbutton = new JButton("Hong Kong");
@@ -94,13 +95,19 @@ public class LTO2013Menu extends JFrame {
 		final JCheckBox placeorders = new JCheckBox("Place Orders", true);
 		placeorders.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		placeorders.setBackground(Color.WHITE);
-		placeorders.setBounds(26, 487, 130, 34);
+		placeorders.setBounds(26, 460, 130, 34);
 		contentPane.add(placeorders);
+
+        stopOnBuyer = new JCheckBox("Stop on Buyer", false);
+        stopOnBuyer.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        stopOnBuyer.setBackground(Color.WHITE);
+        stopOnBuyer.setBounds(26, 500, 130, 34);
+        contentPane.add(stopOnBuyer);
 		
 		final JCheckBox chckbxCheckOmniture = new JCheckBox("Check Omniture", false);
 		chckbxCheckOmniture.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		chckbxCheckOmniture.setBackground(Color.WHITE);
-		chckbxCheckOmniture.setBounds(154, 524, 176, 34);
+		chckbxCheckOmniture.setBounds(154, 500, 176, 34);
 		contentPane.add(chckbxCheckOmniture);
 				
 		hkbutton.addActionListener(new ActionListener() 
@@ -900,6 +907,12 @@ public class LTO2013Menu extends JFrame {
 		
 			
 	}
+
+    public static boolean stopBuyer()
+    {
+        return stopOnBuyer.isSelected();
+    }
+
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {

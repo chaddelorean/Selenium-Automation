@@ -6,9 +6,11 @@ import org.openqa.selenium.*;
 public class Buyer {
 	private WebDriver driver;
 	private String results;
+    private boolean stopOnBuyer;
 	
-	public Buyer(WebDriver driver)
+	public Buyer(WebDriver driver, boolean stop)
 	{
+        stopOnBuyer = stop;
 		this.driver = driver;
 		results = null;
 		driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
@@ -150,15 +152,18 @@ public class Buyer {
 		        driver.findElement(By.id("buyerMobile_3")).clear();
 		        driver.findElement(By.id("buyerMobile_3")).sendKeys("4565");
 			}
-			
-	        if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")))
-			{
-				driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();
-			}
 
-            if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")))
+            if (!stopOnBuyer)
             {
-                driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")).click();
+                if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")))
+                {
+                    driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")).click();
+                }
+
+                if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")))
+                {
+                    driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/a")).click();
+                }
             }
 	        
 	        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

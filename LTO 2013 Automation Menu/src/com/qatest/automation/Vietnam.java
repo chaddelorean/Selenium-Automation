@@ -66,7 +66,7 @@ public class Vietnam {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    
 	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver);
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -74,8 +74,10 @@ public class Vietnam {
 	    	if (screenshot)
 				myScreenShot.takeScreenShot(location, "Vietnam");
 	    	return results;
-	    }  
-	    
+	    }
+
+        if (LTO2013Menu.stopBuyer())
+            return results;
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    

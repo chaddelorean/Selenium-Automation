@@ -92,7 +92,7 @@ public class Singapore {
           }
 
 	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver);
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -100,7 +100,10 @@ public class Singapore {
 	    	if (screenshot)
 				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
-	    }  
+	    }
+
+        if (LTO2013Menu.stopBuyer())
+            return results;
 	    
 	    //Buyer validation page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();

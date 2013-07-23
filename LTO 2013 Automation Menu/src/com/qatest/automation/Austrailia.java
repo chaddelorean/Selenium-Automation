@@ -68,7 +68,7 @@ public class Austrailia {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver);
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -77,6 +77,9 @@ public class Austrailia {
 				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
+
+        if (LTO2013Menu.stopBuyer())
+            return results;
 
         Thread.sleep(5000);
 
@@ -133,7 +136,7 @@ public class Austrailia {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver);
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -142,6 +145,9 @@ public class Austrailia {
 				myScreenShot.takeScreenShot(location, "Austrailia");
 	    	return results;
 	    }
+
+        if (LTO2013Menu.stopBuyer())
+            return results;
 
         Thread.sleep(5000);
 	    driver.findElement(By.id("choose_btnsubmit")).click();
