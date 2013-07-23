@@ -218,7 +218,7 @@ public class Authentication extends JFrame {
         btnNewButton.setBounds(37, 509, 170, 23);
         contentPane.add(btnNewButton);
 
-        JButton resetDefault = new JButton("Reset Defaults");
+        JButton resetDefault = new JButton("Restore Defaults");
         resetDefault.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To change body of implemented methods use File | Settings | File Templates.

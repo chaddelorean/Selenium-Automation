@@ -37,6 +37,7 @@ public class LTO2013Menu extends JFrame {
     private String omniLocation = "";
     private String omniLoadLocation = "";
     private static BuyerDataForm data;
+    private Authentication auth = new Authentication();
 	/**                                                                               l
 	 * Launch the application.
 	 */
@@ -567,7 +568,6 @@ public class LTO2013Menu extends JFrame {
 		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Authentication auth = new Authentication();
                 auth.main();
             }
         });
