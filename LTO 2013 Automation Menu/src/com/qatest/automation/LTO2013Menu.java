@@ -567,14 +567,8 @@ public class LTO2013Menu extends JFrame {
 		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                        Thread dataform = new Thread(new Runnable(){
-                            public void run()
-                            {
-                                Authentication auth = new Authentication();
-                                auth.main();
-                            }
-                        });
-                        dataform.start();
+                Authentication auth = new Authentication();
+                auth.main();
             }
         });
 		mnFile.add(mntmAuthenication);
@@ -1021,5 +1015,10 @@ public class LTO2013Menu extends JFrame {
     public static BuyerDataForm getData()
     {
         return data;
+    }
+
+    public static void resetBuyerDataForm()
+    {
+        data = null;
     }
 }
