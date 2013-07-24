@@ -37,7 +37,7 @@ public class Thailand {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -56,9 +56,9 @@ public class Thailand {
   public String[] someoneElse(boolean place,  boolean screenshot, String location)
   {
 	  try{
-		driver.get(baseUrl + "/content/lto/2013.html");
+		driver.get(baseUrl);
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[11]/a")).click();
+	    driver.findElement(By.linkText("Thailand (English)")).click();
         driver.get("http://test.nuskin.com/content/lto/2013/sea/en_TH/landing.html");
 	    //Thailand landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();

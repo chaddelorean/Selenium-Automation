@@ -42,7 +42,7 @@ public class Singapore {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -67,7 +67,7 @@ public class Singapore {
   public String[] someoneElse(boolean place,  boolean screenshot, String location)
   {
 	  try{
-		driver.get(baseUrl + "/content/lto/2013.html");
+		driver.get(baseUrl);
 	    //global landing page
 	    driver.findElement(By.linkText("Singapore")).click();
 	    //Singapore landing page - Order Now button

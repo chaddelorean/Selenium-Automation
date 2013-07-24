@@ -36,7 +36,7 @@ public class UnitedKingdom {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -55,7 +55,7 @@ public class UnitedKingdom {
   {
 	  try{
 		//global landing page
-		driver.get(baseUrl + "/content/lto/2013.html");
+		driver.get(baseUrl);
 		driver.findElement(By.linkText("United Kingdom")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);

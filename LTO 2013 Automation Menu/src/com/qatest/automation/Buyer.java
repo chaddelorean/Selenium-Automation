@@ -30,10 +30,10 @@ public class Buyer {
             else if (isElementPresent(By.id("zip_postalLookup")))
             {
 				 driver.findElement(By.id("zip_postalLookup")).clear(); 
-				 driver.findElement(By.id("zip_postalLookup")).sendKeys("BM1326");
+				 driver.findElement(By.id("zip_postalLookup")).sendKeys("57384");
 			}
 
-            if (isElementPresent(By.id("distributorID")))
+            if (isElementPresent(By.id("distributorID")) && !isAttributePresent("distributorID", "disabled"))
             {
                 driver.findElement(By.id("distributorID")).clear();
                 driver.findElement(By.id("distributorID")).sendKeys(data.getDistID());
@@ -177,6 +177,23 @@ public class Buyer {
 			return results;
 		}
 	}
+
+    public boolean isAttributePresent(String id, String attribute)
+    {
+        try{
+            if (driver.findElement(By.id(id)).getAttribute(attribute).equals("true"))
+            {
+                return true;
+            }
+        }
+
+        catch (NullPointerException e)
+        {
+            return false;
+        }
+        return false;
+    }
+
 	private boolean isElementPresent(By by) {
 	    try {
 	      driver.findElement(by);

@@ -23,7 +23,7 @@ public class UnitedStates {
       data.setLogin("gaaker");
       data.setPassword("krist90");
       data.setDistID("US8128558");
-      data.setBuyerID("US1111111");
+      data.setBuyerID("US00179669");
   }
   public UnitedStates(BuyerDataForm d)
   {
@@ -33,7 +33,7 @@ public class UnitedStates {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -43,9 +43,9 @@ public class UnitedStates {
 	  myScreenShot = new ScreenShot(driver);
       plquantity.Reset(data.getDistID(), "LTO_Americas");
       plquantity.Reset(data.getBuyerID(), "LTO_Americas");
-	  Myself(place, screenshot, location);
+      someoneElse(place, screenshot, location);
 	  if (results[0].equals("United States: Passed"))
-		  someoneElse(place, screenshot, location);
+          Myself(place, screenshot, location);
 	  
 	  return results;
    
@@ -55,8 +55,8 @@ public class UnitedStates {
   {
 	  try{
 		//global landing page
-		driver.get(baseUrl + "/content/lto/2013.html");
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("United States")).click();
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());
@@ -114,8 +114,8 @@ public class UnitedStates {
   {
 	  try{
 		//global landing page
-	  	driver.get(baseUrl + "/content/lto/2013.html");
-	  	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/ul/li[2]/a")).click();
+	  	driver.get(baseUrl);
+	  	driver.findElement(By.linkText("United States")).click();
 	  	//United States landing page - Order Now button
 	  	LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());
@@ -126,11 +126,12 @@ public class UnitedStates {
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 			return results;
 		}
-		
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+
+        Thread.sleep(3000);
+        //buyer select radio button
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
+        //buyer select continue button
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());

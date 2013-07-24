@@ -36,7 +36,7 @@ public class Austrailia {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -57,7 +57,7 @@ public class Austrailia {
   public String[] Myself(boolean place, boolean screenshot, String location)
   {
 	  try{
-		 driver.get(baseUrl + "/content/lto/2013.html");
+		 driver.get(baseUrl);
 	    //global landing page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/ul/li/a")).click();
 	    //Austrailia landing page - Order Now button
@@ -125,9 +125,9 @@ public class Austrailia {
   public String[] someoneElse(boolean place,boolean screenshot, String location)
   {
 	  try{
-		driver.get(baseUrl + "/content/lto/2013.html");
+		driver.get(baseUrl);
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/ul/li/a")).click();
+	    driver.findElement(By.linkText("Australia")).click();
 	   
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
 	    //buyer select radio button

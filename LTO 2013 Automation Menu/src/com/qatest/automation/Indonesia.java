@@ -28,7 +28,8 @@ public class Indonesia {
       data = new BuyerDataForm();
       data.setLogin("HK1111111");
       data.setPassword("abc123");
-      data.setBuyerID("US8128558");
+      data.setDistID("HK1111111");
+      data.setBuyerID("US1111111");
   }
   public Indonesia(BuyerDataForm d)
   {
@@ -38,7 +39,7 @@ public class Indonesia {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -57,9 +58,9 @@ public class Indonesia {
   public String[] someoneElse(boolean place,  boolean screenshot, String location)
   {
 	  try{
-		driver.get(baseUrl + "/content/lto/2013.html");
+		driver.get(baseUrl);
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[3]/ul/li[4]/a")).click();
+	    driver.findElement(By.linkText("Indonesia")).click();
 	    //Indonesia landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    

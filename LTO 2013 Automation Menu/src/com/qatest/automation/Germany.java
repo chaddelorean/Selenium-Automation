@@ -32,7 +32,7 @@ public class Germany {
   public void setUp() throws Exception {
     
 	driver = new FirefoxDriver();
-    baseUrl = "http://test.nuskin.com";
+    baseUrl = "http://ltotest.nuskin.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     plquantity = new ResetPLQuantity(driver);
   }
@@ -51,8 +51,8 @@ public class Germany {
   {
 	  try{
 		//global landing page
-		driver.get(baseUrl + "/content/lto/2013.html");
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/ul/li[4]/a")).click();
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("Deutschland (Germany)")).click();
 		//Germany landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());
