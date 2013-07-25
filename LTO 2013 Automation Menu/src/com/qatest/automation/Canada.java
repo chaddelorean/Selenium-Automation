@@ -1,13 +1,20 @@
 package com.qatest.automation;
 
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import org.openqa.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
 
-public class UnitedStates {
+import static org.junit.Assert.fail;
+
+
+public class Canada {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -17,7 +24,7 @@ public class UnitedStates {
   private ResetPLQuantity plquantity;
   private BuyerDataForm data;
 
-  public UnitedStates()
+  public Canada()
   {
       data = new BuyerDataForm();
       data.setLogin("gaaker");
@@ -25,7 +32,7 @@ public class UnitedStates {
       data.setDistID("US8128558");
       data.setBuyerID("US00179669");
   }
-  public UnitedStates(BuyerDataForm d)
+  public Canada(BuyerDataForm d)
   {
 	  data = d;
   }
@@ -39,12 +46,12 @@ public class UnitedStates {
   }
 
   @Test
-  public String[] testUnitedStates(boolean place, boolean screenshot, String location) throws Exception {
+  public String[] testCanada(boolean place, boolean screenshot, String location) throws Exception {
 	  myScreenShot = new ScreenShot(driver);
       plquantity.Reset(data.getDistID(), "LTO_Americas");
       plquantity.Reset(data.getBuyerID(), "LTO_Americas");
       someoneElse(place, screenshot, location);
-	  if (results[0].equals("United States: Passed"))
+	  if (results[0].equals("Canada: Passed"))
           Myself(place, screenshot, location);
 	  
 	  return results;
@@ -56,15 +63,15 @@ public class UnitedStates {
 	  try{
 		//global landing page
 		driver.get(baseUrl);
-		driver.findElement(By.linkText("United States")).click();
-		//United States landing page - Order Now button
+		driver.findElement(By.linkText("Canada")).click();
+		//Canada landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
-			results[0] = "United States: Failed: Myself\n" + results[0];
+			results[0] = "Canada: Failed: Myself\n" + results[0];
 			if (screenshot)
-				myScreenShot.takeScreenShot(location, "UnitedStates");
+				myScreenShot.takeScreenShot(location, "Canada");
 			return results;
 		}
 
@@ -77,9 +84,9 @@ public class UnitedStates {
           results[0] = product.Product();
           if (results[0] != null)
           {
-              results[0] = "United States: Failed: Someone Else\n" + results[0];
+              results[0] = "Canada: Failed: Someone Else\n" + results[0];
               if (screenshot)
-                  myScreenShot.takeScreenShot(location, "UnitedStates");
+                  myScreenShot.takeScreenShot(location, "Canada");
               return results;
           }
 	    
@@ -91,21 +98,21 @@ public class UnitedStates {
 	    results[1] = temp[1];
 	    if (results[0] != null)
 	    {
-	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	results[0] = "Canada: Failed: Someone Else\n" + results[0];
 	    	if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
+	    		myScreenShot.takeScreenShot(location, "Canada");
 	    	return results;
 	    }	    
 	    
-	    results[0] = "United States: Passed";
+	    results[0] = "Canada: Passed";
 	    return results;
 	  }
 	  
 	  catch (Exception e)
 	  {
-		  results[0] = "United States: Script Error: Buy for myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  results[0] = "Canada: Script Error: Buy for myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
 		  if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
+	    		myScreenShot.takeScreenShot(location, "Canada");
 		  return results;
 	  }
   }
@@ -115,15 +122,15 @@ public class UnitedStates {
 	  try{
 		//global landing page
 	  	driver.get(baseUrl);
-	  	driver.findElement(By.linkText("United States")).click();
-	  	//United States landing page - Order Now button
+	  	driver.findElement(By.linkText("Canada")).click();
+	  	//Canada landing page - Order Now button
 	  	LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
-			results[0] = "United States: Failed: Myself\n" + results[0];
+			results[0] = "Canada: Failed: Myself\n" + results[0];
 			if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
+	    		myScreenShot.takeScreenShot(location, "Canada");
 			return results;
 		}
 
@@ -138,9 +145,9 @@ public class UnitedStates {
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
-	    	results[0] = "United States: Failed: Myself\n" + results[0];
+	    	results[0] = "Canada: Failed: Myself\n" + results[0];
 	    	if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
+	    		myScreenShot.takeScreenShot(location, "Canada");
 	    	return results;
 	    }
 
@@ -155,9 +162,9 @@ public class UnitedStates {
           results[0] = product.Product();
           if (results[0] != null)
           {
-              results[0] = "United States: Failed: Someone Else\n" + results[0];
+              results[0] = "Canada: Failed: Someone Else\n" + results[0];
               if (screenshot)
-                  myScreenShot.takeScreenShot(location, "UnitedStates");
+                  myScreenShot.takeScreenShot(location, "Canada");
               return results;
           }
 	    
@@ -169,19 +176,19 @@ public class UnitedStates {
 	    results[2] = temp[1];
 	    if (results[0] != null)
 	    {
-	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	results[0] = "Canada: Failed: Someone Else\n" + results[0];
 	    	return results;
 	    }    
 	    
-	    results[0] = "United States: Passed";
+	    results[0] = "Canada: Passed";
 	    return results;
 	  }
 	  
 	  catch (Exception e)
 	  {
-		  results[0] = "United States: Script Error: Buy for someone else:\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  results[0] = "Canada: Script Error: Buy for someone else:\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
 		  if (screenshot)
-	    		myScreenShot.takeScreenShot(location, "UnitedStates");
+	    		myScreenShot.takeScreenShot(location, "Canada");
 		  return results;
 	  }
   }

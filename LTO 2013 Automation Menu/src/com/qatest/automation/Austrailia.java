@@ -23,9 +23,9 @@ public class Austrailia {
   public Austrailia()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("homersimpsonAU@qa.com");
+      data.setPassword("abc123");
+      data.setDistID("AS00007660");
       data.setBuyerID("US1111111");
   }
   public Austrailia(BuyerDataForm d)
@@ -47,8 +47,6 @@ public class Austrailia {
       plquantity.Reset(data.getDistID(), "LTO_Pacifics");
       plquantity.Reset(data.getBuyerID(), "LTO_Pacifics");
 	  Myself(place, screenshot, location);
-	  if (results[0].equals("Austrailia: Passed"))
-		  someoneElse(place, screenshot, location);
 	  
 	  return results;
    
@@ -59,13 +57,9 @@ public class Austrailia {
 	  try{
 		 driver.get(baseUrl);
 	    //global landing page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[2]/ul/li/a")).click();
+	    driver.findElement(By.linkText("Australia")).click();
 	    //Austrailia landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
-	    //buyer select radio button
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
@@ -116,75 +110,6 @@ public class Austrailia {
 	  catch (Exception e)
 	  {
 		  results[0] = "Austrailia: Buy for Myself \n"+ "URL: " + driver.getCurrentUrl() + "\n" +  "Script Error: " + e;
-		  if (screenshot)
-				myScreenShot.takeScreenShot(location, "Austrailia");
-		  return results;
-	  }
-  }
-  
-  public String[] someoneElse(boolean place,boolean screenshot, String location)
-  {
-	  try{
-		driver.get(baseUrl);
-	    //global landing page
-	    driver.findElement(By.linkText("Australia")).click();
-	   
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[3]/div/div/a")).click();
-	    //buyer select radio button
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
-	    
-	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
-	    results[0] = myBuyer.buyerPage(data);
-	    if (results[0] != null)
-	    {
-	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
-	    	if (screenshot)
-				myScreenShot.takeScreenShot(location, "Austrailia");
-	    	return results;
-	    }
-
-        if (LTO2013Menu.stopBuyer())
-            return results;
-
-        Thread.sleep(5000);
-	    driver.findElement(By.id("choose_btnsubmit")).click();
-	  	    
-	    //Buyer validation page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
-	    
-	    //product page
-	    driver.findElement(By.id("checkout")).click();
-	    if (isElementPresent(By.className("shopError")))
-	    {
-	    	results[0] = "Austrailia: Failed: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Error: " + driver.findElement(By.className("shopError")).getText();
-	    	if (screenshot)
-				myScreenShot.takeScreenShot(location, "Austrailia");
-	    	return results;
-	    }
-
-	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
-	    String[] temp = shopapp.ShopApp(place);
-	    results[0] = temp[0];
-	    results[2] = temp[1];
-	    if (results[0] != null)
-	    {
-	    	results[0] = "Austrailia: Failed: Someone Else\n" + results[0];
-	    	if (screenshot)
-				myScreenShot.takeScreenShot(location, "Austrailia");
-	    	return results;
-	    }    
-	   	    
-	    results[0] = "Austrailia: Passed";
-	    return results;
-	  }
-	  
-	  catch (Exception e)
-	  {
-		  results[0] = "Austrailia: Someone Else\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
 		  if (screenshot)
 				myScreenShot.takeScreenShot(location, "Austrailia");
 		  return results;

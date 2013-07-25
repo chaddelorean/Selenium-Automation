@@ -32,13 +32,13 @@ public class Nonauthshopapp {
 		    }
 		    
 		    driver.findElement(By.cssSelector("option[value=\"addPaymentType0\"]")).click();
-	        driver.findElement(By.id("paymentNumber_id")).clear();
-	        driver.findElement(By.id("paymentNumber_id")).sendKeys("4111111111111111");
-	        driver.findElement(By.id("paymentName_id")).clear();
-	        driver.findElement(By.id("paymentName_id")).sendKeys("bob");
-	        driver.findElement(By.id("paymentSecurityNumber")).clear();
-	        driver.findElement(By.id("paymentSecurityNumber")).sendKeys("456");
-	        driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
+	        driver.findElement(By.id("paymentSelection_order_1_paymentNumber_id")).clear();
+	        driver.findElement(By.id("paymentSelection_order_1_paymentNumber_id")).sendKeys("4111111111111111");
+	        driver.findElement(By.id("paymentSelection_order_1_paymentName_id")).clear();
+	        driver.findElement(By.id("paymentSelection_order_1_paymentName_id")).sendKeys("Bob User");
+	        driver.findElement(By.id("paymentSelection_order_1_paymentSecurityNumber")).clear();
+	        driver.findElement(By.id("paymentSelection_order_1_paymentSecurityNumber")).sendKeys("456");
+	        //driver.findElement(By.xpath("/html/body/form/div/div[7]/div/div[5]/div/div/div/div[6]/div[3]/div[2]/button")).click();
 		    try{
 		    	Thread.sleep(5000);
 		    }

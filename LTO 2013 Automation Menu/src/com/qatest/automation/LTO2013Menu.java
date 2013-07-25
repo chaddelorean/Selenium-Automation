@@ -82,7 +82,7 @@ public class LTO2013Menu extends JFrame {
 		final JCheckBox screenshots = new JCheckBox("Take Screenshots", false);
 		screenshots.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		screenshots.setBackground(Color.WHITE);
-		screenshots.setBounds(154, 460, 176, 34);
+		screenshots.setBounds(170, 460, 176, 34);
 		contentPane.add(screenshots);
 		
 		final JButton hkbutton = new JButton("Hong Kong");
@@ -95,19 +95,19 @@ public class LTO2013Menu extends JFrame {
 		final JCheckBox placeorders = new JCheckBox("Place Orders", true);
 		placeorders.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		placeorders.setBackground(Color.WHITE);
-		placeorders.setBounds(26, 460, 130, 34);
+		placeorders.setBounds(26, 460, 145, 34);
 		contentPane.add(placeorders);
 
         stopOnBuyer = new JCheckBox("Stop on Buyer", false);
         stopOnBuyer.setFont(new Font("Tahoma", Font.PLAIN, 17));
         stopOnBuyer.setBackground(Color.WHITE);
-        stopOnBuyer.setBounds(26, 500, 130, 34);
+        stopOnBuyer.setBounds(26, 500, 145, 34);
         contentPane.add(stopOnBuyer);
 		
 		final JCheckBox chckbxCheckOmniture = new JCheckBox("Check Omniture", false);
 		chckbxCheckOmniture.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		chckbxCheckOmniture.setBackground(Color.WHITE);
-		chckbxCheckOmniture.setBounds(154, 500, 176, 34);
+		chckbxCheckOmniture.setBounds(170, 500, 176, 34);
 		contentPane.add(chckbxCheckOmniture);
 				
 		hkbutton.addActionListener(new ActionListener() 
@@ -295,7 +295,46 @@ public class LTO2013Menu extends JFrame {
 		lblNewLabel_3.setBounds(26, 92, 129, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JButton canada = new JButton("Canada");
+		final JButton canada = new JButton("Canada");
+        canada.setFont(new Font("Dialog", Font.BOLD, 11));
+        canada.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                output.append("Executing: Canada\n\n");
+                new Thread(new Runnable() {
+                    public void run() {
+                        Canada cn;
+                        if (data != null)
+                        {
+                            cn = new Canada(data);
+                        }
+                        else
+                        {
+                            cn = new Canada();
+                        }
+                        try {
+                            cn.setUp();
+                            String result[] = cn.testCanada(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            for (int i = 0; i < result.length; i++) {
+                                if (result[i] != null)
+                                    output.append(result[i] + "\n");
+                            }
+                            output.append("\n");
+                            output.setCaretPosition(output.getDocument().getLength());
+                            if (result[0].equals("Canada: Passed")) {
+                                canada.setBackground(green);
+                            } else {
+                                canada.setBackground(red);
+                            }
+                            if (placeorders.isSelected())
+                                cn.tearDown();
+                        } catch (Exception e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
 		canada.setBounds(26, 162, 126, 42);
 		contentPane.add(canada);
 		
@@ -801,6 +840,7 @@ public class LTO2013Menu extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				us.doClick();
+                canada.doClick();
 				uk.doClick();
 				germany.doClick();
 				australia.doClick();
@@ -820,6 +860,7 @@ public class LTO2013Menu extends JFrame {
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				us.doClick();
+                canada.doClick();
 			}
 		});
 		mnAction.add(mntmNewMenuItem);
