@@ -68,16 +68,21 @@ public class UnitedStates {
 			return results;
 		}
 
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+          BuyerSelect select = new BuyerSelect(driver);
+          results[0] =  select.Select("myself");
+          if (results[0] != null)
+          {
+              results[0] = "United States: Failed: Myself\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "UnitedStates");
+              return results;
+          }
 
           DropDownProduct product = new DropDownProduct(driver);
           results[0] = product.Product();
           if (results[0] != null)
           {
-              results[0] = "United States: Failed: Someone Else\n" + results[0];
+              results[0] = "United States: Failed: Myself\n" + results[0];
               if (screenshot)
                   myScreenShot.takeScreenShot(location, "UnitedStates");
               return results;
@@ -91,7 +96,7 @@ public class UnitedStates {
 	    results[1] = temp[1];
 	    if (results[0] != null)
 	    {
-	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
+	    	results[0] = "United States: Failed: Myself\n" + results[0];
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
@@ -103,7 +108,7 @@ public class UnitedStates {
 	  
 	  catch (Exception e)
 	  {
-		  results[0] = "United States: Script Error: Buy for myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  results[0] = "United States: Script Error: Myself\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
 		  if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 		  return results;
@@ -121,24 +126,29 @@ public class UnitedStates {
 		results[0] = land.landing(data.getLogin(), data.getPassword());
 		if (results[0] != null)
 		{
-			results[0] = "United States: Failed: Myself\n" + results[0];
+			results[0] = "United States: Failed: Someone Else\n" + results[0];
 			if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 			return results;
 		}
 
         Thread.sleep(3000);
-        //buyer select radio button
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-        //buyer select continue button
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+          BuyerSelect select = new BuyerSelect(driver);
+          results[0] =  select.Select("other");
+          if (results[0] != null)
+          {
+              results[0] = "United States: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "UnitedStates");
+              return results;
+          }
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
-	    	results[0] = "United States: Failed: Myself\n" + results[0];
+	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
@@ -179,7 +189,7 @@ public class UnitedStates {
 	  
 	  catch (Exception e)
 	  {
-		  results[0] = "United States: Script Error: Buy for someone else:\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
+		  results[0] = "United States: Script Error: Someone Else:\n"+ "URL: " + driver.getCurrentUrl() + "\n" + "Script Error: " + e;
 		  if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 		  return results;

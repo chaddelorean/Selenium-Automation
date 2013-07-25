@@ -75,10 +75,15 @@ public class Canada {
 			return results;
 		}
 
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+          BuyerSelect select = new BuyerSelect(driver);
+          results[0] =  select.Select("myself");
+          if (results[0] != null)
+          {
+              results[0] = "Canada: Failed: Myself\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "Canada");
+              return results;
+          }
 
           DropDownProduct product = new DropDownProduct(driver);
           results[0] = product.Product();
@@ -135,10 +140,17 @@ public class Canada {
 		}
 
         Thread.sleep(3000);
-        //buyer select radio button
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-        //buyer select continue button
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+
+        BuyerSelect select = new BuyerSelect(driver);
+        results[0] =  select.Select("other");
+        if (results[0] != null)
+        {
+            results[0] = "Canada: Failed: Myself\n" + results[0];
+            if (screenshot)
+                myScreenShot.takeScreenShot(location, "Canada");
+            return results;
+        }
+
 	    
 	    //buyerOther page
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());

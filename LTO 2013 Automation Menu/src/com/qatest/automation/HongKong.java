@@ -69,10 +69,16 @@ public class HongKong {
 	    driver.findElement(By.linkText("香港 (Hong Kong)")).click();
 	    //Hong Kong landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-	    //buyer select radio button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div/div/span")).click();
-	    //buyer select continue button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+
+          BuyerSelect select = new BuyerSelect(driver);
+          results[0] =  select.Select("myself");
+          if (results[0] != null)
+          {
+              results[0] = "Hong Kong: Failed: Myself\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "HongKong");
+              return results;
+          }
 	    
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
@@ -153,10 +159,16 @@ public class HongKong {
             driver.findElement(By.linkText("香港 (Hong Kong)")).click();
 		    //Hong Kong landing page - Order Now button
 		    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-		    //buyer select radio button
-		    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[2]/div/span")).click();
-		    //buyer select continue button
-		    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/form/div/div[3]/div/div/div/p")).click();
+
+          BuyerSelect select = new BuyerSelect(driver);
+          results[0] =  select.Select("other");
+          if (results[0] != null)
+          {
+              results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "HongKong");
+              return results;
+          }
 		    
 		    //buyer page info
 		    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
