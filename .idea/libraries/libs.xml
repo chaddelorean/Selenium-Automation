@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/LTO 2013 Automation Menu/src/selenium-2.33.0/selenium-2.33.0/libs" />
+      <root url="file://$PROJECT_DIR$/LTO 2013 Automation Menu/src/selenium-2.33.0/libs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/LTO 2013 Automation Menu/src/selenium-2.33.0/selenium-2.33.0/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/LTO 2013 Automation Menu/src/selenium-2.33.0/libs" recursive="false" />
   </library>
 </component>

@@ -469,18 +469,18 @@ public class LTO2013Menu extends JFrame {
 				{
 					public void run()
 					{
-						Austrailia au;
+						Australia au;
                         if (data != null)
                         {
-                            au = new Austrailia(data);
+                            au = new Australia(data);
                         }
                         else
                         {
-                            au = new Austrailia();
+                            au = new Australia();
                         }
 						try {
 							au.setUp();
-							String result[] = au.testAustrailia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+							String result[] = au.testAustralia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
 							for (int i = 0; i < result.length; i++)
 							{
 								if (result[i] != null)
@@ -488,7 +488,7 @@ public class LTO2013Menu extends JFrame {
 							}
 							output.append("\n");
 							output.setCaretPosition(output.getDocument().getLength());
-							if (result[0].equals("Austrailia: Passed"))
+							if (result[0].equals("Australia: Passed"))
 							{
 								australia.setBackground(green);
 							}
@@ -512,16 +512,106 @@ public class LTO2013Menu extends JFrame {
 		australia.setBounds(505, 112, 126, 42);
 		contentPane.add(australia);
 		
-		JButton newzealand = new JButton("New Zealand");
+		final JButton newzealand = new JButton("New Zealand");
 		newzealand.setFont(new Font("Dialog", Font.BOLD, 11));
 		newzealand.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                output.append("Executing: New Zealand\n\n");
+                new Thread(new Runnable()
+                {
+                    public void run()
+                    {
+                        NewZealand nz;
+                        if (data != null)
+                        {
+                            nz = new NewZealand(data);
+                        }
+                        else
+                        {
+                            nz = new NewZealand();
+                        }
+                        try {
+                            nz.setUp();
+                            String result[] = nz.testNewZealand(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            for (int i = 0; i < result.length; i++)
+                            {
+                                if (result[i] != null)
+                                    output.append(result[i] + "\n");
+                            }
+                            output.append("\n");
+                            output.setCaretPosition(output.getDocument().getLength());
+                            if (result[0].equals("New Zealand: Passed"))
+                            {
+                                newzealand.setBackground(green);
+                            }
+
+                            else
+                            {
+                                newzealand.setBackground(red);
+                            }
+                            if (placeorders.isSelected())
+                                nz.tearDown();
+                        }
+
+                        catch (Exception e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    }
+                }).start();
             }
         });
 		newzealand.setBounds(505, 162, 126, 42);
 		contentPane.add(newzealand);
 		
-		JButton frenchpolynesia = new JButton("French Polynesia");
+		final JButton frenchpolynesia = new JButton("French Polynesia");
+        frenchpolynesia.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                output.append("Executing: French Polynesia\n\n");
+                new Thread(new Runnable()
+                {
+                    public void run()
+                    {
+                        FrenchPolynesia fp;
+                        if (data != null)
+                        {
+                            fp = new FrenchPolynesia(data);
+                        }
+                        else
+                        {
+                            fp = new FrenchPolynesia();
+                        }
+                        try {
+                            fp.setUp();
+                            String result[] = fp.testFrenchPolynesia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            for (int i = 0; i < result.length; i++)
+                            {
+                                if (result[i] != null)
+                                    output.append(result[i] + "\n");
+                            }
+                            output.append("\n");
+                            output.setCaretPosition(output.getDocument().getLength());
+                            if (result[0].equals("Australia: Passed"))
+                            {
+                                frenchpolynesia.setBackground(green);
+                            }
+
+                            else
+                            {
+                                frenchpolynesia.setBackground(red);
+                            }
+                            if (placeorders.isSelected())
+                                fp.tearDown();
+                        }
+
+                        catch (Exception e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
 		frenchpolynesia.setFont(new Font("Tahoma", Font.BOLD, 9));
 		frenchpolynesia.setBounds(505, 217, 126, 42);
 		contentPane.add(frenchpolynesia);
@@ -844,6 +934,8 @@ public class LTO2013Menu extends JFrame {
 				uk.doClick();
 				germany.doClick();
 				australia.doClick();
+                newzealand.doClick();
+                frenchpolynesia.doClick();
 				bnbutton.doClick();
 				hkbutton.doClick();
 				btnSingapore.doClick();
@@ -869,6 +961,8 @@ public class LTO2013Menu extends JFrame {
 		mntmRunSouthPacific.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				australia.doClick();
+                newzealand.doClick();
+                frenchpolynesia.doClick();
 			}
 		});
 		

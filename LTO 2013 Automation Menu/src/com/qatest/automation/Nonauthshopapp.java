@@ -30,7 +30,14 @@ public class Nonauthshopapp {
 		    {
 		    	Thread.currentThread().interrupt();
 		    }
-		    
+
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+            if (isElementPresent(By.xpath("/html/body/form/div/div[22]/div/div/button")) && driver.findElement(By.xpath("/html/body/form/div/div[22]/div/div/button")).isDisplayed())
+            {
+                driver.findElement(By.xpath("/html/body/form/div/div[22]/div/div/button")).click();
+            }
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
 		    driver.findElement(By.cssSelector("option[value=\"addPaymentType0\"]")).click();
 	        driver.findElement(By.id("paymentSelection_order_1_paymentNumber_id")).clear();
 	        driver.findElement(By.id("paymentSelection_order_1_paymentNumber_id")).sendKeys("4111111111111111");
