@@ -1,7 +1,6 @@
 package com.qatest.automation;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,7 +13,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class Authentication extends JFrame {
@@ -61,6 +59,7 @@ public class Authentication extends JFrame {
 	 * Create the frame.
 	 */
 	public Authentication() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage("res/Image/4217299_1297336025.png"));
 		setTitle("Buyer Form Data");
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -127,9 +126,14 @@ public class Authentication extends JFrame {
             txEmail.setText(LTO2013Menu.getData().getEmail());
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(Authentication.class.getResource("/Image/nu-skin_f.png")));
-		label.setBounds(395, 38, 431, 395);
+		label.setIcon(new ImageIcon(Authentication.class.getResource("/Image/1374743857264-cache.png")));
+		label.setBounds(500, 0, 431, 395);
 		contentPane.add(label);
+
+        JLabel tr90 = new JLabel("");
+        tr90.setIcon(new ImageIcon(Authentication.class.getResource("/Image/tr90.png")));
+        tr90.setBounds(550, 200, 431, 395);
+        contentPane.add(tr90);
 		
 		JLabel lblPhone = new JLabel("Phone");
 		lblPhone.setBounds(37, 268, 97, 14);
@@ -187,6 +191,8 @@ public class Authentication extends JFrame {
         if (LTO2013Menu.getPostalcode() != "" && LTO2013Menu.getData() != null)
             txPostal.setText(LTO2013Menu.getData().getPostalcode());
 
+        final Color nuskinbutton = new Color (0,138, 176);
+
         JButton btnNewButton = new JButton("Set Form Data");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -215,6 +221,8 @@ public class Authentication extends JFrame {
 
             }
         });
+        btnNewButton.setBackground(nuskinbutton);
+        btnNewButton.setForeground(Color.white);
         btnNewButton.setBounds(37, 509, 170, 23);
         contentPane.add(btnNewButton);
 
@@ -236,6 +244,8 @@ public class Authentication extends JFrame {
                 frame.setVisible(false);
             }
         });
+        resetDefault.setBackground(nuskinbutton);
+        resetDefault.setForeground(Color.WHITE);
         resetDefault.setBounds(220, 509, 170, 23);
         contentPane.add(resetDefault);
 	}

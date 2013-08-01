@@ -19,7 +19,7 @@ public class Canada {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private String[] results = new String[3];
+  private String[] results = new String[4];
   private ScreenShot myScreenShot;
   private ResetPLQuantity plquantity;
   private BuyerDataForm data;
@@ -109,7 +109,7 @@ public class Canada {
 	    	return results;
 	    }	    
 	    
-	    results[0] = "Canada: Passed";
+	    results[0] = "Canada: Passed" + data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
 	  }
 	  
@@ -193,6 +193,7 @@ public class Canada {
 	    }    
 	    
 	    results[0] = "Canada: Passed";
+        results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
 	  }
 	  

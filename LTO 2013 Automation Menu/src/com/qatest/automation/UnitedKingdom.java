@@ -16,7 +16,7 @@ public class UnitedKingdom {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private String[] results = new String[3];
+  private String[] results = new String[4];
   private ScreenShot myScreenShot;
   private ResetPLQuantity plquantity;
   private BuyerDataForm data;
@@ -27,6 +27,7 @@ public class UnitedKingdom {
       data.setLogin("gaaker");
       data.setPassword("krist90");
       data.setDistID("US8128558");
+      data.setBuyerID("none");
   }
   public UnitedKingdom(BuyerDataForm d)
   {
@@ -92,6 +93,7 @@ public class UnitedKingdom {
 	    }
 	 
 	    results[0] = "United Kingdom: Passed";
+        results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
 	  }
 	  

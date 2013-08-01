@@ -78,6 +78,11 @@ public class LTO2013Menu extends JFrame {
 		output = new JTextArea();
 		scrollPane.setViewportView(output);
 		output.setWrapStyleWord(true);
+
+        final Color green = new Color (0,255,0);
+        final Color red = new Color (255,0,0);
+        final Color nuskinbutton = new Color (0,138, 176);
+        final Color orangebutton = new Color (248, 164, 93);
 		
 		final JCheckBox screenshots = new JCheckBox("Take Screenshots", false);
 		screenshots.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -86,11 +91,12 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(screenshots);
 		
 		final JButton hkbutton = new JButton("Hong Kong");
+        hkbutton.setBackground(nuskinbutton);
+        hkbutton.setForeground(Color.white);
 		hkbutton.setBounds(680, 165, 126, 42);
 		hkbutton.setOpaque(true);
 		contentPane.add(hkbutton);
-		final Color green = new Color (0,255,0);
-		final Color red = new Color (255,0,0);
+
 		
 		final JCheckBox placeorders = new JCheckBox("Place Orders", true);
 		placeorders.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -109,6 +115,7 @@ public class LTO2013Menu extends JFrame {
 		chckbxCheckOmniture.setBackground(Color.WHITE);
 		chckbxCheckOmniture.setBounds(170, 500, 176, 34);
 		contentPane.add(chckbxCheckOmniture);
+
 				
 		hkbutton.addActionListener(new ActionListener() 
 		{
@@ -149,11 +156,13 @@ public class LTO2013Menu extends JFrame {
 								if (result[0].equals("Hong Kong: Passed"))
 								{
 									hkbutton.setBackground(green);
+                                    hkbutton.setForeground(Color.black);
 								}
 								
 								else
 								{
 									hkbutton.setBackground(red);
+                                    hkbutton.setForeground(Color.black);
 								}
 								if (placeorders.isSelected())
 									hongkong.tearDown();
@@ -173,6 +182,8 @@ public class LTO2013Menu extends JFrame {
 		
 		
 		final JButton bnbutton = new JButton("Brunei");
+        bnbutton.setBackground(nuskinbutton);
+        bnbutton.setForeground(Color.white);
 		
 		bnbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -220,6 +231,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblLtoSelenium);
 		
 		JButton cancel = new JButton("Quit");
+        cancel.setBackground(orangebutton);
+        cancel.setForeground(Color.white);
 		cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(ABORT);
@@ -230,15 +243,22 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(cancel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("res/Image/nu-skin_f.png"));//new ImageIcon("C:\\Users\\cowens\\workspace\\LTO 2013 Automation Menu\\Image\\nu-skin_f.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("res/Image/nu-skin_f.png"));
 		lblNewLabel_1.setBounds(951, 30, 431, 395);
 		contentPane.add(lblNewLabel_1);
+
+        JLabel tr90 = new JLabel("");
+        tr90.setIcon(new ImageIcon(Authentication.class.getResource("/Image/tr90.png")));
+        tr90.setBounds(1150, 300, 431, 395);
+        contentPane.add(tr90);
 		
 		JLabel lblNewLabel_2 = new JLabel("Click on a market to run its automation script. You may run multiple markets concurrently.");
 		lblNewLabel_2.setBounds(26, 59, 780, 22);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton clearlog = new JButton("Clear Log");
+        clearlog.setBackground(orangebutton);
+        clearlog.setForeground(Color.white);
 		clearlog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				output.setText("");
@@ -248,6 +268,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(clearlog);
 		
 		final JButton us = new JButton("United States");
+        us.setBackground(nuskinbutton);
+        us.setForeground(Color.white);
 		us.setFont(new Font("Dialog", Font.BOLD, 11));
 		us.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -274,8 +296,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("United States: Passed")) {
                                 us.setBackground(green);
+                                us.setForeground(Color.black);
                             } else {
                                 us.setBackground(red);
+                                us.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 united.tearDown();
@@ -296,6 +320,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		final JButton canada = new JButton("Canada");
+        canada.setBackground(nuskinbutton);
+        canada.setForeground(Color.white);
         canada.setFont(new Font("Dialog", Font.BOLD, 11));
         canada.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -322,8 +348,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Canada: Passed")) {
                                 canada.setBackground(green);
+                                canada.setForeground(Color.black);
                             } else {
                                 canada.setBackground(red);
+                                canada.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 cn.tearDown();
@@ -343,10 +371,14 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		JButton colombia = new JButton("Colombia");
+        colombia.setBackground(nuskinbutton);
+        colombia.setForeground(Color.white);
 		colombia.setBounds(26, 246, 126, 42);
 		contentPane.add(colombia);
 		
 		JButton mexico = new JButton("Mexico");
+        mexico.setBackground(nuskinbutton);
+        mexico.setForeground(Color.white);
 		mexico.setBounds(26, 299, 126, 42);
 		contentPane.add(mexico);
 		
@@ -355,6 +387,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JButton southafrica = new JButton("South Africa");
+        southafrica.setBackground(nuskinbutton);
+        southafrica.setForeground(Color.white);
 		southafrica.setBounds(26, 369, 126, 42);
 		contentPane.add(southafrica);
 		
@@ -363,10 +397,14 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_6);
 		
 		JButton belgium = new JButton("Belgium");
+        belgium.setBackground(nuskinbutton);
+        belgium.setForeground(Color.white);
 		belgium.setBounds(201, 112, 126, 42);
 		contentPane.add(belgium);
 		
 		final JButton germany = new JButton("Germany");
+        germany.setBackground(nuskinbutton);
+        germany.setForeground(Color.white);
 		germany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Germany\n\n");
@@ -393,8 +431,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Germany: Passed")) {
                                 germany.setBackground(green);
+                                germany.setForeground(Color.black);
                             } else {
                                 germany.setBackground(red);
+                                germany.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 de.tearDown();
@@ -410,11 +450,15 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(germany);
 		
 		JButton netherlands = new JButton("The Netherlands");
+        netherlands.setBackground(nuskinbutton);
+        netherlands.setForeground(Color.white);
 		netherlands.setFont(new Font("Tahoma", Font.BOLD, 9));
 		netherlands.setBounds(201, 218, 126, 42);
 		contentPane.add(netherlands);
 		
 		final JButton uk = new JButton("United Kingdom");
+        uk.setBackground(nuskinbutton);
+        uk.setForeground(Color.white);
 		uk.setFont(new Font("Dialog", Font.BOLD, 10));
 		uk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -441,8 +485,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("United Kingdom: Passed")) {
                                 uk.setBackground(green);
+                                uk.setForeground(Color.black);
                             } else {
                                 uk.setBackground(red);
+                                uk.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 uKingdom.tearDown();
@@ -462,6 +508,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_7);
 		
 		final JButton australia = new JButton("Australia");
+        australia.setBackground(nuskinbutton);
+        australia.setForeground(Color.white);
 		australia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				output.append("Executing: Australia\n\n");
@@ -491,11 +539,13 @@ public class LTO2013Menu extends JFrame {
 							if (result[0].equals("Australia: Passed"))
 							{
 								australia.setBackground(green);
+                                australia.setForeground(Color.black);
 							}
 							
 							else
 							{
 								australia.setBackground(red);
+                                australia.setForeground(Color.black);
 							}
 							if (placeorders.isSelected())
 								au.tearDown();	
@@ -513,6 +563,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(australia);
 		
 		final JButton newzealand = new JButton("New Zealand");
+        newzealand.setBackground(nuskinbutton);
+        newzealand.setForeground(Color.white);
 		newzealand.setFont(new Font("Dialog", Font.BOLD, 11));
 		newzealand.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -543,11 +595,13 @@ public class LTO2013Menu extends JFrame {
                             if (result[0].equals("New Zealand: Passed"))
                             {
                                 newzealand.setBackground(green);
+                                newzealand.setForeground(Color.black);
                             }
 
                             else
                             {
                                 newzealand.setBackground(red);
+                                newzealand.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 nz.tearDown();
@@ -565,6 +619,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(newzealand);
 		
 		final JButton frenchpolynesia = new JButton("French Polynesia");
+        frenchpolynesia.setBackground(nuskinbutton);
+        frenchpolynesia.setForeground(Color.white);
         frenchpolynesia.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 output.append("Executing: French Polynesia\n\n");
@@ -594,11 +650,13 @@ public class LTO2013Menu extends JFrame {
                             if (result[0].equals("Australia: Passed"))
                             {
                                 frenchpolynesia.setBackground(green);
+                                frenchpolynesia.setForeground(Color.black);
                             }
 
                             else
                             {
                                 frenchpolynesia.setBackground(red);
+                                frenchpolynesia.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 fp.tearDown();
@@ -625,10 +683,14 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_9);
 		
 		JButton israel = new JButton("Israel");
+        israel.setBackground(nuskinbutton);
+        israel.setForeground(Color.white);
 		israel.setBounds(842, 112, 126, 42);
 		contentPane.add(israel);
 		
 		final JButton btnSingapore = new JButton("Singapore");
+        btnSingapore.setBackground(nuskinbutton);
+        btnSingapore.setForeground(Color.white);
 		btnSingapore.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Singapore\n\n");
@@ -656,8 +718,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Singapore: Passed")) {
                                 btnSingapore.setBackground(green);
+                                btnSingapore.setForeground(Color.black);
                             } else {
                                 btnSingapore.setBackground(red);
+                                btnSingapore.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 sg.tearDown();
@@ -717,6 +781,8 @@ public class LTO2013Menu extends JFrame {
 		
 		
 		final JButton TH = new JButton("Thailand");
+        TH.setBackground(nuskinbutton);
+        TH.setForeground(Color.white);
 		TH.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 output.append("Executing: Thailand\n\n");
@@ -742,8 +808,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Thailand: Passed")) {
                                 TH.setBackground(green);
+                                TH.setForeground(Color.black);
                             } else {
                                 TH.setBackground(red);
+                                TH.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 th.tearDown();
@@ -759,6 +827,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(TH);
 		
 		final JButton ID = new JButton("Indonesia");
+        ID.setBackground(nuskinbutton);
+        ID.setForeground(Color.white);
 		ID.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Indonesia\n\n");
@@ -784,8 +854,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Indonesia: Passed")) {
                                 ID.setBackground(green);
+                                ID.setForeground(Color.black);
                             } else {
                                 ID.setBackground(red);
+                                ID.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 indo.tearDown();
@@ -801,6 +873,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(ID);
 		
 		final JButton VN = new JButton("Vietnam");
+        VN.setBackground(nuskinbutton);
+        VN.setForeground(Color.white);
 		VN.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Vietnam\n\n");
@@ -826,8 +900,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Vietnam: Passed")) {
                                 VN.setBackground(green);
+                                VN.setForeground(Color.black);
                             } else {
                                 VN.setBackground(red);
+                                VN.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 vn.tearDown();
@@ -843,6 +919,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(VN);
 		
 		final JButton MY = new JButton("Malaysia");
+        MY.setBackground(nuskinbutton);
+        MY.setForeground(Color.white);
 		MY.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Malaysia\n\n");
@@ -868,8 +946,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Malaysia: Passed")) {
                                 MY.setBackground(green);
+                                MY.setForeground(Color.black);
                             } else {
                                 MY.setBackground(red);
+                                MY.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 my.tearDown();
@@ -885,6 +965,8 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(MY);
 		
 		final JButton PH = new JButton("Philippines");
+        PH.setBackground(nuskinbutton);
+        PH.setForeground(Color.white);
 		PH.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 output.append("Executing: Philippines\n\n");
@@ -910,8 +992,10 @@ public class LTO2013Menu extends JFrame {
                             output.setCaretPosition(output.getDocument().getLength());
                             if (result[0].equals("Philippines: Passed")) {
                                 PH.setBackground(green);
+                                PH.setForeground(Color.black);
                             } else {
                                 PH.setBackground(red);
+                                PH.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
                                 ph.tearDown();

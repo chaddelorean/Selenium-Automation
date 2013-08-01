@@ -11,7 +11,7 @@ public class Germany {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private String[] results = new String[3];
+  private String[] results = new String[4];
   private ScreenShot myScreenShot;
   private BuyerDataForm data;
   private ResetPLQuantity plquantity;
@@ -22,6 +22,7 @@ public class Germany {
     data.setDistID("US1111111");
     data.setLogin("US1111111");
     data.setPassword("abc123");
+    data.setBuyerID("none");
   }
   public Germany(BuyerDataForm d)
   {
@@ -88,6 +89,7 @@ public class Germany {
 	    }
 
 	    results[0] = "Germany: Passed";
+        results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
 	  }
 	  
