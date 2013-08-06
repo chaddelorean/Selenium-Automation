@@ -647,7 +647,7 @@ public class LTO2013Menu extends JFrame {
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("Australia: Passed"))
+                            if (result[0].equals("French Polynesia: Passed"))
                             {
                                 frenchpolynesia.setBackground(green);
                                 frenchpolynesia.setForeground(Color.black);

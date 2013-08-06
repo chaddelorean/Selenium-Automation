@@ -27,10 +27,10 @@ public class FrenchPolynesia {
   public FrenchPolynesia()
   {
       data = new BuyerDataForm();
-      data.setLogin("homersimpsonPF@qa.com");
+      data.setLogin("1375129195313@qa.com");
       data.setPassword("abc123");
-      data.setDistID("NZ00003564");
-      data.setBuyerID("US1111111");
+      data.setDistID("NZ00003614");
+      data.setBuyerID("NZ00003588");
   }
   public FrenchPolynesia(BuyerDataForm d)
   {
