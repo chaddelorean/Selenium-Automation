@@ -68,20 +68,28 @@ public class HongKong {
 	    //global landing page
 	    driver.findElement(By.linkText("香港 (Hong Kong)")).click();
 	    //Hong Kong landing page - Order Now button
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
+        LandingPage land = new LandingPage(driver);
+        results[0] = land.landing(data.getLogin(), data.getPassword());
+        if (results[0] != null)
+        {
+            results[0] = "Hong Kong: Failed: Myself\n" + results[0];
+            if (screenshot)
+                myScreenShot.takeScreenShot(location, "HongKong");
+            return results;
+        }
 
-          BuyerSelect select = new BuyerSelect(driver);
-          results[0] =  select.Select("myself");
-          if (results[0] != null)
-          {
-              results[0] = "Hong Kong: Failed: Myself\n" + results[0];
-              if (screenshot)
-                  myScreenShot.takeScreenShot(location, "HongKong");
-              return results;
-          }
+        BuyerSelect select = new BuyerSelect(driver);
+        results[0] =  select.Select("myself");
+        if (results[0] != null)
+        {
+            results[0] = "Hong Kong: Failed: Myself\n" + results[0];
+            if (screenshot)
+                myScreenShot.takeScreenShot(location, "HongKong");
+            return results;
+        }
 	    
 	    //buyer page info
-	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
+	    /*Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -95,7 +103,7 @@ public class HongKong {
             return results;
 
 	    //Buyer validation page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click(); */
 
         //omniture check
         Omniturevalidation omni = new Omniturevalidation(driver);
@@ -115,7 +123,6 @@ public class HongKong {
             }
         }
 	    //product page
-	    //new Select(driver.findElement(By.name("qty"))).selectByVisibleText("3");
 	    driver.findElement(By.id("checkout")).click();
 	    if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div")))
 	    {
@@ -126,7 +133,7 @@ public class HongKong {
 	    }
 
 	    //shop app
-	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getBuyerID());
+	    Authshopapp shopapp = new Authshopapp(driver, data.getBuyerID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
@@ -155,11 +162,19 @@ public class HongKong {
   public String[] someoneElse(boolean place, boolean screenshot, String location)
   {
 	  try{
-		  	driver.get(baseUrl);
-		    //global landing page
-            driver.findElement(By.linkText("香港 (Hong Kong)")).click();
-		    //Hong Kong landing page - Order Now button
-		    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
+		  driver.get(baseUrl);
+		  //global landing page
+          driver.findElement(By.linkText("香港 (Hong Kong)")).click();
+		  //Hong Kong landing page - Order Now button
+          LandingPage land = new LandingPage(driver);
+          results[0] = land.landing(data.getLogin(), data.getPassword());
+          if (results[0] != null)
+          {
+              results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
+              if (screenshot)
+                  myScreenShot.takeScreenShot(location, "HongKong");
+              return results;
+          }
 
           BuyerSelect select = new BuyerSelect(driver);
           results[0] =  select.Select("other");
@@ -199,7 +214,7 @@ public class HongKong {
 		    }
 
 		    //shop app
-		    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
+		    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
 		    String[] temp = shopapp.ShopApp(place);
 		    results[0] = temp[0];
 		    results[2] = temp[1];
