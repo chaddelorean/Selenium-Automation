@@ -89,7 +89,7 @@ public class HongKong {
         }
 	    
 	    //buyer page info
-	    /*Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
+	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
 	    if (results[0] != null)
 	    {
@@ -103,7 +103,7 @@ public class HongKong {
             return results;
 
 	    //Buyer validation page
-	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click(); */
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 
         //omniture check
         Omniturevalidation omni = new Omniturevalidation(driver);
@@ -140,6 +140,7 @@ public class HongKong {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Hong Kong: Failed: Myself \n" + results[0];
+            results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	if (screenshot)
 				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
@@ -221,6 +222,7 @@ public class HongKong {
 		    if (results[0] != null)
 		    {
 		    	results[0] = "Hong Kong: Failed: Someone Else\n" + results[0];
+                results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 		    	if (screenshot)
 					myScreenShot.takeScreenShot(location, "HongKong");
 		    	return results;

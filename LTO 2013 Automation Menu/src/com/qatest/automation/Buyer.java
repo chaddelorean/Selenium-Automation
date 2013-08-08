@@ -33,7 +33,7 @@ public class Buyer {
 				 driver.findElement(By.id("zip_postalLookup")).sendKeys("57384");
 			}
 
-            if (isElementPresent(By.id("distributorID")) && !isAttributePresent("distributorID", "disabled"))
+            if (isElementPresent(By.id("distributorID")) && !isAttributePresent("distributorID", "disabled") && driver.findElement(By.id("distributorID")).isDisplayed())
             {
                 driver.findElement(By.id("distributorID")).clear();
                 driver.findElement(By.id("distributorID")).sendKeys(data.getDistID());
@@ -57,7 +57,7 @@ public class Buyer {
 		        driver.findElement(By.id("buyerID")).sendKeys(data.getBuyerID());
 			}
 
-            if (isElementPresent(By.id("address_id")))
+            if (isElementPresent(By.id("address_id")) && driver.findElement(By.id("address_id")).isEnabled())
             {
                 driver.findElement(By.id("address_id")).clear();
                 driver.findElement(By.id("address_id")).sendKeys(data.getBuyerID());
@@ -185,6 +185,7 @@ public class Buyer {
             {
                 return true;
             }
+
         }
 
         catch (NullPointerException e)

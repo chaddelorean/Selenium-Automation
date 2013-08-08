@@ -100,6 +100,7 @@ public class Indonesia {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Indonesia: Failed: Someone Else\n" + results[0];
+            results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	if (screenshot)
 				myScreenShot.takeScreenShot(location, "Indonesia");
 	    	return results;

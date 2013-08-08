@@ -97,6 +97,7 @@ public class UnitedStates {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "United States: Failed: Myself\n" + results[0];
+            results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;

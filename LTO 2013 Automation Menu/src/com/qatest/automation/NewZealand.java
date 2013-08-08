@@ -104,6 +104,7 @@ public class NewZealand {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "New Zealand: Failed: Myself\n" + results[0];
+            results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	return results;
 	    }
 	   	    

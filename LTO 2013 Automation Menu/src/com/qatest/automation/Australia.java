@@ -1,13 +1,10 @@
 package com.qatest.automation;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class Australia {
   private WebDriver driver;
@@ -100,6 +97,7 @@ public class Australia {
 	    if (results[0] != null)
 	    {
 	    	results[0] = "Australia: Failed: Myself\n" + results[0];
+            results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	return results;
 	    }
 	   	    

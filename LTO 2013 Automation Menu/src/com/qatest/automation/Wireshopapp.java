@@ -64,13 +64,13 @@ public class Wireshopapp {
                 driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div[2]/ul/li[3]/div/div/a")).click();
                 Thread.sleep(3000);
                 driver.findElement(By.cssSelector("input.orderNumberVal")).clear();
-                driver.findElement(By.cssSelector("input.orderNumberVal")).sendKeys(ordernum[2]);
+                driver.findElement(By.cssSelector("input.orderNumberVal")).sendKeys(ordernum[3]);
                 driver.findElement(By.cssSelector("input.distributorIdVal")).clear();
                 driver.findElement(By.cssSelector("input.distributorIdVal")).sendKeys(username);
                 driver.findElement(By.linkText("SUBMIT")).click();
                 Thread.sleep(5000);
 
-                if (!driver.getPageSource().contains(ordernum[2]))
+                if (!driver.getPageSource().contains(ordernum[3]))
                 {
                      results[0] = results[1] + " was not found on order status page.";
                 }
