@@ -98,7 +98,13 @@ public class Buyer {
 		        driver.findElement(By.id("nameOfPerson")).clear();
 		        driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
 			}
-			
+
+            if (isElementPresent(By.id("address_district")))
+            {
+                driver.findElement(By.id("address_district")).clear();
+                driver.findElement(By.id("address_district")).sendKeys(data.getCity());
+            }
+
 			if (isElementPresent(By.id("address_address1")))
 			{
 		        driver.findElement(By.id("address_address1")).clear();
