@@ -403,25 +403,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Belgium\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Belgium belgium;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            belgium = new Belgium(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            belgium = new Belgium();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            belgium.setUp();
+                            String result[] = belgium.testBelgium(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Belgium: Passed")) {
                                 btnbelgium.setBackground(green);
                                 btnbelgium.setForeground(Color.black);
                             } else {
@@ -429,7 +429,7 @@ public class LTO2013Menu extends JFrame {
                                 btnbelgium.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                belgium.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -497,25 +497,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: The Netherlands\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Netherlands holland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            holland = new Netherlands(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            holland = new Netherlands();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            holland.setUp();
+                            String result[] = holland.testNetherlands(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Netherlands: Passed")) {
                                 btnnetherlands.setBackground(green);
                                 btnnetherlands.setForeground(Color.black);
                             } else {
@@ -523,7 +523,7 @@ public class LTO2013Menu extends JFrame {
                                 btnnetherlands.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                holland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1183,25 +1183,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Austria\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Austria austria;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            austria = new Austria(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            austria = new Austria();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            austria.setUp();
+                            String result[] = austria.testAustria(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Austria: Passed")) {
                                 btnAustria.setBackground(green);
                                 btnAustria.setForeground(Color.black);
                             } else {
@@ -1209,7 +1209,7 @@ public class LTO2013Menu extends JFrame {
                                 btnAustria.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                austria.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1230,25 +1230,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Denmark\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Denmark denmark;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            denmark = new Denmark(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            denmark = new Denmark();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            denmark.setUp();
+                            String result[] = denmark.testDenmark(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Denmark: Passed")) {
                                 btnDenmark.setBackground(green);
                                 btnDenmark.setForeground(Color.black);
                             } else {
@@ -1256,7 +1256,7 @@ public class LTO2013Menu extends JFrame {
                                 btnDenmark.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                denmark.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1277,25 +1277,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Czech Republic\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        CzechRepublic czech;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            czech = new CzechRepublic(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            czech = new CzechRepublic();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            czech.setUp();
+                            String result[] = czech.testCzechRepublic(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Czech Republic: Passed")) {
                                 btnCzech.setBackground(green);
                                 btnCzech.setForeground(Color.black);
                             } else {
@@ -1303,7 +1303,7 @@ public class LTO2013Menu extends JFrame {
                                 btnCzech.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                czech.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1324,25 +1324,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Finland\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Finland finland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            finland = new Finland(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            finland = new Finland();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            finland.setUp();
+                            String result[] = finland.testFinland(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Finland: Passed")) {
                                 btnFinland.setBackground(green);
                                 btnFinland.setForeground(Color.black);
                             } else {
@@ -1350,7 +1350,7 @@ public class LTO2013Menu extends JFrame {
                                 btnFinland.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                finland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1371,25 +1371,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Hungary\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Hungary hungary;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            hungary = new Hungary(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            hungary = new Hungary();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            hungary.setUp();
+                            String result[] = hungary.testHungary(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Hungary: Passed")) {
                                 btnHungary.setBackground(green);
                                 btnHungary.setForeground(Color.black);
                             } else {
@@ -1397,7 +1397,7 @@ public class LTO2013Menu extends JFrame {
                                 btnHungary.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                hungary.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1418,25 +1418,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Iceland\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Iceland iceland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            iceland = new Iceland(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            iceland = new Iceland();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            iceland.setUp();
+                            String result[] = iceland.testIceland(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Iceland: Passed")) {
                                 btnIceland.setBackground(green);
                                 btnIceland.setForeground(Color.black);
                             } else {
@@ -1444,7 +1444,7 @@ public class LTO2013Menu extends JFrame {
                                 btnIceland.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                iceland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1465,25 +1465,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Ireland\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Ireland ireland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            ireland = new Ireland(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            ireland = new Ireland();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            ireland.setUp();
+                            String result[] = ireland.testIreland(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Ireland: Passed")) {
                                 btnIreland.setBackground(green);
                                 btnIreland.setForeground(Color.black);
                             } else {
@@ -1491,7 +1491,7 @@ public class LTO2013Menu extends JFrame {
                                 btnIreland.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                ireland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1512,25 +1512,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Italy\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Italy italy;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            italy = new Italy(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            italy = new Italy();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            italy.setUp();
+                            String result[] = italy.testItaly(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Italy: Passed")) {
                                 btnItaly.setBackground(green);
                                 btnItaly.setForeground(Color.black);
                             } else {
@@ -1538,7 +1538,7 @@ public class LTO2013Menu extends JFrame {
                                 btnItaly.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                italy.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1559,25 +1559,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Luxembourg\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Luxembourg luxembourg;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            luxembourg = new Luxembourg(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            luxembourg = new Luxembourg();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            luxembourg.setUp();
+                            String result[] = luxembourg.testLuxembourg(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Luxembourg: Passed")) {
                                 btnLuxembourg.setBackground(green);
                                 btnLuxembourg.setForeground(Color.black);
                             } else {
@@ -1585,7 +1585,7 @@ public class LTO2013Menu extends JFrame {
                                 btnLuxembourg.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                luxembourg.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1606,25 +1606,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Norway\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Norway norway;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            norway = new Norway(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            norway = new Norway();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            norway.setUp();
+                            String result[] = norway.testNorway(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Norway: Passed")) {
                                 btnNorway.setBackground(green);
                                 btnNorway.setForeground(Color.black);
                             } else {
@@ -1632,7 +1632,7 @@ public class LTO2013Menu extends JFrame {
                                 btnNorway.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                norway.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1653,25 +1653,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Poland\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Poland poland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            poland = new Poland(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            poland = new Poland();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            poland.setUp();
+                            String result[] = poland.testPoland(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Poland: Passed")) {
                                 btnPoland.setBackground(green);
                                 btnPoland.setForeground(Color.black);
                             } else {
@@ -1679,7 +1679,7 @@ public class LTO2013Menu extends JFrame {
                                 btnPoland.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                poland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1700,25 +1700,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Portugal\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Portugal portugal;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            portugal = new Portugal(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            portugal = new Portugal();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            portugal.setUp();
+                            String result[] = portugal.testPortugal(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Portugal: Passed")) {
                                 btnPortugal.setBackground(green);
                                 btnPortugal.setForeground(Color.black);
                             } else {
@@ -1726,7 +1726,7 @@ public class LTO2013Menu extends JFrame {
                                 btnPortugal.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                portugal.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1747,25 +1747,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Romania\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Romania romania;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            romania = new Romania(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            romania = new Romania();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            romania.setUp();
+                            String result[] = romania.testRomania(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Romania: Passed")) {
                                 btnRomania.setBackground(green);
                                 btnRomania.setForeground(Color.black);
                             } else {
@@ -1773,7 +1773,7 @@ public class LTO2013Menu extends JFrame {
                                 btnRomania.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                romania.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1794,18 +1794,18 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Russia\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Russia russia;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            russia = new Russia(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            russia = new Russia();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            russia.setUp();
+                            String result[] = russia.testRussia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
@@ -1820,7 +1820,7 @@ public class LTO2013Menu extends JFrame {
                                 btnRussia.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                russia.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1841,25 +1841,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Slovakia\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Slovakia slovakia;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            slovakia = new Slovakia(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            slovakia = new Slovakia();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            slovakia.setUp();
+                            String result[] = slovakia.testSlovakia(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Slovakia: Passed")) {
                                 btnSlovakia.setBackground(green);
                                 btnSlovakia.setForeground(Color.black);
                             } else {
@@ -1867,7 +1867,7 @@ public class LTO2013Menu extends JFrame {
                                 btnSlovakia.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                slovakia.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1888,25 +1888,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Spain\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Spain spain;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            spain = new Spain(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            spain = new Spain();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            spain.setUp();
+                            String result[] = spain.testSpain(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Spain: Passed")) {
                                 btnSpain.setBackground(green);
                                 btnSpain.setForeground(Color.black);
                             } else {
@@ -1914,7 +1914,7 @@ public class LTO2013Menu extends JFrame {
                                 btnSpain.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                spain.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1935,25 +1935,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Sweden\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Sweden sweden;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            sweden = new Sweden(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            sweden = new Sweden();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            sweden.setUp();
+                            String result[] = sweden.testSweden(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Sweden: Passed")) {
                                 btnSweden.setBackground(green);
                                 btnSweden.setForeground(Color.black);
                             } else {
@@ -1961,7 +1961,7 @@ public class LTO2013Menu extends JFrame {
                                 btnSweden.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                sweden.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -1982,25 +1982,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Switzerland\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Switzerland switzerland;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            switzerland = new Switzerland(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            switzerland = new Switzerland();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            switzerland.setUp();
+                            String result[] = switzerland.testSwitzerland(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Switzerland: Passed")) {
                                 btnSwitzerland.setBackground(green);
                                 btnSwitzerland.setForeground(Color.black);
                             } else {
@@ -2008,7 +2008,7 @@ public class LTO2013Menu extends JFrame {
                                 btnSwitzerland.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                switzerland.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -2029,25 +2029,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: Ukraine\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        Ukraine ukraine;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            ukraine = new Ukraine(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            ukraine = new Ukraine();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            ukraine.setUp();
+                            String result[] = ukraine.testUkraine(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Ukraine: Passed")) {
                                 btnUkraine.setBackground(green);
                                 btnUkraine.setForeground(Color.black);
                             } else {
@@ -2055,7 +2055,7 @@ public class LTO2013Menu extends JFrame {
                                 btnUkraine.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                ukraine.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -2071,25 +2071,25 @@ public class LTO2013Menu extends JFrame {
                 output.append("Executing: France\n\n");
                 new Thread(new Runnable() {
                     public void run() {
-                        UnitedKingdom uKingdom;
+                        France france;
                         if (data != null)
                         {
-                            uKingdom = new UnitedKingdom(data);
+                            france = new France(data);
                         }
                         else
                         {
-                            uKingdom = new UnitedKingdom();
+                            france = new France();
                         }
                         try {
-                            uKingdom.setUp();
-                            String result[] = uKingdom.testUnitedKingdom(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
+                            france.setUp();
+                            String result[] = france.testFrance(placeorders.isSelected(), screenshots.isSelected(), fileLocation);
                             for (int i = 0; i < result.length; i++) {
                                 if (result[i] != null)
                                     output.append(result[i] + "\n");
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("France: Passed")) {
                                 btnFrance.setBackground(green);
                                 btnFrance.setForeground(Color.black);
                             } else {
@@ -2097,7 +2097,7 @@ public class LTO2013Menu extends JFrame {
                                 btnFrance.setForeground(Color.black);
                             }
                             if (placeorders.isSelected())
-                                uKingdom.tearDown();
+                                france.tearDown();
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();

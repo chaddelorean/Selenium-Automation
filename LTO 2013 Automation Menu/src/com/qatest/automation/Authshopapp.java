@@ -2,6 +2,8 @@ package com.qatest.automation;
 
 import org.openqa.selenium.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class Authshopapp {
 	
 	private String[] results;
@@ -19,7 +21,12 @@ public class Authshopapp {
 	{
 		//shop app
 	    try{
-
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+            if (isElementPresent(By.xpath("/html/body/form/div/div[22]/div/div/button")) && driver.findElement(By.xpath("/html/body/form/div/div[22]/div/div/button")).isDisplayed())
+            {
+                driver.findElement(By.xpath("/html/body/form/div/div[22]/div/div/button")).click();
+            }
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    	driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
 		    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
 		    driver.findElement(By.id("agreeToTerms2")).click();
