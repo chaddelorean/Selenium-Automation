@@ -57,7 +57,7 @@ public class Buyer {
 		        driver.findElement(By.id("buyerID")).sendKeys(data.getBuyerID());
 			}
 
-            if (isElementPresent(By.id("address_id")) && driver.findElement(By.id("address_id")).isEnabled())
+            if (isElementPresent(By.id("address_id")))
             {
                 driver.findElement(By.id("address_id")).clear();
                 driver.findElement(By.id("address_id")).sendKeys(data.getBuyerID());
@@ -98,30 +98,30 @@ public class Buyer {
 		        driver.findElement(By.id("nameOfPerson")).clear();
 		        driver.findElement(By.id("nameOfPerson")).sendKeys("Test User");
 			}
-
-            if (isElementPresent(By.id("address_district")))
-            {
-                driver.findElement(By.id("address_district")).clear();
-                driver.findElement(By.id("address_district")).sendKeys(data.getCity());
-            }
-
-			if (isElementPresent(By.id("address_address1")))
+			
+			if (isElementPresent(By.id("address_address1")) && !isAttributePresent("address_address1", "readonly"))
 			{
 		        driver.findElement(By.id("address_address1")).clear();
 		        driver.findElement(By.id("address_address1")).sendKeys(data.getAddress());
 			}
 			
-			if (isElementPresent(By.id("address_address2")))
+			if (isElementPresent(By.id("address_address2")) && !isAttributePresent("address_address2", "readonly"))
 			{
 		        driver.findElement(By.id("address_address2")).clear();
 		        driver.findElement(By.id("address_address2")).sendKeys("Test Address Line 2");
 			}
 			
-			if (isElementPresent(By.id("address_city")) && driver.findElement(By.id("address_city")).isDisplayed())
+			if (isElementPresent(By.id("address_city")) && driver.findElement(By.id("address_city")).isDisplayed() && !isAttributePresent("address_address1", "readonly"))
 			{
 				driver.findElement(By.id("address_city")).clear();
 			    driver.findElement(By.id("address_city")).sendKeys(data.getAddress());
 			}
+
+            if (isElementPresent(By.id("address_distrct")) && !isAttributePresent("address_district", "readonly"))
+            {
+                driver.findElement(By.id("address_district")).clear();
+                driver.findElement(By.id("address_district")).sendKeys(data.getCity());
+            }
 
 			if (isElementPresent(By.id("email")))
 			{
@@ -141,7 +141,7 @@ public class Buyer {
 		        driver.findElement(By.id("mobile_3")).sendKeys("456");
 			}
 	        
-			if (isElementPresent(By.id("address_postalCode")))
+			if (isElementPresent(By.id("address_postalCode")) && !isAttributePresent("address_postalCode", "readonly"))
 			{
 				driver.findElement(By.id("address_postalCode")).clear();
 		        driver.findElement(By.id("address_postalCode")).sendKeys(data.getPostalcode());
@@ -191,7 +191,6 @@ public class Buyer {
             {
                 return true;
             }
-
         }
 
         catch (NullPointerException e)
