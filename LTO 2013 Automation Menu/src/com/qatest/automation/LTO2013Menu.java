@@ -397,12 +397,17 @@ public class LTO2013Menu extends JFrame {
 		contentPane.add(lblNewLabel_6);
 		
 		JButton belgium = new JButton("Belgium");
+		belgium.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
         belgium.setBackground(nuskinbutton);
         belgium.setForeground(Color.white);
-		belgium.setBounds(201, 112, 126, 42);
+		belgium.setBounds(201, 112, 79, 27);
 		contentPane.add(belgium);
 		
 		final JButton germany = new JButton("Germany");
+		germany.setFont(new Font("Tahoma", Font.PLAIN, 9));
         germany.setBackground(nuskinbutton);
         germany.setForeground(Color.white);
 		germany.addActionListener(new ActionListener() {
@@ -446,20 +451,24 @@ public class LTO2013Menu extends JFrame {
                 }).start();
             }
         });
-		germany.setBounds(201, 162, 126, 42);
+		germany.setBounds(201, 143, 79, 27);
 		contentPane.add(germany);
 		
-		JButton netherlands = new JButton("The Netherlands");
+		JButton netherlands = new JButton("Netherlands");
+		netherlands.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
         netherlands.setBackground(nuskinbutton);
         netherlands.setForeground(Color.white);
-		netherlands.setFont(new Font("Tahoma", Font.BOLD, 9));
-		netherlands.setBounds(201, 218, 126, 42);
+		netherlands.setFont(new Font("Tahoma", Font.BOLD, 7));
+		netherlands.setBounds(201, 174, 79, 27);
 		contentPane.add(netherlands);
 		
-		final JButton uk = new JButton("United Kingdom");
+		final JButton uk = new JButton("UK");
         uk.setBackground(nuskinbutton);
         uk.setForeground(Color.white);
-		uk.setFont(new Font("Dialog", Font.BOLD, 10));
+		uk.setFont(new Font("Dialog", Font.BOLD, 9));
 		uk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 output.append("Executing: United Kingdom\n\n");
@@ -500,7 +509,7 @@ public class LTO2013Menu extends JFrame {
                 }).start();
             }
         });
-		uk.setBounds(337, 112, 126, 42);
+		uk.setBounds(290, 112, 79, 27);
 		contentPane.add(uk);
 		
 		JLabel lblNewLabel_7 = new JLabel("South Pacific");
@@ -1122,6 +1131,215 @@ public class LTO2013Menu extends JFrame {
 			}
 		});
 		mnOmniture.add(mntmResetOmnitureVariables);
+		
+		JButton btnAustria = new JButton("Austria");
+		btnAustria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAustria.setForeground(Color.WHITE);
+		btnAustria.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnAustria.setBackground(new Color(0, 138, 176));
+		btnAustria.setBounds(201, 205, 79, 27);
+		contentPane.add(btnAustria);
+		
+		JButton btnDenmark = new JButton("Denmark");
+		btnDenmark.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnDenmark.setForeground(Color.WHITE);
+		btnDenmark.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnDenmark.setBackground(new Color(0, 138, 176));
+		btnDenmark.setBounds(201, 236, 79, 27);
+		contentPane.add(btnDenmark);
+		
+		JButton btnCzech = new JButton("Czech");
+		btnCzech.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCzech.setForeground(Color.WHITE);
+		btnCzech.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnCzech.setBackground(new Color(0, 138, 176));
+		btnCzech.setBounds(201, 268, 79, 27);
+		contentPane.add(btnCzech);
+		
+		JButton btnFinland = new JButton("Finland");
+		btnFinland.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnFinland.setForeground(Color.WHITE);
+		btnFinland.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnFinland.setBackground(new Color(0, 138, 176));
+		btnFinland.setBounds(201, 300, 79, 27);
+		contentPane.add(btnFinland);
+		
+		JButton btnHungary = new JButton("Hungary");
+		btnHungary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnHungary.setForeground(Color.WHITE);
+		btnHungary.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnHungary.setBackground(new Color(0, 138, 176));
+		btnHungary.setBounds(201, 331, 79, 27);
+		contentPane.add(btnHungary);
+		
+		JButton btnIceland = new JButton("Iceland");
+		btnIceland.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnIceland.setForeground(Color.WHITE);
+		btnIceland.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnIceland.setBackground(new Color(0, 138, 176));
+		btnIceland.setBounds(201, 362, 79, 27);
+		contentPane.add(btnIceland);
+		
+		JButton btnIreland = new JButton("Ireland");
+		btnIreland.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnIreland.setForeground(Color.WHITE);
+		btnIreland.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnIreland.setBackground(new Color(0, 138, 176));
+		btnIreland.setBounds(201, 394, 79, 27);
+		contentPane.add(btnIreland);
+		
+		JButton btnItaly = new JButton("Italy");
+		btnItaly.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnItaly.setForeground(Color.WHITE);
+		btnItaly.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnItaly.setBackground(new Color(0, 138, 176));
+		btnItaly.setBounds(290, 143, 79, 27);
+		contentPane.add(btnItaly);
+		
+		JButton btnLuxembourg = new JButton("LU");
+		btnLuxembourg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLuxembourg.setForeground(Color.WHITE);
+		btnLuxembourg.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnLuxembourg.setBackground(new Color(0, 138, 176));
+		btnLuxembourg.setBounds(290, 174, 79, 27);
+		contentPane.add(btnLuxembourg);
+		
+		JButton btnNorway = new JButton("Norway");
+		btnNorway.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNorway.setForeground(Color.WHITE);
+		btnNorway.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnNorway.setBackground(new Color(0, 138, 176));
+		btnNorway.setBounds(290, 205, 79, 27);
+		contentPane.add(btnNorway);
+		
+		JButton btnPoland = new JButton("Poland");
+		btnPoland.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPoland.setForeground(Color.WHITE);
+		btnPoland.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnPoland.setBackground(new Color(0, 138, 176));
+		btnPoland.setBounds(290, 236, 79, 27);
+		contentPane.add(btnPoland);
+		
+		JButton btnPortugal = new JButton("Portugal");
+		btnPortugal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPortugal.setForeground(Color.WHITE);
+		btnPortugal.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnPortugal.setBackground(new Color(0, 138, 176));
+		btnPortugal.setBounds(290, 268, 79, 27);
+		contentPane.add(btnPortugal);
+		
+		JButton btnRomania = new JButton("Romania");
+		btnRomania.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRomania.setForeground(Color.WHITE);
+		btnRomania.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnRomania.setBackground(new Color(0, 138, 176));
+		btnRomania.setBounds(290, 300, 79, 27);
+		contentPane.add(btnRomania);
+		
+		JButton btnRussia = new JButton("Russia");
+		btnRussia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRussia.setForeground(Color.WHITE);
+		btnRussia.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnRussia.setBackground(new Color(0, 138, 176));
+		btnRussia.setBounds(290, 331, 79, 27);
+		contentPane.add(btnRussia);
+		
+		JButton btnSlovakia = new JButton("Slovakia");
+		btnSlovakia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSlovakia.setForeground(Color.WHITE);
+		btnSlovakia.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnSlovakia.setBackground(new Color(0, 138, 176));
+		btnSlovakia.setBounds(290, 362, 79, 27);
+		contentPane.add(btnSlovakia);
+		
+		JButton btnSpain = new JButton("Spain");
+		btnSpain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSpain.setForeground(Color.WHITE);
+		btnSpain.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnSpain.setBackground(new Color(0, 138, 176));
+		btnSpain.setBounds(290, 394, 79, 27);
+		contentPane.add(btnSpain);
+		
+		JButton btnSweden = new JButton("Sweden");
+		btnSweden.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSweden.setForeground(Color.WHITE);
+		btnSweden.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnSweden.setBackground(new Color(0, 138, 176));
+		btnSweden.setBounds(377, 112, 79, 27);
+		contentPane.add(btnSweden);
+		
+		JButton btnSwitzerland = new JButton("CH");
+		btnSwitzerland.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSwitzerland.setForeground(Color.WHITE);
+		btnSwitzerland.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnSwitzerland.setBackground(new Color(0, 138, 176));
+		btnSwitzerland.setBounds(377, 143, 79, 27);
+		contentPane.add(btnSwitzerland);
+		
+		JButton btnUkraine = new JButton("Ukraine");
+		btnUkraine.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnUkraine.setForeground(Color.WHITE);
+		btnUkraine.setFont(new Font("Tahoma", Font.BOLD, 9));
+		btnUkraine.setBackground(new Color(0, 138, 176));
+		btnUkraine.setBounds(377, 174, 79, 27);
+		contentPane.add(btnUkraine);
 		
 		
 			
