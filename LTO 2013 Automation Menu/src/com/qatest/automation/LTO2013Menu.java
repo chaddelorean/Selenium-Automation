@@ -1812,7 +1812,7 @@ public class LTO2013Menu extends JFrame {
                             }
                             output.append("\n");
                             output.setCaretPosition(output.getDocument().getLength());
-                            if (result[0].equals("United Kingdom: Passed")) {
+                            if (result[0].equals("Russia: Passed")) {
                                 btnRussia.setBackground(green);
                                 btnRussia.setForeground(Color.black);
                             } else {
