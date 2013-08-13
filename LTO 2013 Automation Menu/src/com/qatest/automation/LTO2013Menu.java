@@ -2064,6 +2064,11 @@ public class LTO2013Menu extends JFrame {
                 }).start();
 			}
 		});
+        btnUkraine.setForeground(Color.WHITE);
+        btnUkraine.setFont(new Font("Tahoma", Font.BOLD, 9));
+        btnUkraine.setBackground(new Color(0, 138, 176));
+        btnUkraine.setBounds(377, 205, 79, 27);
+        contentPane.add(btnUkraine);
 
         final JButton btnFrance = new JButton("France");
         btnFrance.addActionListener(new ActionListener() {
