@@ -33,7 +33,7 @@ public class Buyer {
 				 driver.findElement(By.id("zip_postalLookup")).sendKeys("57384");
 			}
 
-            if (isElementPresent(By.id("distributorID")) && !isAttributePresent("distributorID", "disabled") && driver.findElement(By.id("distributorID")).isDisplayed())
+            if (isElementPresent(By.id("distributorID")) && !isAttributePresent("distributorID", "readonly") && driver.findElement(By.id("distributorID")).isDisplayed())
             {
                 driver.findElement(By.id("distributorID")).clear();
                 driver.findElement(By.id("distributorID")).sendKeys(data.getDistID());
@@ -57,7 +57,7 @@ public class Buyer {
 		        driver.findElement(By.id("buyerID")).sendKeys(data.getBuyerID());
 			}
 
-            if (isElementPresent(By.id("address_id")))
+            if (isElementPresent(By.id("address_id")) && !isAttributePresent("address_id", "readonly"))
             {
                 driver.findElement(By.id("address_id")).clear();
                 driver.findElement(By.id("address_id")).sendKeys(data.getBuyerID());
@@ -117,7 +117,7 @@ public class Buyer {
 			    driver.findElement(By.id("address_city")).sendKeys(data.getAddress());
 			}
 
-            if (isElementPresent(By.id("address_distrct")) && !isAttributePresent("address_district", "readonly"))
+            if (isElementPresent(By.id("address_district")) && !isAttributePresent("address_district", "readonly"))
             {
                 driver.findElement(By.id("address_district")).clear();
                 driver.findElement(By.id("address_district")).sendKeys(data.getCity());

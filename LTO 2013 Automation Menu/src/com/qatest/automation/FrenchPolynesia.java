@@ -62,6 +62,7 @@ public class FrenchPolynesia {
 		 driver.get(baseUrl);
 	    //global landing page
 	    driver.findElement(By.linkText("Polynésie Française (French Polynesia)")).click();
+        driver.get("http://test.nuskin.com/content/lto/2013/sp/en_PF/landing.html");
 	    //French Polynesia landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
 	    
