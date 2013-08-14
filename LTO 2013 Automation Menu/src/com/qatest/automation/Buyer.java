@@ -159,6 +159,12 @@ public class Buyer {
 		        driver.findElement(By.id("buyerMobile_3")).sendKeys("4565");
 			}
 
+            if (isElementPresent(By.id("address_region_selector")))
+            {
+                driver.findElement(By.id("address_region_selector")).click();
+                driver.findElement(By.xpath("//div[@id='address_region_rightcol']/div/ul/li[2]")).click();
+            }
+
             if (!stopOnBuyer)
             {
                 if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")))

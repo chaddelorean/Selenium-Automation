@@ -57,7 +57,11 @@ public class Australia {
 	    driver.findElement(By.linkText("Australia")).click();
 	    //Australia landing page - Order Now button
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[3]/div/div[7]/div/div/div/a")).click();
-	    
+
+        //Waiting Room wait
+        waitingroom wr = new waitingroom(driver);
+        wr.wait("distributorID");
+
 	    //buyer page info
 	    Buyer myBuyer = new Buyer(driver, LTO2013Menu.stopBuyer());
 	    results[0] = myBuyer.buyerPage(data);
