@@ -159,6 +159,10 @@ public class UnitedStates {
         if (LTO2013Menu.stopBuyer())
             return results;
 
+        Thread.sleep(5000);
+
+        driver.findElement(By.id("choose_btnsubmit")).click();
+
 	    //Verification Page
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div/div/div/form/div/div/div/a")).click();
 	    

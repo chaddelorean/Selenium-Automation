@@ -133,7 +133,7 @@ public class HongKong {
 	    }
 
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getBuyerID());
+	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
 	    String[] temp = shopapp.ShopApp(place);
 	    results[0] = temp[0];
 	    results[1] = temp[1];
