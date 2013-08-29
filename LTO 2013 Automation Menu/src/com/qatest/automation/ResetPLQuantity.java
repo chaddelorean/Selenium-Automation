@@ -22,6 +22,6 @@ public class ResetPLQuantity {
 
     public void Reset(String user, String event)
     {
-        driver.get("http://aws.nuskin.com/api/qualification/pl/"+user+"/"+event+"/clear");
+        driver.get("http://aws.nuskin.com/lookup/api/qualification/pl/"+user+"/"+event+"/clear");
     }
 }
