@@ -165,6 +165,12 @@ public class Buyer {
                 driver.findElement(By.xpath("//div[@id='address_region_rightcol']/div/ul/li[2]")).click();
             }
 
+            if (isElementPresent(By.id("instructions")))
+            {
+                driver.findElement(By.id("instructions")).clear();
+                driver.findElement(By.id("instructions")).sendKeys("Shipping Instructions Field");
+            }
+
             if (!stopOnBuyer)
             {
                 if (isElementPresent(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div/p/a")))
