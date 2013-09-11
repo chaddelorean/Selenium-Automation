@@ -26,9 +26,9 @@ public class Portugal {
   public Portugal()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOPT@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("PT3400609");
       data.setBuyerID("none");
   }
   public Portugal(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Portugal {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Portugal {
 				myScreenShot.takeScreenShot(location, "Portugal");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Portugal");
+
 	    results[0] = "Portugal: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

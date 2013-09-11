@@ -132,7 +132,10 @@ public class Singapore {
 				myScreenShot.takeScreenShot(location, "Singapore");
 	    	return results;
 	    }
-	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Singapore");
+
 	    results[0] = "Singapore: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

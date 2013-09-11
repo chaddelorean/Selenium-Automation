@@ -104,7 +104,10 @@ public class Thailand {
 				myScreenShot.takeScreenShot(location, "Thailand");
 	    	return results;
 	    }
-	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Thailand");
+
 	    results[0] = "Thailand: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

@@ -256,17 +256,6 @@ public class LTO2013Menu extends JFrame {
 		lblNewLabel_2.setBounds(26, 59, 780, 22);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton clearlog = new JButton("Clear Log");
-        clearlog.setBackground(orangebutton);
-        clearlog.setForeground(Color.white);
-		clearlog.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				output.setText("");
-			}
-		});
-		clearlog.setBounds(857, 720, 111, 23);
-		contentPane.add(clearlog);
-		
 		final JButton us = new JButton("United States");
         us.setBackground(nuskinbutton);
         us.setForeground(Color.white);
@@ -2118,6 +2107,91 @@ public class LTO2013Menu extends JFrame {
 		btnFrance.setBounds(377, 174, 79, 27);
 		contentPane.add(btnFrance);
 
+        JButton clearlog = new JButton("Clear All");
+        clearlog.setBackground(orangebutton);
+        clearlog.setForeground(Color.white);
+        clearlog.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                output.setText("");
+                us.setBackground(nuskinbutton);
+                us.setForeground(Color.WHITE);
+                canada.setBackground(nuskinbutton);
+                canada.setForeground(Color.WHITE);
+                australia.setBackground(nuskinbutton);
+                australia.setForeground(Color.WHITE);
+                newzealand.setBackground(nuskinbutton);
+                newzealand.setForeground(Color.WHITE);
+                frenchpolynesia.setBackground(nuskinbutton);
+                frenchpolynesia.setForeground(Color.WHITE);
+                bnbutton.setBackground(nuskinbutton);
+                bnbutton.setForeground(Color.WHITE);
+                hkbutton.setBackground(nuskinbutton);
+                hkbutton.setForeground(Color.WHITE);
+                btnSingapore.setBackground(nuskinbutton);
+                btnSingapore.setForeground(Color.WHITE);
+                TH.setBackground(nuskinbutton);
+                TH.setForeground(Color.WHITE);
+                ID.setBackground(nuskinbutton);
+                ID.setForeground(Color.WHITE);
+                VN.setBackground(nuskinbutton);
+                VN.setForeground(Color.WHITE);
+                MY.setBackground(nuskinbutton);
+                MY.setForeground(Color.WHITE);
+                PH.setBackground(nuskinbutton);
+                PH.setForeground(Color.WHITE);
+                germany.setBackground(nuskinbutton);
+                germany.setForeground(Color.WHITE);
+                uk.setBackground(nuskinbutton);
+                uk.setForeground(Color.WHITE);
+                btnAustria.setBackground(nuskinbutton);
+                btnAustria.setForeground(Color.WHITE);
+                btnbelgium.setBackground(nuskinbutton);
+                btnbelgium.setForeground(Color.WHITE);
+                btnCzech.setBackground(nuskinbutton);
+                btnCzech.setForeground(Color.WHITE);
+                btnDenmark.setBackground(nuskinbutton);
+                btnDenmark.setForeground(Color.WHITE);
+                btnFinland.setBackground(nuskinbutton);
+                btnFinland.setForeground(Color.WHITE);
+                btnFrance.setBackground(nuskinbutton);
+                btnFrance.setForeground(Color.WHITE);
+                btnHungary.setBackground(nuskinbutton);
+                btnHungary.setForeground(Color.WHITE);
+                btnIceland.setBackground(nuskinbutton);
+                btnIceland.setForeground(Color.WHITE);
+                btnIreland.setBackground(nuskinbutton);
+                btnIreland.setForeground(Color.WHITE);
+                btnItaly.setBackground(nuskinbutton);
+                btnItaly.setForeground(Color.WHITE);
+                btnLuxembourg.setBackground(nuskinbutton);
+                btnLuxembourg.setForeground(Color.WHITE);
+                btnnetherlands.setBackground(nuskinbutton);
+                btnnetherlands.setForeground(Color.WHITE);
+                btnNorway.setBackground(nuskinbutton);
+                btnNorway.setForeground(Color.WHITE);
+                btnPoland.setBackground(nuskinbutton);
+                btnPoland.setForeground(Color.WHITE);
+                btnPortugal.setBackground(nuskinbutton);
+                btnPortugal.setForeground(Color.WHITE);
+                btnRomania.setBackground(nuskinbutton);
+                btnRomania.setForeground(Color.WHITE);
+                btnRussia.setBackground(nuskinbutton);
+                btnRussia.setForeground(Color.WHITE);
+                btnSlovakia.setBackground(nuskinbutton);
+                btnSlovakia.setForeground(Color.WHITE);
+                btnSpain.setBackground(nuskinbutton);
+                btnSpain.setForeground(Color.WHITE);
+                btnSweden.setBackground(nuskinbutton);
+                btnSweden.setForeground(Color.WHITE);
+                btnSwitzerland.setBackground(nuskinbutton);
+                btnSwitzerland.setForeground(Color.WHITE);
+                btnUkraine.setBackground(nuskinbutton);
+                btnUkraine.setForeground(Color.WHITE);
+            }
+        });
+        clearlog.setBounds(857, 720, 111, 23);
+        contentPane.add(clearlog);
+
         JMenuItem mntmRunEurope = new JMenuItem("Run Europe");
         mntmRunEurope.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -2195,6 +2269,8 @@ public class LTO2013Menu extends JFrame {
         mnAction.add(menuItem);
 			
 	}
+
+
 
     public static boolean stopBuyer()
     {

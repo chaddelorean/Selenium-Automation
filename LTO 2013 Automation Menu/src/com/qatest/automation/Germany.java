@@ -19,8 +19,8 @@ public class Germany {
   public Germany()
   {
     data = new BuyerDataForm();
-    data.setDistID("US1111111");
-    data.setLogin("US1111111");
+    data.setDistID("DE3414994");
+    data.setLogin("autoLTODE@gmail.com");
     data.setPassword("abc123");
     data.setBuyerID("none");
   }
@@ -78,7 +78,7 @@ public class Germany {
 		}
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -88,6 +88,9 @@ public class Germany {
 				myScreenShot.takeScreenShot(location, "Germany");
 	    	return results;
 	    }
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Germany");
 
 	    results[0] = "Germany: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();

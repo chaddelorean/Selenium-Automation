@@ -26,9 +26,9 @@ public class Iceland {
   public Iceland()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOIS@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("IS3402992");
       data.setBuyerID("none");
   }
   public Iceland(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Iceland {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Iceland {
 				myScreenShot.takeScreenShot(location, "Iceland");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Iceland");
+
 	    results[0] = "Iceland: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

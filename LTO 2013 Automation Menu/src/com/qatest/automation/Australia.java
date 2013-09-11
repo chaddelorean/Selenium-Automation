@@ -104,7 +104,10 @@ public class Australia {
             results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	return results;
 	    }
-	   	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Australia");
+
 	    results[0] = "Australia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

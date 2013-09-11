@@ -24,9 +24,9 @@ public class UnitedKingdom {
   public UnitedKingdom()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOGB@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("UK3405800");
       data.setBuyerID("none");
   }
   public UnitedKingdom(BuyerDataForm d)
@@ -82,7 +82,7 @@ public class UnitedKingdom {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -92,7 +92,10 @@ public class UnitedKingdom {
 				myScreenShot.takeScreenShot(location, "UnitedKingdom");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "UnitedKingdom");
+
 	    results[0] = "United Kingdom: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

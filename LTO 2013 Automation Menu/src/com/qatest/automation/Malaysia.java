@@ -105,7 +105,10 @@ public class Malaysia {
 				myScreenShot.takeScreenShot(location, "Malaysia");
 	    	return results;
 	    }
-	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Malaysia");
+
 	    results[0] = "Malaysia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

@@ -13,7 +13,7 @@ public class Nonauthshopapp {
 	public Nonauthshopapp(WebDriver driver, String user)
 	{
 		this.driver = driver;
-		results = new String[2];
+		results = new String[4];
         this.username = user;
 	}
 	

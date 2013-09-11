@@ -26,9 +26,9 @@ public class Netherlands {
   public Netherlands()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTONL@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("NL3402168");
       data.setBuyerID("none");
   }
   public Netherlands(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Netherlands {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Netherlands {
 				myScreenShot.takeScreenShot(location, "Netherlands");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Netherlands");
+
 	    results[0] = "Netherlands: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

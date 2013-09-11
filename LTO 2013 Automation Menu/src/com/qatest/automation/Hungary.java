@@ -26,9 +26,9 @@ public class Hungary {
   public Hungary()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOHU@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("HU0019147");
       data.setBuyerID("none");
   }
   public Hungary(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Hungary {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Hungary {
 				myScreenShot.takeScreenShot(location, "Hungary");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Hungary");
+
 	    results[0] = "Hungary: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

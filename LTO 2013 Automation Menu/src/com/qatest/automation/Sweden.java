@@ -26,9 +26,9 @@ public class Sweden {
   public Sweden()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOSE@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("SE3407640");
       data.setBuyerID("none");
   }
   public Sweden(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Sweden {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Sweden {
 				myScreenShot.takeScreenShot(location, "Sweden");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Sweden");
+
 	    results[0] = "Sweden: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

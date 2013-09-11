@@ -26,9 +26,9 @@ public class Austria {
   public Austria()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOAT@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("AT3303576");
       data.setBuyerID("none");
   }
   public Austria(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Austria {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,9 @@ public class Austria {
 				myScreenShot.takeScreenShot(location, "Austria");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Austria");
 	    results[0] = "Austria: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

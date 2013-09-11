@@ -26,10 +26,10 @@ public class Indonesia {
   public Indonesia()
   {
       data = new BuyerDataForm();
-      data.setLogin("HK1111111");
+      data.setLogin("LTOID@qa.com");
       data.setPassword("abc123");
-      data.setDistID("HK1111111");
-      data.setBuyerID("US1111111");
+      data.setDistID("ID3106074");
+      data.setBuyerID("ID3106074");
   }
   public Indonesia(BuyerDataForm d)
   {
@@ -105,7 +105,10 @@ public class Indonesia {
 				myScreenShot.takeScreenShot(location, "Indonesia");
 	    	return results;
 	    }
-	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Indonesia");
+
 	    results[0] = "Indonesia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

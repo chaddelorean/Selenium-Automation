@@ -108,8 +108,11 @@ public class Canada {
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "Canada");
 	    	return results;
-	    }	    
-	    
+	    }
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Canada");
+
 	    results[0] = "Canada: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
@@ -197,8 +200,11 @@ public class Canada {
 	    	results[0] = "Canada: Failed: Someone Else\n" + results[0];
             results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	return results;
-	    }    
-	    
+	    }
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Canada");
+
 	    results[0] = "Canada: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

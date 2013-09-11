@@ -26,9 +26,9 @@ public class Slovakia {
   public Slovakia()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOSK@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("SK3406041");
       data.setBuyerID("none");
   }
   public Slovakia(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Slovakia {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Slovakia {
 				myScreenShot.takeScreenShot(location, "Slovakia");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Slovakia");
+
 	    results[0] = "Slovakia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

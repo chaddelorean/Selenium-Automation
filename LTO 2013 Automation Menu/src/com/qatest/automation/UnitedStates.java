@@ -101,8 +101,11 @@ public class UnitedStates {
 	    	if (screenshot)
 	    		myScreenShot.takeScreenShot(location, "UnitedStates");
 	    	return results;
-	    }	    
-	    
+	    }
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "UnitedStates");
+
 	    results[0] = "United States: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
@@ -187,8 +190,11 @@ public class UnitedStates {
 	    {
 	    	results[0] = "United States: Failed: Someone Else\n" + results[0];
 	    	return results;
-	    }    
-	    
+	    }
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "UnitedStates");
+
 	    results[0] = "United States: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

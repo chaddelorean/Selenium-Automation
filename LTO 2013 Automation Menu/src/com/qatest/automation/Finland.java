@@ -26,9 +26,9 @@ public class Finland {
   public Finland()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOFI@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("FI3402011");
       data.setBuyerID("none");
   }
   public Finland(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Finland {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Finland {
 				myScreenShot.takeScreenShot(location, "Finland");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Finland");
+
 	    results[0] = "Finland: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

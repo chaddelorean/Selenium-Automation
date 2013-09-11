@@ -26,9 +26,9 @@ public class Italy {
   public Italy()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOIT@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("IT3402198");
       data.setBuyerID("none");
   }
   public Italy(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Italy {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Italy {
 				myScreenShot.takeScreenShot(location, "Italy");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Italy");
+
 	    results[0] = "Italy: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

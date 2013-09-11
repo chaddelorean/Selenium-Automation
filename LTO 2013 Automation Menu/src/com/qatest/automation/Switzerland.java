@@ -26,9 +26,9 @@ public class Switzerland {
   public Switzerland()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOCH@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("CH3403074");
       data.setBuyerID("none");
   }
   public Switzerland(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Switzerland {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Switzerland {
 				myScreenShot.takeScreenShot(location, "Switzerland");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Switzerland");
+
 	    results[0] = "Switzerland: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

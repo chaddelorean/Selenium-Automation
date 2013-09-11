@@ -26,9 +26,9 @@ public class Luxembourg {
   public Luxembourg()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOLU@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("BE3402613");
       data.setBuyerID("none");
   }
   public Luxembourg(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class Luxembourg {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class Luxembourg {
 				myScreenShot.takeScreenShot(location, "Luxembourg");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "Luxembourg");
+
 	    results[0] = "Luxembourg: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

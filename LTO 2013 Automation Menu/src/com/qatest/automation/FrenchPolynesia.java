@@ -108,7 +108,10 @@ public class FrenchPolynesia {
             results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    	return results;
 	    }
-	   	    
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "FrenchPolynesia");
+
 	    results[0] = "French Polynesia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;

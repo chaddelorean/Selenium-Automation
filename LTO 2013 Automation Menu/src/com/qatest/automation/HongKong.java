@@ -145,7 +145,10 @@ public class HongKong {
 				myScreenShot.takeScreenShot(location, "HongKong");
 	    	return results;
 	    }
-	   
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "HongKong");
+
 	    results[0] = "Hong Kong: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
@@ -227,7 +230,9 @@ public class HongKong {
 					myScreenShot.takeScreenShot(location, "HongKong");
 		    	return results;
 		    }
-		    
+
+            if (screenshot)
+                myScreenShot.takeScreenShot(location, "HongKong");
 		    results[0] = "Hong Kong: Passed";
             results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 		    return results;

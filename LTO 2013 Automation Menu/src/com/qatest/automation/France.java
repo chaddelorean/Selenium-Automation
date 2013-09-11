@@ -26,9 +26,9 @@ public class France {
   public France()
   {
       data = new BuyerDataForm();
-      data.setLogin("gaaker");
-      data.setPassword("krist90");
-      data.setDistID("US8128558");
+      data.setLogin("autoLTOFR@gmail.com");
+      data.setPassword("abc123");
+      data.setDistID("FR3422095");
       data.setBuyerID("none");
   }
   public France(BuyerDataForm d)
@@ -84,7 +84,7 @@ public class France {
 	    
 	    
 	    //shop app
-	    Authshopapp shopapp = new Authshopapp(driver, data.getDistID());
+	    Nonauthshopapp shopapp = new Nonauthshopapp(driver, data.getDistID());
 	    results = shopapp.ShopApp(place);
 	    if (results[0] != null)
 	    {
@@ -94,7 +94,10 @@ public class France {
 				myScreenShot.takeScreenShot(location, "France");
 	    	return results;
 	    }
-	 
+
+        if (screenshot)
+            myScreenShot.takeScreenShot(location, "France");
+
 	    results[0] = "France: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
 	    return results;
