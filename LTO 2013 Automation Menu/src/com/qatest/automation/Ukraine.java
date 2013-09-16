@@ -26,7 +26,7 @@ public class Ukraine {
   public Ukraine()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOUA@gmail.com");
+      data.setLogin("UA0001488");
       data.setPassword("abc123");
       data.setDistID("UA0001488");
       data.setBuyerID("none");

@@ -26,7 +26,7 @@ public class Spain {
   public Spain()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOES@gmail.com");
+      data.setLogin("ES3404590");
       data.setPassword("abc123");
       data.setDistID("ES3404590");
       data.setBuyerID("none");

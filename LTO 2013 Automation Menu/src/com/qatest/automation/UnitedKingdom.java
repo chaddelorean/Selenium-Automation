@@ -24,7 +24,7 @@ public class UnitedKingdom {
   public UnitedKingdom()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOGB@gmail.com");
+      data.setLogin("UK3405800");
       data.setPassword("abc123");
       data.setDistID("UK3405800");
       data.setBuyerID("none");
