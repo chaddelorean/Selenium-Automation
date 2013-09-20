@@ -26,7 +26,7 @@ public class Finland {
   public Finland()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOFI@gmail.com");
+      data.setLogin("FI3402011");
       data.setPassword("abc123");
       data.setDistID("FI3402011");
       data.setBuyerID("none");

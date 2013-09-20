@@ -92,7 +92,10 @@ public class Nonauthshopapp {
                 driver.findElement(By.cssSelector("input.orderNumberVal")).sendKeys(ordernum[3]);
                 driver.findElement(By.cssSelector("input.distributorIdVal")).clear();
                 driver.findElement(By.cssSelector("input.distributorIdVal")).sendKeys(username);
-                driver.findElement(By.linkText("SUBMIT")).click();
+                if (isElementPresent(By.linkText("SUBMIT")))
+                    driver.findElement(By.linkText("SUBMIT")).click();
+                if (isElementPresent(By.linkText("ОТПРАВИТЬ")))
+                    driver.findElement(By.linkText("ОТПРАВИТЬ")).click();
                 Thread.sleep(5000);
 
                 if (!driver.getPageSource().contains(ordernum[3]))
