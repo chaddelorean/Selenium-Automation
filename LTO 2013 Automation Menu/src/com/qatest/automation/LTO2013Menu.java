@@ -39,6 +39,8 @@ public class LTO2013Menu extends JFrame {
     private static BuyerDataForm data;
     private Authentication auth = new Authentication();
     private static JCheckBox stopOnBuyer;
+    private static binarySettings globalSettings;
+    private static automationlog log;
 	/**                                                                               l
 	 * Launch the application.
 	 */
@@ -60,6 +62,9 @@ public class LTO2013Menu extends JFrame {
 	 */
 	
 	public LTO2013Menu() {
+        globalSettings = new binarySettings("c://LTOSettings.bin");
+        log = new automationlog((String)globalSettings.readBinary());
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage("res/Image/4217299_1297336025.png"));
 		//setIconImage(ResourceLoader.load("Image/4217299_1297336025.png"));
 		setTitle("Nu Skin LTO 2013 Automation");
@@ -2397,5 +2402,15 @@ public class LTO2013Menu extends JFrame {
     public static void resetBuyerDataForm()
     {
         data = null;
+    }
+
+    public static binarySettings getGlobalSettings()
+    {
+        return globalSettings;
+    }
+
+    public static automationlog getLog()
+    {
+        return log;
     }
 }
