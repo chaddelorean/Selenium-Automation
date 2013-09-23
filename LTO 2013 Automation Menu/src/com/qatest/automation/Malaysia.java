@@ -111,6 +111,8 @@ public class Malaysia {
 
 	    results[0] = "Malaysia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
+        String[] ordernum = results[1].split(" ");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Malaysia");
 	    return results;
 	  }
 	  

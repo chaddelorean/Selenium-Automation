@@ -13,7 +13,7 @@ public class Australia {
   private StringBuffer verificationErrors = new StringBuffer();
   private String[] results = new String[4];
   private ScreenShot myScreenShot;
-
+  private automationlog log;
   private ResetPLQuantity plquantity;
   private BuyerDataForm data;
   
@@ -110,6 +110,8 @@ public class Australia {
 
 	    results[0] = "Australia: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
+        String[] ordernum = results[1].split(" ");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Australia");
 	    return results;
 	  }
 	  

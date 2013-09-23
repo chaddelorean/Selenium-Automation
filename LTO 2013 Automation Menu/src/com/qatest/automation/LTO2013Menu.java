@@ -16,12 +16,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Component;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 
 public class LTO2013Menu extends JFrame {
 
 	private JPanel contentPane;
-	private String fileLocation = "c:\\LTOScreenShot\\";
+	private String fileLocation;
 	private static String login = "";
 	private static String password = "";
     private static String buyer = "";
@@ -39,8 +43,8 @@ public class LTO2013Menu extends JFrame {
     private static BuyerDataForm data;
     private Authentication auth = new Authentication();
     private static JCheckBox stopOnBuyer;
-    private static binarySettings globalSettings;
     private static automationlog log;
+    private static Properties globalSettings;
 	/**                                                                               l
 	 * Launch the application.
 	 */
@@ -62,10 +66,36 @@ public class LTO2013Menu extends JFrame {
 	 */
 	
 	public LTO2013Menu() {
-        globalSettings = new binarySettings("c://LTOSettings.bin");
-        log = new automationlog((String)globalSettings.readBinary());
+        final String propfile;
+        if (System.getProperty("os.name").equals("Windows"))
+        {
+            propfile = "c:\\LTOAutomation\\globalSettings.prop";
+        }
+        else
+        {
+            propfile = System.getProperty("user.home") + "/globalSettings.prop";
+        }
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage("res/Image/4217299_1297336025.png"));
+        try {
+            globalSettings = new Properties();
+            globalSettings.load(new FileInputStream(propfile));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        log = new automationlog(globalSettings.getProperty("logfile"));
+        try {
+            globalSettings.store(new FileOutputStream(propfile), null);
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
+        if (globalSettings.getProperty("ScreenShot") == null)
+            fileLocation = "c:\\LTOScreenShot\\";
+        else
+            fileLocation = globalSettings.getProperty("ScreenShot");
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage("res/Image/4217299_1297336025.png"));
 		//setIconImage(ResourceLoader.load("Image/4217299_1297336025.png"));
 		setTitle("Nu Skin LTO 2013 Automation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -837,9 +867,15 @@ public class LTO2013Menu extends JFrame {
 		mntmScreenShotLocation.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 fileLocation = FileChooserEx.getFileLocation();
+                globalSettings.put("ScreenShot", fileLocation);
+                try {
+                    globalSettings.store(new FileOutputStream(propfile), null);
+                } catch (IOException er) {
+                    er.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
             }
         });
-		mnFile.add(mntmScreenShotLocation);
+
 		
 		JMenuItem mntmAuthenication = new JMenuItem("Buyer Data Form");
 		mntmAuthenication.addActionListener(new ActionListener() {
@@ -847,6 +883,21 @@ public class LTO2013Menu extends JFrame {
                 auth.main();
             }
         });
+
+        JMenuItem automationlog = new JMenuItem("Automation Log File");
+        automationlog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                log.saveLog();
+                try {
+                    globalSettings.store(new FileOutputStream(propfile), null);
+                } catch (IOException er) {
+                    er.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+            }
+        });
+        mnFile.add(mntmScreenShotLocation);
+        mnFile.add(automationlog);
 		mnFile.add(mntmAuthenication);
 		mnFile.add(mntmClearLog);
 		mnFile.add(mntmExit);
@@ -2404,13 +2455,13 @@ public class LTO2013Menu extends JFrame {
         data = null;
     }
 
-    public static binarySettings getGlobalSettings()
-    {
-        return globalSettings;
-    }
-
     public static automationlog getLog()
     {
         return log;
+    }
+
+    public static Properties getLogProperties()
+    {
+         return globalSettings;
     }
 }

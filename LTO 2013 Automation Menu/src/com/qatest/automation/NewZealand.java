@@ -115,6 +115,8 @@ public class NewZealand {
 
 	    results[0] = "New Zealand: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
+        String[] ordernum = results[1].split(" ");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "NewZealand");
 	    return results;
 	  }
 	  

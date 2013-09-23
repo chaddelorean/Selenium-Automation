@@ -2,10 +2,7 @@ package com.qatest.automation;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.Date;
 
 /**
@@ -19,24 +16,27 @@ public class automationlog {
 
     private String location;
     private PrintWriter logCSV;
-    private LTO2013Menu menu;
 
     public automationlog(String location)
     {
         this.location = location;
+        if (this.location == null)
+            saveLog();
+        else
+            openLog(this.location);
     }
 
     public void appendLog(String exec, String buyer, String ordernum, String market)
     {
         Date date = new Date();
         String stringDate = date.toString();
-        logCSV.append(exec + "," + buyer +"," + market + "," + ordernum + "," + date);
+        logCSV.append(exec + "," + buyer +"," + market + "," + ordernum + "," + date + "\n");
+        logCSV.flush();
     }
 
     public void saveLog()
     {
         final JFileChooser fc = new JFileChooser();
-        String fileLocation;
         fc.setDialogTitle("Save LTO Automation Log");
         fc.setMultiSelectionEnabled(false);
         fc.setAcceptAllFileFilterUsed(false);
@@ -55,15 +55,15 @@ public class automationlog {
 
         try {
              logCSV = new PrintWriter(location, "UTF-8");
-             logCSV.append("Executive,Buyer,Market,OrderNumber,Date");
+             logCSV.append("Executive,Buyer,Market,OrderNumber,Date\n");
+             logCSV.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
-        binarySettings globalSettings = menu.getGlobalSettings();
-        globalSettings.writeBinary(location);
+        LTO2013Menu.getLogProperties().put("logfile", location);
     }
 
     public void openLog(String file)
@@ -74,7 +74,21 @@ public class automationlog {
             saveLog();
         }
         else
+        {
             location = file;
+
+            try {
+                logCSV = new PrintWriter(new BufferedWriter(new FileWriter(location, true)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getLocation()

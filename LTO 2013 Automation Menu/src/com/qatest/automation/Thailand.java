@@ -110,6 +110,8 @@ public class Thailand {
 
 	    results[0] = "Thailand: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
+        String[] ordernum = results[1].split(" ");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Thailand");
 	    return results;
 	  }
 	  

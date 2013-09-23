@@ -98,6 +98,8 @@ public class UnitedKingdom {
 
 	    results[0] = "United Kingdom: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
+        String[] ordernum = results[1].split(" ");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "United Kingdom");
 	    return results;
 	  }
 	  
