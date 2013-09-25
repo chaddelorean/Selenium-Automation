@@ -26,9 +26,9 @@ public class Denmark {
   public Denmark()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTODK@gmail.com");
+      data.setLogin("testLTODK@qa.com");
       data.setPassword("abc123");
-      data.setDistID("DK3403490");
+      data.setDistID("DK3403498");
       data.setBuyerID("none");
   }
   public Denmark(BuyerDataForm d)

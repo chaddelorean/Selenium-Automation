@@ -26,9 +26,9 @@ public class Iceland {
   public Iceland()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOIS@gmail.com");
+      data.setLogin("testLTOIS@qa.com");
       data.setPassword("abc123");
-      data.setDistID("IS3402992");
+      data.setDistID("IS3403001");
       data.setBuyerID("none");
   }
   public Iceland(BuyerDataForm d)

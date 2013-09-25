@@ -26,9 +26,9 @@ public class Poland {
   public Poland()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOPL@gmail.com");
+      data.setLogin("testLTOPL@qa.com");
       data.setPassword("abc123");
-      data.setDistID("PL3401042");
+      data.setDistID("PL3401053");
       data.setBuyerID("none");
   }
   public Poland(BuyerDataForm d)

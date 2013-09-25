@@ -26,9 +26,9 @@ public class Austria {
   public Austria()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOAT@gmail.com");
+      data.setLogin("testLTOAT@qa.com");
       data.setPassword("abc123");
-      data.setDistID("AT3303576");
+      data.setDistID("AT3303588");
       data.setBuyerID("none");
   }
   public Austria(BuyerDataForm d)

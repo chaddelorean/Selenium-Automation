@@ -26,9 +26,9 @@ public class Netherlands {
   public Netherlands()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTONL@gmail.com");
+      data.setLogin("testLTONL@qa.com");
       data.setPassword("abc123");
-      data.setDistID("NL3402168");
+      data.setDistID("NL3402180");
       data.setBuyerID("none");
   }
   public Netherlands(BuyerDataForm d)

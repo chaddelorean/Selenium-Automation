@@ -26,9 +26,9 @@ public class Italy {
   public Italy()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOIT@gmail.com");
+      data.setLogin("testLTOIT@qa.com");
       data.setPassword("abc123");
-      data.setDistID("IT3402198");
+      data.setDistID("IT3402206");
       data.setBuyerID("none");
   }
   public Italy(BuyerDataForm d)

@@ -26,9 +26,9 @@ public class Slovakia {
   public Slovakia()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOSK@gmail.com");
+      data.setLogin("testLTOSK@qa.com");
       data.setPassword("abc123");
-      data.setDistID("SK3406041");
+      data.setDistID("SK3406051");
       data.setBuyerID("none");
   }
   public Slovakia(BuyerDataForm d)

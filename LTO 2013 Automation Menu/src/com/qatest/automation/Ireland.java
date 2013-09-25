@@ -26,9 +26,9 @@ public class Ireland {
   public Ireland()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOIE@gmail.com");
+      data.setLogin("testLTOIE@qa.com");
       data.setPassword("abc123");
-      data.setDistID("IE3400858");
+      data.setDistID("IE3400867");
       data.setBuyerID("none");
   }
   public Ireland(BuyerDataForm d)

@@ -26,9 +26,9 @@ public class Belgium {
   public Belgium()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOBE@gmail.com");
+      data.setLogin("testLTOBE@qa.com");
       data.setPassword("abc123");
-      data.setDistID("BE3402612");
+      data.setDistID("BE3402644");
       data.setBuyerID("none");
   }
   public Belgium(BuyerDataForm d)

@@ -26,9 +26,9 @@ public class Russia {
   public Russia()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTORU@gmail.com");
+      data.setLogin("testLTORU@qa.com");
       data.setPassword("abc123");
-      data.setDistID("RU1307676");
+      data.setDistID("RU1307691");
       data.setBuyerID("none");
   }
   public Russia(BuyerDataForm d)
@@ -60,6 +60,8 @@ public class Russia {
 		//global landing page
 		driver.get(baseUrl);
 		driver.findElement(By.linkText("Россия (Russia)")).click();
+        driver.get("http://test.nuskin.com/content/lto/2013/europe/en_RU/landing.html");
+
 		//United States landing page - Order Now button
 		LandingPage land = new LandingPage(driver);
 		results[0] = land.landing(data.getLogin(), data.getPassword());

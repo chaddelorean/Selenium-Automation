@@ -26,9 +26,9 @@ public class Luxembourg {
   public Luxembourg()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOLU@gmail.com");
+      data.setLogin("testLTOLU@qa.com");
       data.setPassword("abc123");
-      data.setDistID("BE3402613");
+      data.setDistID("BE3402645");
       data.setBuyerID("none");
   }
   public Luxembourg(BuyerDataForm d)

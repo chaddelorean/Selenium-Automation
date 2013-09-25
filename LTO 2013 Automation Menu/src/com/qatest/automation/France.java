@@ -26,9 +26,9 @@ public class France {
   public France()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOFR@gmail.com");
+      data.setLogin("testLTOFR@qa.com");
       data.setPassword("abc123");
-      data.setDistID("FR3422095");
+      data.setDistID("FR3422116");
       data.setBuyerID("none");
   }
   public France(BuyerDataForm d)

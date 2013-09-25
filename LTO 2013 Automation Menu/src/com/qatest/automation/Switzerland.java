@@ -26,9 +26,9 @@ public class Switzerland {
   public Switzerland()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOCH@gmail.com");
+      data.setLogin("testLTOCH@qa.com");
       data.setPassword("abc123");
-      data.setDistID("CH3403074");
+      data.setDistID("CH3403085");
       data.setBuyerID("none");
   }
   public Switzerland(BuyerDataForm d)

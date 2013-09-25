@@ -26,9 +26,9 @@ public class Sweden {
   public Sweden()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOSE@gmail.com");
+      data.setLogin("testLTOSE@qa.com");
       data.setPassword("abc123");
-      data.setDistID("SE3407640");
+      data.setDistID("SE3407647");
       data.setBuyerID("none");
   }
   public Sweden(BuyerDataForm d)

@@ -26,9 +26,9 @@ public class Spain {
   public Spain()
   {
       data = new BuyerDataForm();
-      data.setLogin("ES3404590");
+      data.setLogin("testLTOES@qa.com");
       data.setPassword("abc123");
-      data.setDistID("ES3404590");
+      data.setDistID("ES3404601");
       data.setBuyerID("none");
   }
   public Spain(BuyerDataForm d)

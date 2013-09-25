@@ -26,9 +26,9 @@ public class Romania {
   public Romania()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTORO@gmail.com");
+      data.setLogin("testLTORO@qa.com");
       data.setPassword("abc123");
-      data.setDistID("RO3406411");
+      data.setDistID("RO3406419");
       data.setBuyerID("none");
   }
   public Romania(BuyerDataForm d)

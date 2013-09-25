@@ -26,9 +26,9 @@ public class Norway {
   public Norway()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTONO@gmail.com");
+      data.setLogin("testLTONO@qa.com");
       data.setPassword("abc123");
-      data.setDistID("NO3418204");
+      data.setDistID("NO3418214");
       data.setBuyerID("none");
   }
   public Norway(BuyerDataForm d)

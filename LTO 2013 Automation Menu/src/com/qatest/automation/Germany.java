@@ -19,8 +19,8 @@ public class Germany {
   public Germany()
   {
     data = new BuyerDataForm();
-    data.setDistID("DE3414994");
-    data.setLogin("autoLTODE@gmail.com");
+    data.setDistID("DE3415006");
+    data.setLogin("testLTODE@qa.com");
     data.setPassword("abc123");
     data.setBuyerID("none");
   }

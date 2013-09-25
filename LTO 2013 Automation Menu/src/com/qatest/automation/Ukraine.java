@@ -26,9 +26,9 @@ public class Ukraine {
   public Ukraine()
   {
       data = new BuyerDataForm();
-      data.setLogin("UA0001488");
+      data.setLogin("testLTOUA@qa.com");
       data.setPassword("abc123");
-      data.setDistID("UA0001488");
+      data.setDistID("UA0001498");
       data.setBuyerID("none");
   }
   public Ukraine(BuyerDataForm d)
