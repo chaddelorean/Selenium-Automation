@@ -28,7 +28,7 @@ public class Authshopapp {
             }
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    	driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).clear();
-		    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("123");
+		    driver.findElement(By.id("paymentSelection_order_1_cvv2_order_input")).sendKeys("111");
 		    driver.findElement(By.id("agreeToTerms2")).click();
 		    if (place)
 		    {

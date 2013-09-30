@@ -209,7 +209,7 @@ public class Canada {
 
 	    results[0] = "Canada: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
-        String[] ordernum = results[1].split(" ");
+        String[] ordernum = results[2].split(" ");
         LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Canada");
 	    return results;
 	  }
