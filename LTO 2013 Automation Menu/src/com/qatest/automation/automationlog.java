@@ -54,12 +54,16 @@ public class automationlog {
         }
 
         try {
-             logCSV = new PrintWriter(location, "UTF-8");
-             logCSV.append("Executive,Buyer,Market,OrderNumber,Date\n");
+             Boolean checkExist = new File (location).exists();
+             logCSV =  new PrintWriter(new BufferedWriter(new FileWriter(location, true)));
+             if (!checkExist)
+                logCSV.append("Executive,Buyer,Market,OrderNumber,Date\n");
              logCSV.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 

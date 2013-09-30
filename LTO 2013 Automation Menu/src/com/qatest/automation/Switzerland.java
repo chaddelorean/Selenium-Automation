@@ -101,7 +101,7 @@ public class Switzerland {
 	    results[0] = "Switzerland: Passed";
         results[3] = "ExecutiveID: " +data.getDistID() + " BuyerID: " + data.getBuyerID();
         String[] ordernum = results[1].split(" ");
-        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Siwtzerland");
+        LTO2013Menu.getLog().appendLog(data.getDistID(), data.getBuyerID(), ordernum[3], "Switzerland");
 	    return results;
 	  }
 	  
