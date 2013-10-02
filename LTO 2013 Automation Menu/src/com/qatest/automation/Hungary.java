@@ -26,9 +26,9 @@ public class Hungary {
   public Hungary()
   {
       data = new BuyerDataForm();
-      data.setLogin("testLTOHU@qa.com");
+      data.setLogin("testLTODE@qa.com");
       data.setPassword("abc123");
-      data.setDistID("HU0019170");
+      data.setDistID("DE3415006");
       data.setBuyerID("none");
   }
   public Hungary(BuyerDataForm d)
