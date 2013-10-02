@@ -26,7 +26,7 @@ public class CzechRepublic {
   public CzechRepublic()
   {
       data = new BuyerDataForm();
-      data.setLogin("autoLTOCZ@gmail.com");
+      data.setLogin("testLTOCZ@qa.com");
       data.setPassword("abc123");
       data.setDistID("CZ5607218");
       data.setBuyerID("none");
